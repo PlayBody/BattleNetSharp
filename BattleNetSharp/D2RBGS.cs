@@ -1071,7 +1071,11 @@ namespace BattleNetSharp
 		// Token: 0x0600BC27 RID: 48167 RVA: 0x00475CB8 File Offset: 0x00473EB8
 		public void Disconnect()
 		{
+<<<<<<< HEAD
 			Bgs.Protocol.Connection.V1.ConnectionService.ConnectionServiceClient connectionServiceClient = new Bgs.Protocol.Connection.V1.ConnectionService.ConnectionServiceClient(this.BgsConnection);
+=======
+            Bgs.Protocol.Connection.V1.ConnectionService.ConnectionServiceClient connectionServiceClient = new Bgs.Protocol.Connection.V1.ConnectionService.ConnectionServiceClient(this.BgsConnection);
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 			connectionServiceClient.ForceDisconnect(new DisconnectNotification
 			{
 				ErrorCode = 0U

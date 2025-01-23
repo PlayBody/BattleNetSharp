@@ -38,7 +38,11 @@ namespace D2Map
 		// Token: 0x0600B7BB RID: 47035 RVA: 0x002DB55C File Offset: 0x002D975C
 		public ushort GetCollision(uint x, uint y)
 		{
+<<<<<<< HEAD
 			return (ushort) (this.CollisionMapBits.Get((int)(y * this.CollisionWidth + x)) ? 1 : 0);
+=======
+			return (ushort)(this.CollisionMapBits.Get((int)(y * this.CollisionWidth + x)) ? 1 : 0;
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 		}
 
 		// Token: 0x0600B7BC RID: 47036 RVA: 0x002DB589 File Offset: 0x002D9789
@@ -130,12 +134,36 @@ namespace D2Map
 			}
 		}
 
+<<<<<<< HEAD
         // Token: 0x0600B7CF RID: 47055 RVA: 0x002DB86C File Offset: 0x002D9A6C
         private unsafe string DumpString(IntPtr addr)
         {
             const int chunkSize = 8; // Size of ulong in bytes
             const int maxIterations = 16;
             List<byte> byteList = new List<byte>();
+=======
+		// Token: 0x0600B7CF RID: 47055 RVA: 0x002DB86C File Offset: 0x002D9A6C
+		private unsafe string dumpString(IntPtr addr)
+		{
+			List<byte> list = new List<byte>();
+			for (uint num = 0U; num < 16U; num += 1U)
+			{
+				long num2 = (long)(int)addr + (long)((ulong)(num * 8U));
+				ulong num3 = (ulong)(*(UIntPtr)(num2)));
+				byte[] bytes = BitConverter.GetBytes(num3);
+				for (int i = 0; i < 8; i++)
+				{
+					bool flag = bytes[i] == 0;
+					if (flag)
+					{
+						return Encoding.UTF8.GetString(list.ToArray());
+					}
+					list.Add(bytes[i]);
+				}
+			}
+			return Encoding.UTF8.GetString(list.ToArray());
+		}
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 
             for (uint offset = 0; offset < maxIterations; offset++)
             {

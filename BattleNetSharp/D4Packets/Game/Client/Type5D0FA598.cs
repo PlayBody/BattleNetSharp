@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable // @Review
+
+using System;
 using System.Runtime.CompilerServices;
 
 namespace D4Packets.Game.Client
@@ -54,7 +56,11 @@ namespace D4Packets.Game.Client
 		public int[] snoGameBalance;
 
 		// Token: 0x040064E5 RID: 25829
+<<<<<<< HEAD
 //		[Nullable(2)]
+=======
+		//[Nullable(2)]
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 		public Type95119E98 tDRLGCreationInfo;
 	}
 }

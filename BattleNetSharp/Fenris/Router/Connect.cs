@@ -175,7 +175,7 @@ namespace Fenris.Router
 		// (get) Token: 0x06001CF6 RID: 7414 RVA: 0x0006EB8C File Offset: 0x0006CD8C
 		// (set) Token: 0x06001CF7 RID: 7415 RVA: 0x0006EBA4 File Offset: 0x0006CDA4
 		[DebuggerNonUserCode]
-		public Trace Trace
+		public Fenris.Online.Trace Trace
 		{
 			get
 			{
@@ -370,7 +370,7 @@ namespace Fenris.Router
 					bool flag3 = this.trace_ == null;
 					if (flag3)
 					{
-						this.Trace = new Trace();
+						this.Trace = new Fenris.Online.Trace();
 					}
 					this.Trace.MergeFrom(other.Trace);
 				}
@@ -418,7 +418,7 @@ namespace Fenris.Router
 					bool flag = this.trace_ == null;
 					if (flag)
 					{
-						this.Trace = new Trace();
+						this.Trace = new Fenris.Online.Trace();
 					}
 					input.ReadMessage(this.Trace);
 				}
@@ -472,6 +472,6 @@ namespace Fenris.Router
 		public const int TraceFieldNumber = 4;
 
 		// Token: 0x04000C5B RID: 3163
-		private Trace trace_;
+		private Fenris.Online.Trace trace_;
 	}
 }

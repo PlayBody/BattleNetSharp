@@ -1203,6 +1203,7 @@ namespace DiabloBridge
 		}
 
 		// Token: 0x0600B9F9 RID: 47609 RVA: 0x004638F0 File Offset: 0x00461AF0
+<<<<<<< HEAD
 		private Packet SwapEquippedItem(SwapEquippedItem inp)
 		{
 			bool flag = this.GameInstance.Items[inp.Id].baseItem.BaseType.Code == "belt";
@@ -1242,6 +1243,47 @@ namespace DiabloBridge
             inp.EquippedId = this.me.Equipment[inp.Location].Id;
 			return inp;
 		}
+=======
+		//private Packet SwapEquippedItem(SwapEquippedItem i)
+		//{
+		//	bool flag = this.GameInstance.Items[i.Id].baseItem.BaseType.Code == "belt";
+		//	if (flag)
+		//	{
+		//		bool flag2 = false;
+		//		for (int j = 0; j < 3; j++)
+		//		{
+		//			bool flag3 = flag2;
+		//			if (flag3)
+		//			{
+		//				Thread.Sleep(150);
+		//				flag2 = false;
+		//			}
+		//			int c2;
+		//			int c;
+		//			for (c = 0; c < 4; c = c2 + 1)
+		//			{
+		//				IEnumerable<ItemAction> enumerable = from i in this.GameInstance.Items.Values
+		//					where i.container == ItemContainer.Belt || i.action == ItemActionType.PutInBelt || i.destination == ItemDestination.Belt
+		//					where i.action != ItemActionType.RemoveFromBelt
+		//					select i;
+		//				List<ItemAction> list = (from p in enumerable
+		//					where p.x % 4 == c
+		//					orderby p.x
+		//					select p).ToList<ItemAction>();
+		//				bool flag4 = list.Count > 1;
+		//				if (flag4)
+		//				{
+		//					this.UsePot(c);
+		//					flag2 = true;
+		//				}
+		//				c2 = c;
+		//			}
+		//		}
+		//	}
+		//	i.EquippedId = this.me.Equipment[i.Location].Id;
+		//	return i;
+		//}
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 
 		// Token: 0x0600B9FA RID: 47610 RVA: 0x00463A88 File Offset: 0x00461C88
 		private SwapTwoEquippedItems SwapTwoEquippedItems(SwapTwoEquippedItems i)

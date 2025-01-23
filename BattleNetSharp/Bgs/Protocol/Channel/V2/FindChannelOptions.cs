@@ -169,7 +169,7 @@ namespace Bgs.Protocol.Channel.V2
 		// Token: 0x17003066 RID: 12390
 		// (get) Token: 0x06009BAC RID: 39852 RVA: 0x0025CF9C File Offset: 0x0025B19C
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> SearchAttribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> SearchAttribute
 		{
 			get
 			{
@@ -489,10 +489,10 @@ namespace Bgs.Protocol.Channel.V2
 		public const int SearchAttributeFieldNumber = 4;
 
 		// Token: 0x0400463A RID: 17978
-		private static readonly FieldCodec<Attribute> _repeated_searchAttribute_codec = FieldCodec.ForMessage<Attribute>(34U, Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_searchAttribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(34U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x0400463B RID: 17979
-		private readonly RepeatedField<Attribute> searchAttribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> searchAttribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x0400463C RID: 17980
 		public const int ReservationFieldNumber = 6;

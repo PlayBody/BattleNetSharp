@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable // @Review
+
+using System;
 using System.Runtime.CompilerServices;
 
 namespace D4Packets.Game.Client
@@ -58,6 +60,10 @@ namespace D4Packets.Game.Client
 		public int Field14;
 
 		// Token: 0x04006473 RID: 25715
+<<<<<<< HEAD
+=======
+		//[Nullable(2)]
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 		public AccountEntityId Field15;
 
 		// Token: 0x04006474 RID: 25716

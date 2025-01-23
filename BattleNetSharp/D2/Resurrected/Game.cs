@@ -1276,7 +1276,11 @@ namespace BattleNetSharp.D2.Resurrected
 			{
 				this.Config.PrimarySkill = SkillType.Blizzard;
 			}
+<<<<<<< HEAD
 			this.Config.CastStatic = (int)((base.me.Attributes[StatType.Level] < 12U) ? ((GameDifficulty)30) : (GameDifficulty)(12 + (int)this.difficulty * 20));
+=======
+			this.Config.CastStatic = (int)((base.me.Attributes[StatType.Level] < 12U) ? (30) : (12 + (byte)this.difficulty * 20));
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 			bool flag7 = base.me.Attributes[StatType.Level] < 6U;
 			if (flag7)
 			{
@@ -4883,8 +4887,13 @@ namespace BattleNetSharp.D2.Resurrected
 						if (flag12)
 						{
 							scrollObj = this.GameInstance.Items.Values.First((ItemAction i) => i.action == ItemActionType.AddToShop && i.baseItem.Type == ItemType.ScrollOfIdentify);
+<<<<<<< HEAD
 							ushort num2 = 0;
 							ushort num3 = 0;
+=======
+							ushort num2 = 0; // @Review
+                            ushort num3 = 0; // @Review
+>>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 							bool flag13 = this.GetGold() > num && this.FitBottomRightToTopLeft(scrollObj, enumerable, 10, 4, true, out num2, out num3);
 							if (!flag13)
 							{
