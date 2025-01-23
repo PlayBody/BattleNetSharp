@@ -13,11 +13,9 @@ namespace D4Packets.Game.Client
 		public uint _0dce541c;
 
 		// Token: 0x0400644F RID: 25679
-		[Nullable(2)]
 		public EnterKnownLookOverrides tEnterKnownLookOverrides;
 
 		// Token: 0x04006450 RID: 25680
-		[Nullable(2)]
 		public Type37CFF633 Field3;
 	}
 }

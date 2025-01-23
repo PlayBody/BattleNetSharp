@@ -1276,7 +1276,7 @@ namespace BattleNetSharp.D2.Resurrected
 			{
 				this.Config.PrimarySkill = SkillType.Blizzard;
 			}
-			this.Config.CastStatic = (int)((base.me.Attributes[StatType.Level] < 12U) ? ((GameDifficulty)30) : (12 + this.difficulty * (GameDifficulty)20));
+			this.Config.CastStatic = (int)((base.me.Attributes[StatType.Level] < 12U) ? ((GameDifficulty)30) : (GameDifficulty)(12 + (int)this.difficulty * 20));
 			bool flag7 = base.me.Attributes[StatType.Level] < 6U;
 			if (flag7)
 			{
@@ -1731,12 +1731,12 @@ namespace BattleNetSharp.D2.Resurrected
 		// Token: 0x0600BEC2 RID: 48834 RVA: 0x00490D5D File Offset: 0x0048EF5D
 		public void EnableBuildManagement()
 		{
-			this.OnAttributeChange = (Action<Attribute>)Delegate.Combine(this.OnAttributeChange, new Action<Attribute>(this.ManageStatsAndSkills));
+			this.OnAttributeChange = (Action<D2Packets.Game.Server.Attribute>)Delegate.Combine(this.OnAttributeChange, new Action<D2Packets.Game.Server.Attribute>(this.ManageStatsAndSkills));
 			this.AllocateStatsAndSkills();
 		}
 
 		// Token: 0x0600BEC3 RID: 48835 RVA: 0x00490D8C File Offset: 0x0048EF8C
-		private void ManageStatsAndSkills(Attribute attribute)
+		private void ManageStatsAndSkills(D2Packets.Game.Server.Attribute attribute)
 		{
 			bool flag = attribute.Stat.Type == StatType.SkillPoints && ((AttributeByte)attribute).Value > 0;
 			if (flag)
@@ -4883,8 +4883,8 @@ namespace BattleNetSharp.D2.Resurrected
 						if (flag12)
 						{
 							scrollObj = this.GameInstance.Items.Values.First((ItemAction i) => i.action == ItemActionType.AddToShop && i.baseItem.Type == ItemType.ScrollOfIdentify);
-							ushort num2;
-							ushort num3;
+							ushort num2 = 0;
+							ushort num3 = 0;
 							bool flag13 = this.GetGold() > num && this.FitBottomRightToTopLeft(scrollObj, enumerable, 10, 4, true, out num2, out num3);
 							if (!flag13)
 							{

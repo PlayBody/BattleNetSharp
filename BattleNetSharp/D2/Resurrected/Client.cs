@@ -862,7 +862,7 @@ namespace BattleNetSharp.D2.Resurrected
 		// Token: 0x0600BF6C RID: 49004 RVA: 0x0049C1E8 File Offset: 0x0049A3E8
 		private void AttributeByte(AttributeByte data)
 		{
-			Action<Attribute> onAttributeChange = this.OnAttributeChange;
+			Action<D2Packets.Game.Server.Attribute> onAttributeChange = this.OnAttributeChange;
 			if (onAttributeChange != null)
 			{
 				onAttributeChange(data);
@@ -873,7 +873,7 @@ namespace BattleNetSharp.D2.Resurrected
 		// Token: 0x0600BF6D RID: 49005 RVA: 0x0049C220 File Offset: 0x0049A420
 		private void AttributeWord(AttributeWord data)
 		{
-			Action<Attribute> onAttributeChange = this.OnAttributeChange;
+			Action<D2Packets.Game.Server.Attribute> onAttributeChange = this.OnAttributeChange;
 			if (onAttributeChange != null)
 			{
 				onAttributeChange(data);
@@ -884,7 +884,7 @@ namespace BattleNetSharp.D2.Resurrected
 		// Token: 0x0600BF6E RID: 49006 RVA: 0x0049C258 File Offset: 0x0049A458
 		private void AttributeDWord(AttributeDWord data)
 		{
-			Action<Attribute> onAttributeChange = this.OnAttributeChange;
+			Action<D2Packets.Game.Server.Attribute> onAttributeChange = this.OnAttributeChange;
 			if (onAttributeChange != null)
 			{
 				onAttributeChange(data);
@@ -1522,7 +1522,7 @@ namespace BattleNetSharp.D2.Resurrected
 		public List<QuestItemState> questItemStates = new List<QuestItemState>();
 
 		// Token: 0x04009209 RID: 37385
-		protected Action<Attribute> OnAttributeChange;
+		protected Action<D2Packets.Game.Server.Attribute> OnAttributeChange;
 
 		// Token: 0x0400920A RID: 37386
 		public bool clone = false;

@@ -6,7 +6,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000AFA RID: 2810
-	public class LeaderboardService : LeaderboardService.LeaderboardServiceBase, IServiceListener
+	public class LeaderboardService : Bgs.Protocol.Leaderboard.V1.Client.LeaderboardService.LeaderboardServiceBase, IServiceListener
 	{
 		// Token: 0x0600BDB3 RID: 48563 RVA: 0x004872B0 File Offset: 0x004854B0
 		public override Task<GetRanksResponse> GetRanks(GetRanksRequest request, ServerCallContext context)

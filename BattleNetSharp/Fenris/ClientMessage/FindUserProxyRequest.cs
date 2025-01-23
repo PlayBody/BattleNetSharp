@@ -4,6 +4,7 @@ using Fenris.Online;
 using Google.Protobuf;
 using Google.Protobuf.Collections;
 using Google.Protobuf.Reflection;
+using Trace = Fenris.Online.Trace;
 
 namespace Fenris.ClientMessage
 {

@@ -144,7 +144,7 @@ namespace BattleNetSharp.D2.Resurrected
 		public static List<OwnedItemAction> AllItems2()
 		{
 			object lockObj = ItemDb.LockObj;
-			List<OwnedItemAction> list;
+			List<OwnedItemAction> list = new List<OwnedItemAction>();
 			lock (lockObj)
 			{
 				ParameterExpression parameterExpression;

@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000ADF RID: 2783
-	public class PresenceListener : PresenceListener.PresenceListenerBase, IServiceListener
+	public class PresenceListener : Bgs.Protocol.Presence.V1.PresenceListener.PresenceListenerBase, IServiceListener
 	{
 		// Token: 0x0600BCE4 RID: 48356 RVA: 0x004840AC File Offset: 0x004822AC
 		public override Task<NO_RESPONSE> OnStateChanged(StateChangedNotification request, ServerCallContext context)

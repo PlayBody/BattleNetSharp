@@ -9,7 +9,7 @@ using Utilities;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AEA RID: 2794
-	public class ConnectionService : ConnectionService.ConnectionServiceBase, IServiceListener
+	public class ConnectionService : Bgs.Protocol.Connection.V1.ConnectionService.ConnectionServiceBase, IServiceListener
 	{
 		// Token: 0x0600BD29 RID: 48425 RVA: 0x00484E60 File Offset: 0x00483060
 		public override Task<BindResponse> Bind(BindRequest request, ServerCallContext context)

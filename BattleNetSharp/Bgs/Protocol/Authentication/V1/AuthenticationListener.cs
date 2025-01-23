@@ -166,61 +166,61 @@ namespace Bgs.Protocol.Authentication.V1
 			// Token: 0x0600D4C8 RID: 54472 RVA: 0x004B4A12 File Offset: 0x004B2C12
 			public virtual Task<NO_RESPONSE> OnModuleLoad(ModuleLoadRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4C9 RID: 54473 RVA: 0x004B4A26 File Offset: 0x004B2C26
 			public virtual Task<NoData> OnModuleMessage(ModuleMessageRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4CA RID: 54474 RVA: 0x004B4A3A File Offset: 0x004B2C3A
 			public virtual Task<NO_RESPONSE> OnServerStateChange(ServerStateChangeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4CB RID: 54475 RVA: 0x004B4A4E File Offset: 0x004B2C4E
 			public virtual Task<NO_RESPONSE> OnLogonComplete(LogonResult request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4CC RID: 54476 RVA: 0x004B4A62 File Offset: 0x004B2C62
 			public virtual Task<MemModuleLoadResponse> OnMemModuleLoad(MemModuleLoadRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4CD RID: 54477 RVA: 0x004B4A76 File Offset: 0x004B2C76
 			public virtual Task<NO_RESPONSE> OnLogonUpdate(LogonUpdateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4CE RID: 54478 RVA: 0x004B4A8A File Offset: 0x004B2C8A
 			public virtual Task<NO_RESPONSE> OnVersionInfoUpdated(VersionInfoNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4CF RID: 54479 RVA: 0x004B4A9E File Offset: 0x004B2C9E
 			public virtual Task<NO_RESPONSE> OnLogonQueueUpdate(LogonQueueUpdateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4D0 RID: 54480 RVA: 0x004B4AB2 File Offset: 0x004B2CB2
 			public virtual Task<NO_RESPONSE> OnLogonQueueEnd(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D4D1 RID: 54481 RVA: 0x004B4AC6 File Offset: 0x004B2CC6
 			public virtual Task<NO_RESPONSE> OnGameAccountSelected(GameAccountSelectedRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

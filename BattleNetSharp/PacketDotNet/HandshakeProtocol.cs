@@ -33,7 +33,7 @@ namespace PacketDotNet
 		{
 			get
 			{
-				return this.Length + 4;
+				return (ushort)(this.Length + 4);
 			}
 		}
 

@@ -206,73 +206,73 @@ namespace Bgs.Protocol.Account.V1
 			// Token: 0x0600DB1C RID: 56092 RVA: 0x004BCAC6 File Offset: 0x004BACC6
 			public virtual Task<ResolveAccountResponse> ResolveAccount(ResolveAccountRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB1D RID: 56093 RVA: 0x004BCADA File Offset: 0x004BACDA
 			public virtual Task<NoData> IsIgrAddress(IsIgrAddressRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB1E RID: 56094 RVA: 0x004BCAEE File Offset: 0x004BACEE
 			public virtual Task<SubscriptionUpdateResponse> Subscribe(SubscriptionUpdateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB1F RID: 56095 RVA: 0x004BCB02 File Offset: 0x004BAD02
 			public virtual Task<NoData> Unsubscribe(SubscriptionUpdateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB20 RID: 56096 RVA: 0x004BCB16 File Offset: 0x004BAD16
 			public virtual Task<GetAccountStateResponse> GetAccountState(GetAccountStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB21 RID: 56097 RVA: 0x004BCB2A File Offset: 0x004BAD2A
 			public virtual Task<GetGameAccountStateResponse> GetGameAccountState(GetGameAccountStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB22 RID: 56098 RVA: 0x004BCB3E File Offset: 0x004BAD3E
 			public virtual Task<GetLicensesResponse> GetLicenses(GetLicensesRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB23 RID: 56099 RVA: 0x004BCB52 File Offset: 0x004BAD52
 			public virtual Task<GetGameTimeRemainingInfoResponse> GetGameTimeRemainingInfo(GetGameTimeRemainingInfoRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB24 RID: 56100 RVA: 0x004BCB66 File Offset: 0x004BAD66
 			public virtual Task<GetGameSessionInfoResponse> GetGameSessionInfo(GetGameSessionInfoRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB25 RID: 56101 RVA: 0x004BCB7A File Offset: 0x004BAD7A
 			public virtual Task<GetCAISInfoResponse> GetCAISInfo(GetCAISInfoRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB26 RID: 56102 RVA: 0x004BCB8E File Offset: 0x004BAD8E
 			public virtual Task<GetAuthorizedDataResponse> GetAuthorizedData(GetAuthorizedDataRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DB27 RID: 56103 RVA: 0x004BCBA2 File Offset: 0x004BADA2
 			public virtual Task<GetSignedAccountStateResponse> GetSignedAccountState(GetSignedAccountStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

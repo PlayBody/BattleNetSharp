@@ -215,145 +215,100 @@ namespace BattleNetSharp
 			d2RBGS.RealmLoginLocked(true);
 		}
 
-		// Token: 0x0600BC7F RID: 48255 RVA: 0x0047D0D8 File Offset: 0x0047B2D8
-		public static void dupetesttrade(string name, string region, string t, bool p1, uint guid)
-		{
-			D2RBGS d2RBGS = new D2RBGS();
-			bool flag = !p1;
-			if (flag)
-			{
-			}
-			d2RBGS.BGSLoginLocked(region, t, region, D2RBGS.App.D2R);
-			d2RBGS.RealmLoginLocked(true);
-			List<CharData> list = d2RBGS.ReadCharacters();
-			foreach (CharData charData in list)
-			{
-				d2RBGS.DeleteCharacter(charData.Id);
-			}
-			CharacterResponse characterResponse = d2RBGS.CreateCharacter("testing" + (p1 ? "a" : "b"), CharacterClass.Sorceress);
-			string text = "testergo";
-			bool flag2 = d2RBGS.CreateGame(text, text, characterResponse.Id, 0U, 1U, true, (region == "us") ? "USW1" : "ASZ1");
-			GameJoinResponse gameJoinResponse = d2RBGS.JoinGame(text, text, characterResponse.Id, 1U, "");
-			bool flag3 = gameJoinResponse.IpAddress == "";
-			if (flag3)
-			{
-				Console.WriteLine("game join fail");
-			}
-			Console.WriteLine("joining : " + gameJoinResponse.IpAddress);
-			BattleNetSharp.D2.Resurrected.Client c = new BattleNetSharp.D2.Resurrected.Client();
-			Func<KeyValuePair<uint, global::D2GameState.Player>, bool> <>9__1;
-			Func<KeyValuePair<uint, global::D2GameState.Player>, bool> <>9__2;
-			Func<ItemAction, bool> <>9__3;
-			Func<ItemAction, bool> <>9__4;
-			c.Behavior = delegate
-			{
-				IEnumerable<KeyValuePair<uint, global::D2GameState.Player>> players = c.GameInstance.Players;
-				Func<KeyValuePair<uint, global::D2GameState.Player>, bool> func;
-				if ((func = <>9__1) == null)
-				{
-					func = (<>9__1 = (KeyValuePair<uint, global::D2GameState.Player> p) => p.Value.Name != "testing" + (p1 ? "a" : "b"));
-				}
-				KeyValuePair<uint, global::D2GameState.Player> keyValuePair = players.First(func);
-				IEnumerable<KeyValuePair<uint, global::D2GameState.Player>> players2 = c.GameInstance.Players;
-				Func<KeyValuePair<uint, global::D2GameState.Player>, bool> func2;
-				if ((func2 = <>9__2) == null)
-				{
-					func2 = (<>9__2 = (KeyValuePair<uint, global::D2GameState.Player> p) => p.Value.Name != "testing" + (p1 ? "a" : "b"));
-				}
-				IEnumerable<KeyValuePair<uint, global::D2GameState.Player>> enumerable = players2.Where(func2);
-				IEnumerable<ItemAction> values = c.GameInstance.Items.Values;
-				Func<ItemAction, bool> func3;
-				if ((func3 = <>9__3) == null)
-				{
-					func3 = (<>9__3 = (ItemAction i) => i.OwnerId == c.me.Id);
-				}
-				IEnumerable<ItemAction> enumerable2 = values.Where(func3);
-				foreach (ItemAction itemAction in enumerable2)
-				{
-					Console.WriteLine(itemAction.baseItem.Type);
-				}
-				bool p2 = p1;
-				if (p2)
-				{
-					IEnumerable<ItemAction> values2 = c.GameInstance.Items.Values;
-					Func<ItemAction, bool> func4;
-					if ((func4 = <>9__4) == null)
-					{
-						func4 = (<>9__4 = (ItemAction i) => i.baseItem.Type == ItemType.ShortStaff && i.OwnerId == c.me.Id);
-					}
-					ItemAction itemAction2 = values2.First(func4);
-					foreach (KeyValuePair<uint, global::D2GameState.Player> keyValuePair2 in enumerable)
-					{
-					}
-					Console.WriteLine("trade");
-					c.SendPacket(new Trade
-					{
-						Guid = guid,
-						TargetId = keyValuePair.Value.Id
-					});
-					Console.WriteLine("helper wait enter trade");
-					c.WaitForPacket((Packet p) => p is TradeRequest);
-					Thread.Sleep(1000);
-					Console.WriteLine("put in trade");
-					c.SendPacket(new Trade
-					{
-						Guid = guid,
-						TargetId = keyValuePair.Value.Id,
-						ItemId = itemAction2.Id
-					});
-					Thread.Sleep(1000);
-					Console.WriteLine("confirm");
-					c.SendPacket(new TradeConfirm
-					{
-						Guid = guid,
-						ActionCount = 3U,
-						Action = 1,
-						Lenth = 10
-					});
-					Thread.Sleep(1000);
-					Program.done++;
-				}
-				else
-				{
-					Console.WriteLine("p2 wait enter trade");
-					TradeRequest tr = new TradeRequest();
-					c.WaitForPacket(delegate(Packet p)
-					{
-						TradeRequest tradeRequest = p as TradeRequest;
-						bool flag4 = tradeRequest != null;
-						bool flag5;
-						if (flag4)
-						{
-							tr = tradeRequest;
-							flag5 = true;
-						}
-						else
-						{
-							flag5 = false;
-						}
-						return flag5;
-					});
-					c.SendPacket(new Trade
-					{
-						Guid = tr.Guid,
-						TargetId = keyValuePair.Value.Id
-					});
-					Thread.Sleep(2000);
-					c.SendPacket(new TradeConfirm
-					{
-						Guid = tr.Guid,
-						ActionCount = 2U,
-						Action = 1,
-						Lenth = 10
-					});
-				}
-			};
-			c.Init(gameJoinResponse.Hash.ToByteArray().ToList<byte>());
-			c.Connect(IPAddress.Parse(gameJoinResponse.IpAddress), 443);
-		}
+        // Token: 0x0600BC7F RID: 48255 RVA: 0x0047D0D8 File Offset: 0x0047B2D8
+        public static void DupetestTrade(string name, string region, string token, bool isPrimary, uint guid)
+        {
+            var d2RBGS = new D2RBGS();
 
-		// Token: 0x0600BC80 RID: 48256 RVA: 0x0047D280 File Offset: 0x0047B480
-		public static void DeleteChars(string name, string region, string t)
+            d2RBGS.BGSLoginLocked(region, token, region, D2RBGS.App.D2R);
+            d2RBGS.RealmLoginLocked(true);
+
+            // Delete existing characters
+            foreach (var charData in d2RBGS.ReadCharacters())
+            {
+                d2RBGS.DeleteCharacter(charData.Id);
+            }
+
+            // Create a new character
+            var characterResponse = d2RBGS.CreateCharacter($"testing{(isPrimary ? "a" : "b")}", CharacterClass.Sorceress);
+            string gameName = "testergo";
+
+            if (!d2RBGS.CreateGame(gameName, gameName, characterResponse.Id, 0U, 1U, true, region == "us" ? "USW1" : "ASZ1"))
+            {
+                Console.WriteLine("Game creation failed.");
+                return;
+            }
+
+            var gameJoinResponse = d2RBGS.JoinGame(gameName, gameName, characterResponse.Id, 1U, "");
+            if (string.IsNullOrEmpty(gameJoinResponse.IpAddress))
+            {
+                Console.WriteLine("Game join failed.");
+                return;
+            }
+
+            Console.WriteLine("Joining game at: " + gameJoinResponse.IpAddress);
+
+			var client = new BattleNetSharp.D2.Resurrected.Client();
+            client.Behavior = () =>
+            {
+                var playerKey = client.GameInstance.Players.First(p => p.Value.Name != $"testing{(isPrimary ? "a" : "b")}").Key;
+                var otherPlayers = client.GameInstance.Players.Where(p => p.Value.Name != $"testing{(isPrimary ? "a" : "b")}");
+
+                if (isPrimary)
+                {
+                    var item = client.GameInstance.Items.Values.First(i => i.baseItem.Type == ItemType.ShortStaff && i.OwnerId == client.me.Id);
+
+                    foreach (var player in otherPlayers)
+                    {
+                        Console.WriteLine("Initiating trade...");
+                        client.SendPacket(new Trade { Guid = guid, TargetId = playerKey });
+                        client.WaitForPacket(p => p is TradeRequest);
+
+                        Thread.Sleep(1000);
+
+                        Console.WriteLine("Adding item to trade...");
+                        client.SendPacket(new Trade { Guid = guid, TargetId = playerKey, ItemId = item.Id });
+
+                        Thread.Sleep(1000);
+
+                        Console.WriteLine("Confirming trade...");
+                        client.SendPacket(new TradeConfirm { Guid = guid, ActionCount = 3U, Action = 1, Lenth = 10 });
+
+                        Thread.Sleep(1000);
+                        Program.done++;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Waiting for trade request...");
+                    TradeRequest tradeRequest = null;
+
+                    client.WaitForPacket(p =>
+                    {
+                        if (p is TradeRequest tr)
+                        {
+                            tradeRequest = tr;
+                            return true;
+                        }
+                        return false;
+                    });
+
+                    Console.WriteLine("Accepting trade...");
+                    client.SendPacket(new Trade { Guid = tradeRequest.Guid, TargetId = playerKey });
+
+                    Thread.Sleep(2000);
+
+                    Console.WriteLine("Confirming trade...");
+                    client.SendPacket(new TradeConfirm { Guid = tradeRequest.Guid, ActionCount = 2U, Action = 1, Lenth = 10 });
+                }
+            };
+
+            client.Init(gameJoinResponse.Hash.ToByteArray().ToList());
+            client.Connect(IPAddress.Parse(gameJoinResponse.IpAddress), 443);
+        }
+
+        // Token: 0x0600BC80 RID: 48256 RVA: 0x0047D280 File Offset: 0x0047B480
+        public static void DeleteChars(string name, string region, string t)
 		{
 			D2RBGS d2RBGS = new D2RBGS();
 			bool flag = d2RBGS.BGSLoginLocked(region, t, name, D2RBGS.App.D2R);
@@ -468,7 +423,7 @@ namespace BattleNetSharp
 			}
 			d2r.RealmLoginLocked(true);
 			List<CharData> list = d2r.ReadCharacters();
-			uint res = list.First((CharData c) => c3.Name == "charone").Id;
+			uint res = list.First((CharData c) => c.Name == "charone").Id;
 			uint id = list.First((CharData i) => i.Name == "chartwo").Id;
 			string gm = "sha3";
 			int num = 0;
@@ -837,9 +792,9 @@ namespace BattleNetSharp
 							{
 								rank.BattleTag,
 								" ",
-								rank.User.Account.ToString(),
+								rank.User.AccountId.ToString(),
 								" ",
-								rank.User.GameAccount.Id.ToString(),
+								rank.User.GameAccountId.ToString(),
 								" ",
 								accountInfo.CharacterName
 							}));
@@ -1105,7 +1060,7 @@ namespace BattleNetSharp
 						{
 							Process[] processesByName = Process.GetProcessesByName("Game");
 							IEnumerable<Process> enumerable = from p in Process.GetProcessesByName("BattleNetSharp")
-								where p.Id != Environment.ProcessId
+								where p.Id != System.Environment.ProcessId
 								select p;
 							enumerable.ToList<Process>().ForEach(delegate(Process p)
 							{
@@ -2031,7 +1986,8 @@ namespace BattleNetSharp
 												Guid = Guid.Parse("07f95510-0000-0000-0000-000000c01108"),
 												FarClip = 1806f
 											}.ToArray();
-											float num46 = BitConverter.ToSingle(new ReadOnlySpan<byte>((void*)(&<PrivateImplementationDetails>.BDE5E36B42FB3B788FAF44D3F692450F961FFF2D2A1A261C0DC02866EFFAFBFC), 4));
+// [Ares] strange, should recover
+//											float num46 = BitConverter.ToSingle(new ReadOnlySpan<byte>((void*)(&<PrivateImplementationDetails>.BDE5E36B42FB3B788FAF44D3F692450F961FFF2D2A1A261C0DC02866EFFAFBFC), 4));
 											string text12 = "US-9aa39c5d77f8b8321383eaf00050fd9a-363984617";
 											D2RBGS d2RBGS4 = new D2RBGS();
 											d2RBGS4.BGSLogin("us", text12, "us", D2RBGS.App.WoW);

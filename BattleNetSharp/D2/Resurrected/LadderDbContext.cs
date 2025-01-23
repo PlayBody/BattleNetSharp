@@ -20,7 +20,9 @@ namespace BattleNetSharp.D2.Resurrected
 				DataSource = "ladder.sqlite",
 				Mode = 0
 			}.ToString();
-			SqliteDbContextOptionsBuilderExtensions.UseSqlite(optionsBuilder, text, null);
+
+			// [Ares] should be remove
+//			SqliteDbContextOptionsBuilderExtensions.UseSqlite(optionsBuilder, text, null);
 		}
 	}
 }

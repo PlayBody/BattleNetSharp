@@ -21,7 +21,7 @@ namespace BattleNetSharp
 				LoginServer.sem.WaitOne();
 				try
 				{
-					httpListener.GetContextAsync().ContinueWith<Task>(async delegate([Nullable(1)] Task<HttpListenerContext> t)
+					httpListener.GetContextAsync().ContinueWith<Task>(async delegate( Task<HttpListenerContext> t)
 					{
 						LoginServer.sem.Release();
 						HttpListenerContext httpListenerContext = await t;

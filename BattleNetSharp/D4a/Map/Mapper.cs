@@ -10,6 +10,8 @@ using D4.Map;
 using D4Packets.Files;
 using Utilities;
 using WoW.Packets;
+using Vector2 = System.Numerics.Vector2;
+using Vector3 = WoW.Packets.Vector3;
 
 namespace D4a.Map
 {
@@ -263,7 +265,7 @@ namespace D4a.Map
 						float num17 = 72f / cellWidth;
 						float num18 = 60f / cellWidth;
 						float num19 = 78f / cellWidth;
-						AStar astar = new AStar(array3, new Vector2(num16, num17), new Vector2(num18, num19));
+						AStar astar = new AStar(array3, new System.Numerics.Vector2(num16, num17), new Vector2(num18, num19));
 						List<D2Map.Pathfinding.Node> list2 = astar.GetPath().ToList<D2Map.Pathfinding.Node>();
 						for (int j = 1; j < list2.Count; j++)
 						{

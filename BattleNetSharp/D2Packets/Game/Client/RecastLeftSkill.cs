@@ -31,6 +31,6 @@ namespace D2Packets.Game.Client
 		// Token: 0x04008E21 RID: 36385
 		[MinVersion(GameVersion.D2R)]
 		public List<ushort> ExtraPath_100 = (from b in Enumerable.Range(0, 100)
-			select 0).ToList<ushort>();
+			select (ushort)0).ToList<ushort>();
 	}
 }

@@ -687,7 +687,7 @@ namespace D2Map
 							bool flag6 = (room.GetCollision(num7 - 1U, 0U) & 1) == 1 && (room.GetCollision(num7 - 1U, 1U) & 1) == 1 && (room.GetCollision(num7 + 1U, 1U) & 1) == 1 && (room.GetCollision(num7 + 1U, 0U) & 1) == 1 && (room.GetCollision(num7, 1U) & 1) == 1;
 							if (flag6)
 							{
-								array[(int)num7, 0] = array[(int)num7, 0] & 65534;
+								array[(int)num7, 0] = (ushort)(array[(int)num7, 0] & 65534);
 							}
 						}
 						bool flag7 = (room.GetCollision(num7, room.Height - 1U) & 1) == 1;
@@ -696,7 +696,7 @@ namespace D2Map
 							bool flag8 = (room.GetCollision(num7 - 1U, room.Height - 1U) & 1) == 1 && (room.GetCollision(num7 - 1U, room.Height - 2U) & 1) == 1 && (room.GetCollision(num7 + 1U, room.Height - 1U) & 1) == 1 && (room.GetCollision(num7 + 1U, room.Height - 2U) & 1) == 1 && (room.GetCollision(num7, room.Height - 2U) & 1) == 1;
 							if (flag8)
 							{
-								array[(int)num7, (int)(room.Height - 1U)] = array[(int)num7, (int)(room.Height - 1U)] & 65534;
+								array[(int)num7, (int)(room.Height - 1U)] = (ushort)(array[(int)num7, (int)(room.Height - 1U)] & 65534);
 							}
 						}
 						for (uint num8 = 1U; num8 < room.Height - 1U; num8 += 1U)
@@ -707,7 +707,7 @@ namespace D2Map
 								bool flag10 = (room.GetCollision(num7 - 1U, num8) & 1) == 1 && (room.GetCollision(num7 - 1U, num8 - 1U) & 1) == 1 && (room.GetCollision(num7 - 1U, num8 + 1U) & 1) == 1 && (room.GetCollision(num7 + 1U, num8 + 1U) & 1) == 1 && (room.GetCollision(num7 + 1U, num8) & 1) == 1 && (room.GetCollision(num7 + 1U, num8 - 1U) & 1) == 1 && (room.GetCollision(num7, num8 - 1U) & 1) == 1 && (room.GetCollision(num7, num8 + 1U) & 1) == 1;
 								if (flag10)
 								{
-									array[(int)num7, (int)num8] = array[(int)num7, (int)num8] & 65534;
+									array[(int)num7, (int)num8] = (ushort)(array[(int)num7, (int)num8] & 65534);
 								}
 							}
 						}
@@ -720,7 +720,7 @@ namespace D2Map
 							bool flag12 = (room.GetCollision(0U, num9 - 1U) & 1) == 1 && (room.GetCollision(0U, num9 + 1U) & 1) == 1 && (room.GetCollision(1U, num9 - 1U) & 1) == 1 && (room.GetCollision(1U, num9) & 1) == 1 && (room.GetCollision(1U, num9 + 1U) & 1) == 1;
 							if (flag12)
 							{
-								array[0, (int)num9] = array[0, (int)num9] & 65534;
+								array[0, (int)num9] = (ushort)(array[0, (int)num9] & 65534);
 							}
 						}
 						bool flag13 = (room.GetCollision(room.Width - 1U, num9) & 1) == 1;
@@ -729,7 +729,7 @@ namespace D2Map
 							bool flag14 = (room.GetCollision(room.Width - 1U, num9 - 1U) & 1) == 1 && (room.GetCollision(room.Width - 1U, num9 + 1U) & 1) == 1 && (room.GetCollision(room.Width - 2U, num9 - 1U) & 1) == 1 && (room.GetCollision(room.Width - 2U, num9) & 1) == 1 && (room.GetCollision(room.Width - 2U, num9 + 1U) & 1) == 1;
 							if (flag14)
 							{
-								array[(int)(room.Width - 1U), (int)num9] = array[0, (int)num9] & 65534;
+								array[(int)(room.Width - 1U), (int)num9] = (ushort)(array[0, (int)num9] & 65534);
 							}
 						}
 					}
@@ -739,7 +739,7 @@ namespace D2Map
 						bool flag16 = (room.GetCollision(1U, 1U) & 1) == 1 && (room.GetCollision(1U, 0U) & 1) == 1 && (room.GetCollision(0U, 1U) & 1) == 1;
 						if (flag16)
 						{
-							array[0, 0] = array[0, 0] & 65534;
+							array[0, 0] = (ushort)(array[0, 0] & 65534);
 						}
 					}
 					bool flag17 = (room.GetCollision(0U, room.Height - 1U) & 1) == 1;
@@ -748,7 +748,7 @@ namespace D2Map
 						bool flag18 = (room.GetCollision(1U, room.Height - 1U) & 1) == 1 && (room.GetCollision(1U, room.Height - 2U) & 1) == 1 && (room.GetCollision(0U, room.Height - 2U) & 1) == 1;
 						if (flag18)
 						{
-							array[0, (int)(room.Height - 1U)] = array[0, (int)(room.Height - 1U)] & 65534;
+							array[0, (int)(room.Height - 1U)] = (ushort)(array[0, (int)(room.Height - 1U)] & 65534);
 						}
 					}
 					bool flag19 = (room.GetCollision(room.Width - 1U, 0U) & 1) == 1;
@@ -757,7 +757,7 @@ namespace D2Map
 						bool flag20 = (room.GetCollision(room.Width - 1U, 1U) & 1) == 1 && (room.GetCollision(room.Width - 2U, 0U) & 1) == 1 && (room.GetCollision(room.Width - 2U, 1U) & 1) == 1;
 						if (flag20)
 						{
-							array[(int)(room.Width - 1U), 0] = array[(int)(room.Width - 1U), 0] & 65534;
+							array[(int)(room.Width - 1U), 0] = (ushort)(array[(int)(room.Width - 1U), 0] & 65534);
 						}
 					}
 					bool flag21 = (room.GetCollision(room.Width - 1U, room.Height - 1U) & 1) == 1;
@@ -766,7 +766,7 @@ namespace D2Map
 						bool flag22 = (room.GetCollision(room.Width - 2U, room.Height - 2U) & 1) == 1 && (room.GetCollision(room.Width - 1U, room.Height - 2U) & 1) == 1 && (room.GetCollision(room.Width - 2U, room.Height - 1U) & 1) == 1;
 						if (flag22)
 						{
-							array[(int)(room.Width - 1U), (int)(room.Height - 1U)] = array[(int)(room.Width - 1U), (int)(room.Height - 1U)] & 65534;
+							array[(int)(room.Width - 1U), (int)(room.Height - 1U)] = (ushort)(array[(int)(room.Width - 1U), (int)(room.Height - 1U)] & 65534);
 						}
 					}
 					for (uint num10 = 0U; num10 < room.Width; num10 += 1U)
@@ -879,7 +879,7 @@ namespace D2Map
 			PathFinder pathFinder = new PathFinder();
 			GridPosition gridPosition = new GridPosition((int)(start.X - this.X), (int)(start.Y - this.Y));
 			GridPosition gridPosition2 = new GridPosition((int)(end.X - this.X), (int)(end.Y - this.Y));
-			Path path = pathFinder.FindPath(gridPosition, gridPosition2, this.cachedGrid);
+			Roy_T.AStar.Paths.Path path = pathFinder.FindPath(gridPosition, gridPosition2, this.cachedGrid);
 			return path.Edges.Select((IEdge e) => new D2Map.Pathfinding.Node((int)e.End.Position.X / 5, (int)e.End.Position.Y / 5, false, false, null, false)).ToList<D2Map.Pathfinding.Node>();
 		}
 

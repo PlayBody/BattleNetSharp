@@ -100,13 +100,13 @@ namespace Classic.Protocol.V1.Network
 			// Token: 0x0600DC2B RID: 56363 RVA: 0x004BDF90 File Offset: 0x004BC190
 			public virtual Task<NoData> GetEchoServerList(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DC2C RID: 56364 RVA: 0x004BDFA4 File Offset: 0x004BC1A4
 			public virtual Task<NetworkResponse> SendUDPTest(NetworkRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

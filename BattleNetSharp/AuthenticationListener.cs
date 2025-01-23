@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AD7 RID: 2775
-	public class AuthenticationListener : AuthenticationListener.AuthenticationListenerBase, IServiceListener
+	public class AuthenticationListener : Bgs.Protocol.Authentication.V1.AuthenticationListener.AuthenticationListenerBase, IServiceListener
 	{
 		// Token: 0x0600BCA3 RID: 48291 RVA: 0x00483340 File Offset: 0x00481540
 		public override Task<NO_RESPONSE> OnLogonComplete(LogonResult request, ServerCallContext context)

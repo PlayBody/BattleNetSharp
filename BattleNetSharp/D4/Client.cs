@@ -48,7 +48,7 @@ namespace BattleNetSharp.D4
 				.Skip(1)
 				.Take(12);
 			IEnumerable<byte> enumerable5 = list.Take(list.Count - 12).Concat(from b in Enumerable.Range(0, 12)
-				select 0);
+				select (byte)0);
 			byte[] array2;
 			ClientHello.ServerHello(enumerable.ToArray<byte>(), enumerable5.ToArray<byte>(), bytes, bytes2, array, out array2);
 			byte[] array3;

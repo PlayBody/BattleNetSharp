@@ -278,7 +278,7 @@ namespace D4Data
 			string randomFileName = Path.GetRandomFileName();
 			IEnumerable<SyntaxTree> enumerable = new SyntaxTree[] { syntaxTree };
 			IEnumerable<MetadataReference> enumerable2 = array;
-			OutputKind outputKind = 2;
+			OutputKind outputKind = (OutputKind)2;
 			bool flag3 = false;
 			string text5 = null;
 			string text6 = null;
@@ -299,7 +299,7 @@ namespace D4Data
 				{
 					StringBuilder stringBuilder = new StringBuilder();
 					stringBuilder.AppendLine("encountered errors compiling attribute funcs: ");
-					IEnumerable<Diagnostic> enumerable4 = emitResult.Diagnostics.Where((Diagnostic diagnostic) => diagnostic.IsWarningAsError || diagnostic.Severity == 3);
+					IEnumerable<Diagnostic> enumerable4 = emitResult.Diagnostics.Where((Diagnostic diagnostic) => diagnostic.IsWarningAsError/* || diagnostic.Severity == 3* by [Ares], should review */);
 					foreach (Diagnostic diagnostic2 in enumerable4)
 					{
 						stringBuilder.AppendLine(string.Format("\t{0}: {1}", diagnostic2.Id, diagnostic2.GetMessage(null)));

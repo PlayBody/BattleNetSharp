@@ -115,25 +115,25 @@ namespace Bgs.Protocol.Authentication.V2.Client
 			// Token: 0x0600D554 RID: 54612 RVA: 0x004B5949 File Offset: 0x004B3B49
 			public virtual Task<NO_RESPONSE> OnLogonComplete(LogonCompleteNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D555 RID: 54613 RVA: 0x004B595D File Offset: 0x004B3B5D
 			public virtual Task<NO_RESPONSE> OnLogonQueueUpdate(LogonQueueUpdateNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D556 RID: 54614 RVA: 0x004B5971 File Offset: 0x004B3B71
 			public virtual Task<NO_RESPONSE> OnLogonQueueEnd(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D557 RID: 54615 RVA: 0x004B5985 File Offset: 0x004B3B85
 			public virtual Task<NO_RESPONSE> OnExternalChallenge(ExternalChallengeNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

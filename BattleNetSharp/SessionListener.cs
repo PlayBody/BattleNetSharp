@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AE3 RID: 2787
-	public class SessionListener : SessionListener.SessionListenerBase, IServiceListener
+	public class SessionListener : Bgs.Protocol.Session.V1.SessionListener.SessionListenerBase, IServiceListener
 	{
 		// Token: 0x0600BCF3 RID: 48371 RVA: 0x0048420C File Offset: 0x0048240C
 		public override Task<NO_RESPONSE> OnSessionCreated(SessionCreatedNotification request, ServerCallContext context)

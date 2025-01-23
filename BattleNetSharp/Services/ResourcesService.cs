@@ -11,7 +11,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000B0C RID: 2828
-	public class ResourcesService : ResourcesService.ResourcesServiceBase, IServiceListener
+	public class ResourcesService : Bgs.Protocol.Resources.V1.ResourcesService.ResourcesServiceBase, IServiceListener
 	{
 		// Token: 0x0600BE14 RID: 48660 RVA: 0x00487F64 File Offset: 0x00486164
 		public override Task<ContentHandle> GetContentHandle(ContentHandleRequest request, ServerCallContext context)

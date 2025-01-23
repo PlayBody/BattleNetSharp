@@ -386,7 +386,7 @@ namespace Bgs.Protocol.Presence.V1
 		public static class Extensions
 		{
 			// Token: 0x040097DD RID: 38877
-			public static readonly Extension<ChannelState, ChannelState> Presence = new Extension<ChannelState, ChannelState>(101, FieldCodec.ForMessage<ChannelState>(810U, ChannelState.Parser));
+			public static readonly Extension<Bgs.Protocol.Channel.V1.ChannelState, ChannelState> Presence = new Extension<Bgs.Protocol.Channel.V1.ChannelState, ChannelState>(101, FieldCodec.ForMessage<ChannelState>(810U, ChannelState.Parser));
 		}
 	}
 }

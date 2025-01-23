@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AE8 RID: 2792
-	public class ChannelMembershipService : ChannelMembershipService.ChannelMembershipServiceBase, IServiceListener
+	public class ChannelMembershipService : Bgs.Protocol.Channel.V2.Membership.ChannelMembershipService.ChannelMembershipServiceBase, IServiceListener
 	{
 		// Token: 0x0600BD0D RID: 48397 RVA: 0x0048495C File Offset: 0x00482B5C
 		public override Task<GetStateResponse> GetState(GetStateRequest request, ServerCallContext context)

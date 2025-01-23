@@ -151,43 +151,43 @@ namespace Bgs.Protocol.Sns.V1
 			// Token: 0x0600CAB3 RID: 51891 RVA: 0x004A9CBF File Offset: 0x004A7EBF
 			public virtual Task<GetFacebookAuthCodeResponse> GetFacebookAuthCode(GetFacebookAuthCodeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CAB4 RID: 51892 RVA: 0x004A9CD3 File Offset: 0x004A7ED3
 			public virtual Task<NoData> GetFacebookBnetFriends(GetFacebookBnetFriendsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CAB5 RID: 51893 RVA: 0x004A9CE7 File Offset: 0x004A7EE7
 			public virtual Task<GetFacebookSettingsResponse> GetFacebookSettings(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CAB6 RID: 51894 RVA: 0x004A9CFB File Offset: 0x004A7EFB
 			public virtual Task<GetFacebookAccountLinkStatusResponse> GetFacebookAccountLinkStatus(GetFacebookAccountLinkStatusRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CAB7 RID: 51895 RVA: 0x004A9D0F File Offset: 0x004A7F0F
 			public virtual Task<GetGoogleAuthTokenResponse> GetGoogleAuthToken(GetGoogleAuthTokenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CAB8 RID: 51896 RVA: 0x004A9D23 File Offset: 0x004A7F23
 			public virtual Task<GetGoogleSettingsResponse> GetGoogleSettings(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CAB9 RID: 51897 RVA: 0x004A9D37 File Offset: 0x004A7F37
 			public virtual Task<GetGoogleAccountLinkStatusResponse> GetGoogleAccountLinkStatus(GetGoogleAccountLinkStatusRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

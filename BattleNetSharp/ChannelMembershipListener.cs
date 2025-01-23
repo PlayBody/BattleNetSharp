@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000ADA RID: 2778
-	public class ChannelMembershipListener : ChannelMembershipListener.ChannelMembershipListenerBase, IServiceListener
+	public class ChannelMembershipListener : Bgs.Protocol.Channel.V2.Membership.ChannelMembershipListener.ChannelMembershipListenerBase, IServiceListener
 	{
 		// Token: 0x0600BCBD RID: 48317 RVA: 0x00483600 File Offset: 0x00481800
 		public override Task<NO_RESPONSE> OnChannelAdded(ChannelAddedNotification request, ServerCallContext context)

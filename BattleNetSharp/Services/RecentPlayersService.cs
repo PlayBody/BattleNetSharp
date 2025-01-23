@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000B0B RID: 2827
-	public class RecentPlayersService : RecentPlayersService.RecentPlayersServiceBase, IServiceListener
+	public class RecentPlayersService : Bgs.Protocol.RecentPlayers.V1.Client.RecentPlayersService.RecentPlayersServiceBase, IServiceListener
 	{
 		// Token: 0x0600BE0E RID: 48654 RVA: 0x00487ED0 File Offset: 0x004860D0
 		public override Task<NoData> AddRecentPlayers(AddRecentPlayersRequest request, ServerCallContext context)

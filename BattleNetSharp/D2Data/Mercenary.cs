@@ -122,7 +122,7 @@ namespace D2Data
 			public ulong Next()
 			{
 				ulong num = (ulong)this.LoSeed * 1791398085UL + (ulong)this.HiSeed;
-				this.LoSeed = (uint)(num & (ulong)(-1));
+				this.LoSeed = (uint)(num & (ulong)(0xFFFFFFFFFFFFFFFF));
 				this.HiSeed = (uint)(num >> 32);
 				return this.Value;
 			}

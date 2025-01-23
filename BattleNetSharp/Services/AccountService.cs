@@ -8,7 +8,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000AF4 RID: 2804
-	public class AccountService : AccountService.AccountServiceBase, IServiceListener
+	public class AccountService : Bgs.Protocol.Account.V1.AccountService.AccountServiceBase, IServiceListener
 	{
 		// Token: 0x0600BD7D RID: 48509 RVA: 0x0048673C File Offset: 0x0048493C
 		public override Task<GetAccountStateResponse> GetAccountState(GetAccountStateRequest request, ServerCallContext context)

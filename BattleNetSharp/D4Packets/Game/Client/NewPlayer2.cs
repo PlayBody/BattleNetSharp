@@ -58,7 +58,6 @@ namespace D4Packets.Game.Client
 		public int Field14;
 
 		// Token: 0x04006473 RID: 25715
-		[Nullable(2)]
 		public AccountEntityId Field15;
 
 		// Token: 0x04006474 RID: 25716

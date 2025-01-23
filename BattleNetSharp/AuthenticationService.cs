@@ -13,7 +13,7 @@ using Utilities;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AE7 RID: 2791
-	public class AuthenticationService : AuthenticationService.AuthenticationServiceBase, IServiceListener
+	public class AuthenticationService : Bgs.Protocol.Authentication.V1.AuthenticationService.AuthenticationServiceBase, IServiceListener
 	{
 		// Token: 0x0600BD04 RID: 48388 RVA: 0x0048453C File Offset: 0x0048273C
 		public override Task<GenerateSSOTokenResponse> GenerateSSOToken(GenerateSSOTokenRequest request, ServerCallContext context)

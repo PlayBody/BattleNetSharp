@@ -101,19 +101,19 @@ namespace Classic.Protocol.V1.Warden
 			// Token: 0x0600DC0B RID: 56331 RVA: 0x004BDC9B File Offset: 0x004BBE9B
 			public virtual Task<WardenResponse> Init(WardenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DC0C RID: 56332 RVA: 0x004BDCAF File Offset: 0x004BBEAF
 			public virtual Task<WardenResponse> SendPacketToServer(WardenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DC0D RID: 56333 RVA: 0x004BDCC3 File Offset: 0x004BBEC3
 			public virtual Task<WardenResponse> SendPacketToClient(WardenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

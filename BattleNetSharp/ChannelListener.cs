@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AD9 RID: 2777
-	public class ChannelListener : ChannelListener.ChannelListenerBase, IServiceListener
+	public class ChannelListener : Bgs.Protocol.Channel.V2.ChannelListener.ChannelListenerBase, IServiceListener
 	{
 		// Token: 0x0600BCB1 RID: 48305 RVA: 0x004834C4 File Offset: 0x004816C4
 		public override Task<NO_RESPONSE> OnAttributeChanged(AttributeChangedNotification request, ServerCallContext context)

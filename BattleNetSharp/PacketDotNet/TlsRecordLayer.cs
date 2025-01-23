@@ -49,7 +49,7 @@ namespace PacketDotNet
 		{
 			get
 			{
-				return this.Length + 5;
+				return (ushort)(this.Length + 5);
 			}
 		}
 

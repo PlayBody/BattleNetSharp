@@ -171,67 +171,67 @@ namespace Bgs.Protocol.Channel.V2
 			// Token: 0x0600D791 RID: 55185 RVA: 0x004B86AA File Offset: 0x004B68AA
 			public virtual Task<NO_RESPONSE> OnMemberAdded(MemberAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D792 RID: 55186 RVA: 0x004B86BE File Offset: 0x004B68BE
 			public virtual Task<NO_RESPONSE> OnMemberRemoved(MemberRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D793 RID: 55187 RVA: 0x004B86D2 File Offset: 0x004B68D2
 			public virtual Task<NO_RESPONSE> OnMemberAttributeChanged(MemberAttributeChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D794 RID: 55188 RVA: 0x004B86E6 File Offset: 0x004B68E6
 			public virtual Task<NO_RESPONSE> OnMemberRoleChanged(MemberRoleChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D795 RID: 55189 RVA: 0x004B86FA File Offset: 0x004B68FA
 			public virtual Task<NO_RESPONSE> OnSendMessage(SendMessageNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D796 RID: 55190 RVA: 0x004B870E File Offset: 0x004B690E
 			public virtual Task<NO_RESPONSE> OnTypingIndicator(TypingIndicatorNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D797 RID: 55191 RVA: 0x004B8722 File Offset: 0x004B6922
 			public virtual Task<NO_RESPONSE> OnAttributeChanged(AttributeChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D798 RID: 55192 RVA: 0x004B8736 File Offset: 0x004B6936
 			public virtual Task<NO_RESPONSE> OnPrivacyLevelChanged(PrivacyLevelChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D799 RID: 55193 RVA: 0x004B874A File Offset: 0x004B694A
 			public virtual Task<NO_RESPONSE> OnInvitationAdded(InvitationAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D79A RID: 55194 RVA: 0x004B875E File Offset: 0x004B695E
 			public virtual Task<NO_RESPONSE> OnInvitationRemoved(InvitationRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D79B RID: 55195 RVA: 0x004B8772 File Offset: 0x004B6972
 			public virtual Task<NO_RESPONSE> OnSuggestionAdded(SuggestionAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

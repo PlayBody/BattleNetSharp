@@ -17,7 +17,7 @@ namespace D4Packets.Game.Client
 		public uint _02573139;
 
 		// Token: 0x040064F7 RID: 25847
-		[Nullable(2)]
+//		[Nullable(2)]
 		public Vector2 _0b4055da;
 
 		// Token: 0x040064F8 RID: 25848

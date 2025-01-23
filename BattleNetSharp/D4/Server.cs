@@ -59,7 +59,7 @@ namespace BattleNetSharp.D4
 					.Concat(new byte[] { 7 });
 				byte[] array8;
 				byte[] array7 = ClientHello.ServerHello(array, enumerable2.Concat(from b in Enumerable.Range(0, 12)
-					select 0).ToArray<byte>(), array3, array2, bytes, out array8);
+					select (byte)0).ToArray<byte>(), array3, array2, bytes, out array8);
 				this.SendPacket(enumerable2.Concat(array7).ToArray<byte>());
 				ClientHello.GenerateKeys(array2, bytes, array3, out this.ClientKey, out this.ServerKey);
 				Console.WriteLine("verify client");

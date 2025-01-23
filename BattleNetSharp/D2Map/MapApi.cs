@@ -6,38 +6,39 @@ using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
 using D2Data;
+// using static Google.Protobuf.Collections.MapField<TKey, TValue>;
 
 namespace D2Map
 {
 	// Token: 0x020008F2 RID: 2290
 	internal static class MapApi
-	{
-		// Token: 0x0600B763 RID: 46947
-		[DllImport("d2mapapi.dll", CallingConvention = 2, CharSet = CharSet.Unicode)]
+    {
+        // Token: 0x0600B763 RID: 46947
+		[DllImport("d2mapapi.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
 		private static extern bool Initialize(string path);
 
 		// Token: 0x0600B764 RID: 46948
-		[DllImport("d2mapapi.dll", CallingConvention = 2)]
+		[DllImport("d2mapapi.dll", CallingConvention = CallingConvention.Cdecl)]
 		private unsafe static extern UnmanagedStructs.Level* GetLevel(UnmanagedStructs.ActMisc* misc, AreaLevel levelno);
 
 		// Token: 0x0600B765 RID: 46949
-		[DllImport("d2mapapi.dll", CallingConvention = 2)]
+		[DllImport("d2mapapi.dll", CallingConvention = CallingConvention.Cdecl)]
 		private unsafe static extern void InitLevel(UnmanagedStructs.Level* pLevel);
 
 		// Token: 0x0600B766 RID: 46950
-		[DllImport("d2mapapi.dll", CallingConvention = 2)]
+		[DllImport("d2mapapi.dll", CallingConvention = CallingConvention.Cdecl)]
 		private unsafe static extern void AddRoomData(UnmanagedStructs.Act* pAct, uint levelid, uint xpos, uint ypos, UnmanagedStructs.Room* pRoom);
 
 		// Token: 0x0600B767 RID: 46951
-		[DllImport("d2mapapi.dll", CallingConvention = 2)]
+		[DllImport("d2mapapi.dll", CallingConvention = CallingConvention.Cdecl)]
 		private unsafe static extern void RemoveRoomData(UnmanagedStructs.Act* pAct, uint levelid, uint xpos, uint ypos, UnmanagedStructs.Room* pRoom);
 
 		// Token: 0x0600B768 RID: 46952
-		[DllImport("d2mapapi.dll", CallingConvention = 2)]
+		[DllImport("d2mapapi.dll", CallingConvention = CallingConvention.Cdecl)]
 		private unsafe static extern UnmanagedStructs.Act* LoadAct(ActLocation actno, uint seed, uint difficulty, uint TownLevelId);
 
 		// Token: 0x0600B769 RID: 46953
-		[DllImport("d2mapapi.dll", CallingConvention = 2)]
+		[DllImport("d2mapapi.dll", CallingConvention = CallingConvention.Cdecl)]
 		private unsafe static extern void UnloadAct(UnmanagedStructs.Act* pAct);
 
 		// Token: 0x0600B76A RID: 46954
@@ -107,19 +108,24 @@ namespace D2Map
 								MapApi.AddRoomData(ptr, (uint)areaLevel, ptr2->dwPosX, ptr2->dwPosY, null);
 								flag4 = true;
 							}
-							for (uint num4 = 0U; num4 < ptr2->dwRoomsNear; num4 += 1U)
-							{
-								bool flag6 = level->dwLevelNo != ((IntPtr*)(ptr2->pRoom2Near + (ulong)num4 * (ulong)((long)sizeof(UnmanagedStructs.RoomEx*)) / (ulong)sizeof(UnmanagedStructs.RoomEx*)))->pLevel->dwLevelNo;
-								if (flag6)
-								{
-									bool flag7 = !level2.AdjacentLevels.Contains((AreaLevel)((IntPtr*)(ptr2->pRoom2Near + (ulong)num4 * (ulong)((long)sizeof(UnmanagedStructs.RoomEx*)) / (ulong)sizeof(UnmanagedStructs.RoomEx*)))->pLevel->dwLevelNo);
-									if (flag7)
-									{
-										level2.AdjacentLevels.Add((AreaLevel)((IntPtr*)(ptr2->pRoom2Near + (ulong)num4 * (ulong)((long)sizeof(UnmanagedStructs.RoomEx*)) / (ulong)sizeof(UnmanagedStructs.RoomEx*)))->pLevel->dwLevelNo);
-									}
-								}
-							}
-							Room room = new Room(ptr2, excludeCollisionMask, excludeTileData);
+                            for (uint roomIndex = 0U; roomIndex < ptr2->dwRoomsNear; roomIndex++)
+                            {
+                                // Calculate the pointer to the nearby room
+                                var nearbyRoomPtr = (IntPtr*)(ptr2->pRoom2Near + roomIndex * sizeof(UnmanagedStructs.RoomEx*) / sizeof(UnmanagedStructs.RoomEx*));
+								// [Ares] should review
+                                var nearbyLevelNo = level->dwLevelNo;
+
+                                // Check if the nearby room level number is different from the current level
+                                if (level->dwLevelNo != nearbyLevelNo)
+                                {
+                                    // Check if the nearby level is not already in the AdjacentLevels list
+                                    if (!level2.AdjacentLevels.Contains((AreaLevel)nearbyLevelNo))
+                                    {
+                                        level2.AdjacentLevels.Add((AreaLevel)nearbyLevelNo);
+                                    }
+                                }
+                            }
+                            Room room = new Room(ptr2, excludeCollisionMask, excludeTileData);
 							level2.Rooms.Add(room);
 							bool flag8 = flag4;
 							if (flag8)

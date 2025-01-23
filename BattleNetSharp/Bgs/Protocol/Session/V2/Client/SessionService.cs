@@ -143,37 +143,37 @@ namespace Bgs.Protocol.Session.V2.Client
 			// Token: 0x0600D162 RID: 53602 RVA: 0x004B0C64 File Offset: 0x004AEE64
 			public virtual Task<CreateSessionResponse> CreateSession(CreateSessionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D163 RID: 53603 RVA: 0x004B0C78 File Offset: 0x004AEE78
 			public virtual Task<RestoreSessionResponse> RestoreSession(RestoreSessionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D164 RID: 53604 RVA: 0x004B0C8C File Offset: 0x004AEE8C
 			public virtual Task<NoData> DestroySession(DestroySessionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D165 RID: 53605 RVA: 0x004B0CA0 File Offset: 0x004AEEA0
 			public virtual Task<GetSignedSessionStateResponse> GetSignedSessionState(GetSignedSessionStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D166 RID: 53606 RVA: 0x004B0CB4 File Offset: 0x004AEEB4
 			public virtual Task<GetSessionStateResponse> GetSessionState(GetSessionStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D167 RID: 53607 RVA: 0x004B0CC8 File Offset: 0x004AEEC8
 			public virtual Task<NoData> MarkSessionAlive(MarkSessionAliveRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

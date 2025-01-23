@@ -148,43 +148,43 @@ namespace Bgs.Protocol.Connection.V1
 			// Token: 0x0600CCFC RID: 52476 RVA: 0x004AC9DC File Offset: 0x004AABDC
 			public virtual Task<ConnectResponse> Connect(ConnectRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CCFD RID: 52477 RVA: 0x004AC9F0 File Offset: 0x004AABF0
 			public virtual Task<BindResponse> Bind(BindRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CCFE RID: 52478 RVA: 0x004ACA04 File Offset: 0x004AAC04
 			public virtual Task<EchoResponse> Echo(EchoRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CCFF RID: 52479 RVA: 0x004ACA18 File Offset: 0x004AAC18
 			public virtual Task<NO_RESPONSE> ForceDisconnect(DisconnectNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CD00 RID: 52480 RVA: 0x004ACA2C File Offset: 0x004AAC2C
 			public virtual Task<NO_RESPONSE> KeepAlive(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CD01 RID: 52481 RVA: 0x004ACA40 File Offset: 0x004AAC40
 			public virtual Task<NoData> Encrypt(EncryptRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CD02 RID: 52482 RVA: 0x004ACA54 File Offset: 0x004AAC54
 			public virtual Task<NO_RESPONSE> RequestDisconnect(DisconnectRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

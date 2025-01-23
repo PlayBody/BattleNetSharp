@@ -490,7 +490,7 @@ namespace DiabloBridge
 									ItemId = item.Id,
 									Consume = 1,
 									PlayerId = num8,
-									isMerc = ((num8 == this.me.Id) ? 0 : 1),
+									isMerc = (byte)((num8 == this.me.Id) ? 0 : 1),
 									X = (byte)item.x,
 									Y = (byte)item.y,
 									xff02ifbelt = 65282,
@@ -1203,9 +1203,9 @@ namespace DiabloBridge
 		}
 
 		// Token: 0x0600B9F9 RID: 47609 RVA: 0x004638F0 File Offset: 0x00461AF0
-		private Packet SwapEquippedItem(SwapEquippedItem i)
+		private Packet SwapEquippedItem(SwapEquippedItem inp)
 		{
-			bool flag = this.GameInstance.Items[i.Id].baseItem.BaseType.Code == "belt";
+			bool flag = this.GameInstance.Items[inp.Id].baseItem.BaseType.Code == "belt";
 			if (flag)
 			{
 				bool flag2 = false;
@@ -1239,8 +1239,8 @@ namespace DiabloBridge
 					}
 				}
 			}
-			i.EquippedId = this.me.Equipment[i.Location].Id;
-			return i;
+            inp.EquippedId = this.me.Equipment[inp.Location].Id;
+			return inp;
 		}
 
 		// Token: 0x0600B9FA RID: 47610 RVA: 0x00463A88 File Offset: 0x00461C88
@@ -1271,7 +1271,7 @@ namespace DiabloBridge
 			i.LeftSkill = (this.me.WeaponSwitched ? this.me.LeftHandSkill : this.me.LeftHandSkillSwap);
 			i.LeftSkill = (this.me.WeaponSwitched ? this.me.LeftHandSkillSwap : this.me.LeftHandSkill);
 			i.LeftSkill = this.me.LeftHandSkill;
-			i.SwapId = (this.me.WeaponSwitched ? 1 : 0);
+			i.SwapId = (byte)(this.me.WeaponSwitched ? 1 : 0);
 			return i;
 		}
 
@@ -2197,7 +2197,7 @@ namespace DiabloBridge
 			list.AddRange(array.Skip(13));
 			list[0] = 156;
 			List<byte> list2 = list;
-			list2[2] = list2[2] - 5;
+			list2[2] = (byte)(list2[2] - 5);
 			WorldItemAction worldItemAction = new WorldItemAction
 			{
 				D2R_2_5 = itemAction.D2R_2_5,
@@ -2537,8 +2537,8 @@ namespace DiabloBridge
 																					RunToLocation runToLocation = new RunToLocation();
 																					runToLocation.CurrentX = this.me.X;
 																					runToLocation.CurrentY = this.me.Y;
-																					runToLocation.X = this.me.X + 5;
-																					runToLocation.Y = this.me.Y + 5;
+																					runToLocation.X = (ushort)(this.me.X + 5);
+																					runToLocation.Y = (ushort)(this.me.Y + 5);
 																					runToLocation.ExtraPaths = 254;
 																					RunToTarget runToTarget = new RunToTarget();
 																					runToTarget.CurrentX = this.me.X;
@@ -2590,8 +2590,8 @@ namespace DiabloBridge
 																						RunToLocation runToLocation2 = new RunToLocation();
 																						runToLocation2.CurrentX = this.me.X;
 																						runToLocation2.CurrentY = this.me.Y;
-																						runToLocation2.X = this.me.X + 5;
-																						runToLocation2.Y = this.me.Y + 5;
+																						runToLocation2.X = (ushort)(this.me.X + 5);
+																						runToLocation2.Y = (ushort)(this.me.Y + 5);
 																						runToLocation2.ExtraPaths = 254;
 																						RunToTarget runToTarget2 = new RunToTarget();
 																						runToTarget2.CurrentX = this.me.X;
@@ -3019,7 +3019,7 @@ namespace DiabloBridge
 					list2.AddRange(array.Skip(13));
 					list2[0] = 156;
 					List<byte> list3 = list2;
-					list3[2] = list3[2] - 5;
+					list3[2] = (byte)(list3[2] - 5);
 					WorldItemAction worldItemAction = new WorldItemAction
 					{
 						D2R_2_5 = true,

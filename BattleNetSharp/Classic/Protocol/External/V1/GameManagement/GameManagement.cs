@@ -157,49 +157,49 @@ namespace Classic.Protocol.External.V1.GameManagement
 			// Token: 0x0600DDE6 RID: 56806 RVA: 0x004C05E8 File Offset: 0x004BE7E8
 			public virtual Task<GameCreateResponse> GameCreate(GameCreateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DDE7 RID: 56807 RVA: 0x004C05FC File Offset: 0x004BE7FC
 			public virtual Task<GameJoinResponse> GameJoin(GameJoinRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DDE8 RID: 56808 RVA: 0x004C0610 File Offset: 0x004BE810
 			public virtual Task<GameListResponse> GameList(GameListRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DDE9 RID: 56809 RVA: 0x004C0624 File Offset: 0x004BE824
 			public virtual Task<GameDetailResponse> GameDetail(GameDetailRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DDEA RID: 56810 RVA: 0x004C0638 File Offset: 0x004BE838
 			public virtual Task<GameMgmtResponse> GameCreateCancel(GameMgmtRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DDEB RID: 56811 RVA: 0x004C064C File Offset: 0x004BE84C
 			public virtual Task<GameMgmtResponse> GameCreateQueueTime(GameMgmtRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DDEC RID: 56812 RVA: 0x004C0660 File Offset: 0x004BE860
 			public virtual Task<GameMgmtResponse> GameMatchmake(GameMgmtRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DDED RID: 56813 RVA: 0x004C0674 File Offset: 0x004BE874
 			public virtual Task<GameGetSitePingListResponse> GameGetSitePingList(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

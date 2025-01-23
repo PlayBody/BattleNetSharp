@@ -20,7 +20,8 @@ namespace BattleNetSharp.D2.Resurrected
 				DataSource = "items.sqlite",
 				Mode = 0
 			}.ToString();
-			SqliteDbContextOptionsBuilderExtensions.UseSqlite(optionsBuilder, text, null);
+			// [Ares] should be review
+//			SqliteDbContextOptionsBuilderExtensions.UseSqlite(optionsBuilder, text, null);
 		}
 	}
 }

@@ -268,7 +268,7 @@ namespace BattleNetSharp
 								Type type3 = message3.GetType();
 								Console.WriteLine(fullName + text2 + ((type3 != null) ? type3.ToString() : null));
 								object obj = JsonConvert.DeserializeObject(message3.ToString());
-								string text3 = JsonConvert.SerializeObject(obj, 1);
+								string text3 = JsonConvert.SerializeObject(obj, Formatting.Indented);
 								Console.WriteLine(text3);
 							}
 							else
@@ -339,7 +339,7 @@ namespace BattleNetSharp
 				string text5 = ProtobufDumper.Dump(array, 0);
 				Console.WriteLine(text5);
 				object obj = JsonConvert.DeserializeObject(message.ToString());
-				string text6 = JsonConvert.SerializeObject(obj, 1);
+				string text6 = JsonConvert.SerializeObject(obj, Formatting.Indented);
 				Console.WriteLine(text6);
 			}
 			else
@@ -403,7 +403,7 @@ namespace BattleNetSharp
 					Type type4 = message2.GetType();
 					Console.WriteLine(fullName + text9 + ((type4 != null) ? type4.ToString() : null));
 					object obj3 = JsonConvert.DeserializeObject(message2.ToString());
-					string text10 = JsonConvert.SerializeObject(obj3, 1);
+					string text10 = JsonConvert.SerializeObject(obj3, Formatting.Indented);
 					Console.WriteLine(text10);
 				}
 			}

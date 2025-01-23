@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Fenris.Online;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
+using Trace = Fenris.Online.Trace;
 
 namespace Fenris.ClientMessage
 {

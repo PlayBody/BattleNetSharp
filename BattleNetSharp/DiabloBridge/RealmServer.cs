@@ -319,7 +319,7 @@ namespace DiabloBridge
 				num2 = bitReader.ReadBits(40);
 				ulong num4 = bitReader.ReadBits(1);
 				int num5 = 0;
-				int num6 = (int)(d2RCharData.charflags >> 8);
+				int num6 = (int)((int)d2RCharData.charflags >> 8);
 				bool flag = num6 >= 5;
 				if (flag)
 				{

@@ -139,7 +139,7 @@ namespace Bgs.Protocol.Notification.V2.Client
 		// Token: 0x17002C54 RID: 11348
 		// (get) Token: 0x06008D69 RID: 36201 RVA: 0x00224D8C File Offset: 0x00222F8C
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -517,10 +517,10 @@ namespace Bgs.Protocol.Notification.V2.Client
 		public const int AttributeFieldNumber = 4;
 
 		// Token: 0x04003FF0 RID: 16368
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(34U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(34U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x04003FF1 RID: 16369
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x04003FF2 RID: 16370
 		public const int CreationTimeMsFieldNumber = 5;

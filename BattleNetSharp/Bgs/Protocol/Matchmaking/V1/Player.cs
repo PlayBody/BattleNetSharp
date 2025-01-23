@@ -86,7 +86,7 @@ namespace Bgs.Protocol.Matchmaking.V1
 		// Token: 0x17002001 RID: 8193
 		// (get) Token: 0x0600635F RID: 25439 RVA: 0x00180614 File Offset: 0x0017E814
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -282,9 +282,9 @@ namespace Bgs.Protocol.Matchmaking.V1
 		public const int AttributeFieldNumber = 2;
 
 		// Token: 0x04002D59 RID: 11609
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x04002D5A RID: 11610
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 	}
 }

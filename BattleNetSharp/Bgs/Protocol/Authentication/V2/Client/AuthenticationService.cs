@@ -110,19 +110,19 @@ namespace Bgs.Protocol.Authentication.V2.Client
 			// Token: 0x0600D582 RID: 54658 RVA: 0x004B5D53 File Offset: 0x004B3F53
 			public virtual Task<NoData> Logon(LogonRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D583 RID: 54659 RVA: 0x004B5D67 File Offset: 0x004B3F67
 			public virtual Task<NoData> VerifyAuthToken(VerifyAuthTokenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D584 RID: 54660 RVA: 0x004B5D7B File Offset: 0x004B3F7B
 			public virtual Task<GenerateAuthTokenResponse> GenerateAuthToken(GenerateAuthTokenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

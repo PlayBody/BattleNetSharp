@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000AF5 RID: 2805
-	public class BlockListService : BlockListService.BlockListServiceBase, IServiceListener
+	public class BlockListService : Bgs.Protocol.BlockList.V1.Client.BlockListService.BlockListServiceBase, IServiceListener
 	{
 		// Token: 0x0600BD8A RID: 48522 RVA: 0x00486A20 File Offset: 0x00484C20
 		public override Task<NoData> BlockPlayer(BlockPlayerRequest request, ServerCallContext context)

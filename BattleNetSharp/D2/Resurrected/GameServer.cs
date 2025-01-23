@@ -236,7 +236,7 @@ namespace BattleNetSharp.D2.Resurrected
                     break;
                 }
 
-                if (this.waitingForPacket != null && this.waitingForPacket(packet))
+                if (this.waitingForPacket != null && this.waitingForPacket((Packet)packet))
                 {
                     this.waitingForPacket = null;
                 }
@@ -1559,7 +1559,7 @@ namespace BattleNetSharp.D2.Resurrected
 			});
 			UpdateQuestStatus updateQuestStatus = new UpdateQuestStatus();
 			updateQuestStatus.Quests_37 = (from s in Enumerable.Range(0, 37).ToList<int>()
-				select 0).ToList<byte>();
+				select (byte)0).ToList<byte>();
 			this.SendPacket(updateQuestStatus);
 			List<UpdateQuestInfo.QuestInfo> list3 = new List<UpdateQuestInfo.QuestInfo>();
 			for (int i = 0; i < 41; i++)

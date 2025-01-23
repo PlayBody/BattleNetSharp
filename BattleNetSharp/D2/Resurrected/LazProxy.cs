@@ -222,8 +222,8 @@ namespace BattleNetSharp.D2.Resurrected
 										Thread.Sleep(50);
 									}
 									IEnumerable<ItemAction> enumerable = this.c.GameInstance.Items.Values.Where((ItemAction i) => (i.action == ItemActionType.PutInContainer || i.action == ItemActionType.UpdateStats) && i.container == ItemContainer.Stash);
-									ushort num3;
-									ushort num4;
+									ushort num3 = 0;
+									ushort num4 = 0;
 									bool flag12 = num2 > 2 && this.FitBottomRightToTopLeft(itemAction3, enumerable, 10, 10, false, out num3, out num4);
 									if (flag12)
 									{

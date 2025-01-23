@@ -91,7 +91,7 @@ namespace Bgs.Protocol.Sns.V1
 			// Token: 0x0600CAEB RID: 51947 RVA: 0x004AA2CE File Offset: 0x004A84CE
 			public virtual Task<FacebookBnetFriendListNotificationResponse> OnFacebookBnetFriendListReceived(FacebookBnetFriendListNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

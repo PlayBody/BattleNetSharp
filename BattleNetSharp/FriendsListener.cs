@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000ADC RID: 2780
-	public class FriendsListener : FriendsListener.FriendsListenerBase, IServiceListener
+	public class FriendsListener : Bgs.Protocol.Friends.V1.FriendsListener.FriendsListenerBase, IServiceListener
 	{
 		// Token: 0x0600BCD1 RID: 48337 RVA: 0x0048370C File Offset: 0x0048190C
 		public override Task<NO_RESPONSE> OnFriendAdded(FriendNotification request, ServerCallContext context)
