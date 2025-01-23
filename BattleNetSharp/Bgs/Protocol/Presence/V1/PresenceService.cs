@@ -153,49 +153,49 @@ namespace Bgs.Protocol.Presence.V1
 			// Token: 0x0600D28A RID: 53898 RVA: 0x004B2009 File Offset: 0x004B0209
 			public virtual Task<NoData> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D28B RID: 53899 RVA: 0x004B201D File Offset: 0x004B021D
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D28C RID: 53900 RVA: 0x004B2031 File Offset: 0x004B0231
 			public virtual Task<NoData> Update(UpdateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D28D RID: 53901 RVA: 0x004B2045 File Offset: 0x004B0245
 			public virtual Task<QueryResponse> Query(QueryRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D28E RID: 53902 RVA: 0x004B2059 File Offset: 0x004B0259
 			public virtual Task<NoData> Ownership(OwnershipRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D28F RID: 53903 RVA: 0x004B206D File Offset: 0x004B026D
 			public virtual Task<NoData> SubscribeNotification(SubscribeNotificationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D290 RID: 53904 RVA: 0x004B2081 File Offset: 0x004B0281
 			public virtual Task<BatchSubscribeResponse> BatchSubscribe(BatchSubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D291 RID: 53905 RVA: 0x004B2095 File Offset: 0x004B0295
 			public virtual Task<NoData> BatchUnsubscribe(BatchUnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

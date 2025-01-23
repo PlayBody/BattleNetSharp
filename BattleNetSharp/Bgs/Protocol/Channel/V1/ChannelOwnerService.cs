@@ -135,31 +135,31 @@ namespace Bgs.Protocol.Channel.V1
 			// Token: 0x0600D968 RID: 55656 RVA: 0x004BAAFC File Offset: 0x004B8CFC
 			public virtual Task<CreateChannelResponse> CreateChannel(CreateChannelRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D969 RID: 55657 RVA: 0x004BAB10 File Offset: 0x004B8D10
 			public virtual Task<JoinChannelResponse> JoinChannel(JoinChannelRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D96A RID: 55658 RVA: 0x004BAB24 File Offset: 0x004B8D24
 			public virtual Task<ListChannelsResponse> ListChannels(ListChannelsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D96B RID: 55659 RVA: 0x004BAB38 File Offset: 0x004B8D38
 			public virtual Task<GetChannelInfoResponse> GetChannelInfo(GetChannelInfoRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D96C RID: 55660 RVA: 0x004BAB4C File Offset: 0x004B8D4C
 			public virtual Task<SubscribeChannelResponse> SubscribeChannel(SubscribeChannelRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

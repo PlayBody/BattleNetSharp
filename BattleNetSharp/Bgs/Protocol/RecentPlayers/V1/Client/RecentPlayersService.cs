@@ -129,31 +129,31 @@ namespace Bgs.Protocol.RecentPlayers.V1.Client
 			// Token: 0x0600D5E2 RID: 54754 RVA: 0x004B63F1 File Offset: 0x004B45F1
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D5E3 RID: 54755 RVA: 0x004B6405 File Offset: 0x004B4605
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D5E4 RID: 54756 RVA: 0x004B6419 File Offset: 0x004B4619
 			public virtual Task<GetStateResponse> GetState(GetStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D5E5 RID: 54757 RVA: 0x004B642D File Offset: 0x004B462D
 			public virtual Task<NoData> AddRecentPlayers(AddRecentPlayersRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D5E6 RID: 54758 RVA: 0x004B6441 File Offset: 0x004B4641
 			public virtual Task<NoData> ClearRecentPlayers(ClearRecentPlayersRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

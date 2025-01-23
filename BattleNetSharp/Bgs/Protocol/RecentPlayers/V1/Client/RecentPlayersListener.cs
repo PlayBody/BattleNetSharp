@@ -99,13 +99,13 @@ namespace Bgs.Protocol.RecentPlayers.V1.Client
 			// Token: 0x0600D5B7 RID: 54711 RVA: 0x004B6117 File Offset: 0x004B4317
 			public virtual Task<NO_RESPONSE> OnRecentPlayersAdded(RecentPlayersAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D5B8 RID: 54712 RVA: 0x004B612B File Offset: 0x004B432B
 			public virtual Task<NO_RESPONSE> OnRecentPlayersRemoved(RecentPlayersRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

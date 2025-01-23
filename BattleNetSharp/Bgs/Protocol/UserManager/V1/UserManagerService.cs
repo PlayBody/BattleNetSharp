@@ -139,43 +139,43 @@ namespace Bgs.Protocol.UserManager.V1
 			// Token: 0x0600CA2D RID: 51757 RVA: 0x004A9189 File Offset: 0x004A7389
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA2E RID: 51758 RVA: 0x004A919D File Offset: 0x004A739D
 			public virtual Task<NoData> AddRecentPlayers(AddRecentPlayersRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA2F RID: 51759 RVA: 0x004A91B1 File Offset: 0x004A73B1
 			public virtual Task<NoData> ClearRecentPlayers(ClearRecentPlayersRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA30 RID: 51760 RVA: 0x004A91C5 File Offset: 0x004A73C5
 			public virtual Task<NoData> BlockPlayer(BlockPlayerRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA31 RID: 51761 RVA: 0x004A91D9 File Offset: 0x004A73D9
 			public virtual Task<NoData> UnblockPlayer(UnblockPlayerRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA32 RID: 51762 RVA: 0x004A91ED File Offset: 0x004A73ED
 			public virtual Task<NoData> BlockPlayerForSession(BlockPlayerRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA33 RID: 51763 RVA: 0x004A9201 File Offset: 0x004A7401
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

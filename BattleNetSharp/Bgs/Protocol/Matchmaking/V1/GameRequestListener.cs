@@ -123,31 +123,31 @@ namespace Bgs.Protocol.Matchmaking.V1
 			// Token: 0x0600CB9F RID: 52127 RVA: 0x004AAD44 File Offset: 0x004A8F44
 			public virtual Task<NO_RESPONSE> OnQueueEntry(QueueEntryNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CBA0 RID: 52128 RVA: 0x004AAD58 File Offset: 0x004A8F58
 			public virtual Task<NO_RESPONSE> OnQueueExit(QueueExitNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CBA1 RID: 52129 RVA: 0x004AAD6C File Offset: 0x004A8F6C
 			public virtual Task<NO_RESPONSE> OnQueueLeft(QueueLeftNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CBA2 RID: 52130 RVA: 0x004AAD80 File Offset: 0x004A8F80
 			public virtual Task<NO_RESPONSE> OnQueueUpdate(QueueUpdateNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CBA3 RID: 52131 RVA: 0x004AAD94 File Offset: 0x004A8F94
 			public virtual Task<NO_RESPONSE> OnMatchmakingResult(MatchmakingResultNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

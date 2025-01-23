@@ -102,13 +102,13 @@ namespace Bgs.Protocol.Channel.V1
 			// Token: 0x0600DA3B RID: 55867 RVA: 0x004BBC76 File Offset: 0x004B9E76
 			public virtual Task<GetLoginTokenResponse> GetLoginToken(GetLoginTokenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DA3C RID: 55868 RVA: 0x004BBC8A File Offset: 0x004B9E8A
 			public virtual Task<GetJoinTokenResponse> GetJoinToken(GetJoinTokenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

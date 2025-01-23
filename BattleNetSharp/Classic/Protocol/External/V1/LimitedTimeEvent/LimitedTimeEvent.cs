@@ -89,7 +89,7 @@ namespace Classic.Protocol.External.V1.LimitedTimeEvent
 			// Token: 0x0600DD73 RID: 56691 RVA: 0x004BFEF8 File Offset: 0x004BE0F8
 			public virtual Task<NoData> SetLimitedTimeEventStatus(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

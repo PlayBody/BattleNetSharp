@@ -115,25 +115,25 @@ namespace Bgs.Protocol.Channel.V2.Membership
 			// Token: 0x0600D8A1 RID: 55457 RVA: 0x004B9B6C File Offset: 0x004B7D6C
 			public virtual Task<NO_RESPONSE> OnChannelAdded(ChannelAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D8A2 RID: 55458 RVA: 0x004B9B80 File Offset: 0x004B7D80
 			public virtual Task<NO_RESPONSE> OnChannelRemoved(ChannelRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D8A3 RID: 55459 RVA: 0x004B9B94 File Offset: 0x004B7D94
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationAdded(ReceivedInvitationAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D8A4 RID: 55460 RVA: 0x004B9BA8 File Offset: 0x004B7DA8
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationRemoved(ReceivedInvitationRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

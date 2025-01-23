@@ -131,37 +131,37 @@ namespace Bgs.Protocol.Whisper.V1
 			// Token: 0x0600C980 RID: 51584 RVA: 0x004A83CC File Offset: 0x004A65CC
 			public virtual Task<NO_RESPONSE> OnWhisper(WhisperNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C981 RID: 51585 RVA: 0x004A83E0 File Offset: 0x004A65E0
 			public virtual Task<NO_RESPONSE> OnWhisperEcho(WhisperEchoNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C982 RID: 51586 RVA: 0x004A83F4 File Offset: 0x004A65F4
 			public virtual Task<NO_RESPONSE> OnTypingIndicatorUpdate(TypingIndicatorNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C983 RID: 51587 RVA: 0x004A8408 File Offset: 0x004A6608
 			public virtual Task<NO_RESPONSE> OnAdvanceViewTime(AdvanceViewTimeNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C984 RID: 51588 RVA: 0x004A841C File Offset: 0x004A661C
 			public virtual Task<NO_RESPONSE> OnWhisperUpdated(WhisperUpdatedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C985 RID: 51589 RVA: 0x004A8430 File Offset: 0x004A6630
 			public virtual Task<NO_RESPONSE> OnAdvanceClearTime(AdvanceClearTimeNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

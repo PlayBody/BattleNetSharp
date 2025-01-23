@@ -176,55 +176,55 @@ namespace Bgs.Protocol.Session.V1
 			// Token: 0x0600D0B4 RID: 53428 RVA: 0x004AFE07 File Offset: 0x004AE007
 			public virtual Task<CreateSessionResponse> CreateSession(CreateSessionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0B5 RID: 53429 RVA: 0x004AFE1B File Offset: 0x004AE01B
 			public virtual Task<NoData> DestroySession(DestroySessionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0B6 RID: 53430 RVA: 0x004AFE2F File Offset: 0x004AE02F
 			public virtual Task<NoData> UpdateSession(UpdateSessionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0B7 RID: 53431 RVA: 0x004AFE43 File Offset: 0x004AE043
 			public virtual Task<GetSessionCapacityResponse> GetSessionCapacity(GetSessionCapacityRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0B8 RID: 53432 RVA: 0x004AFE57 File Offset: 0x004AE057
 			public virtual Task<GetSessionStateByBenefactorResponse> GetSessionStateByBenefactor(GetSessionStateByBenefactorRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0B9 RID: 53433 RVA: 0x004AFE6B File Offset: 0x004AE06B
 			public virtual Task<MarkSessionsAliveResponse> MarkSessionsAlive(MarkSessionsAliveRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0BA RID: 53434 RVA: 0x004AFE7F File Offset: 0x004AE07F
 			public virtual Task<GetSessionStateResponse> GetSessionState(GetSessionStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0BB RID: 53435 RVA: 0x004AFE93 File Offset: 0x004AE093
 			public virtual Task<GetSignedSessionStateResponse> GetSignedSessionState(GetSignedSessionStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D0BC RID: 53436 RVA: 0x004AFEA7 File Offset: 0x004AE0A7
 			public virtual Task<RefreshSessionKeyResponse> RefreshSessionKey(RefreshSessionKeyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

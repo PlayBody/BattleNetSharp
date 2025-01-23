@@ -148,43 +148,43 @@ namespace Bgs.Protocol.Whisper.V1
 			// Token: 0x0600C9CC RID: 51660 RVA: 0x004A89FD File Offset: 0x004A6BFD
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C9CD RID: 51661 RVA: 0x004A8A11 File Offset: 0x004A6C11
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C9CE RID: 51662 RVA: 0x004A8A25 File Offset: 0x004A6C25
 			public virtual Task<SendWhisperResponse> SendWhisper(SendWhisperRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C9CF RID: 51663 RVA: 0x004A8A39 File Offset: 0x004A6C39
 			public virtual Task<NoData> SetTypingIndicator(SetTypingIndicatorRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C9D0 RID: 51664 RVA: 0x004A8A4D File Offset: 0x004A6C4D
 			public virtual Task<NoData> AdvanceViewTime(AdvanceViewTimeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C9D1 RID: 51665 RVA: 0x004A8A61 File Offset: 0x004A6C61
 			public virtual Task<GetWhisperMessagesResponse> GetWhisperMessages(GetWhisperMessagesRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600C9D2 RID: 51666 RVA: 0x004A8A75 File Offset: 0x004A6C75
 			public virtual Task<NoData> AdvanceClearTime(AdvanceClearTimeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

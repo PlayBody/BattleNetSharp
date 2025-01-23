@@ -91,7 +91,7 @@ namespace Bgs.Protocol.Publication.V2.Client
 			// Token: 0x0600D20E RID: 53774 RVA: 0x004B1830 File Offset: 0x004AFA30
 			public virtual Task<NO_RESPONSE> OnPublicationReceived(PublicationReceivedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

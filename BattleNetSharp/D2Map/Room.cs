@@ -38,7 +38,7 @@ namespace D2Map
 		// Token: 0x0600B7BB RID: 47035 RVA: 0x002DB55C File Offset: 0x002D975C
 		public ushort GetCollision(uint x, uint y)
 		{
-			return (ushort)(this.CollisionMapBits.Get((int)(y * this.CollisionWidth + x)) ? 1 : 0);
+			return (ushort)(this.CollisionMapBits.Get((int)(y * this.CollisionWidth + x)) ? 1 : 0;
 		}
 
 		// Token: 0x0600B7BC RID: 47036 RVA: 0x002DB589 File Offset: 0x002D9789
@@ -137,7 +137,7 @@ namespace D2Map
 			for (uint num = 0U; num < 16U; num += 1U)
 			{
 				long num2 = (long)(int)addr + (long)((ulong)(num * 8U));
-				ulong num3 = (ulong)(*(UIntPtr)num2);
+				ulong num3 = (ulong)(*(UIntPtr)(num2)));
 				byte[] bytes = BitConverter.GetBytes(num3);
 				for (int i = 0; i < 8; i++)
 				{

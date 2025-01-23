@@ -92,7 +92,7 @@ namespace Classic.Protocol.External.V1.DiabloClone
 			// Token: 0x0600DE29 RID: 56873 RVA: 0x004C0CE2 File Offset: 0x004BEEE2
 			public virtual Task<NoData> DiabloCloneMessageTier(DiabloCloneMessage request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

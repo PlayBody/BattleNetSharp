@@ -115,25 +115,25 @@ namespace Bgs.Protocol.UserManager.V1
 			// Token: 0x0600CA61 RID: 51809 RVA: 0x004A9766 File Offset: 0x004A7966
 			public virtual Task<NO_RESPONSE> OnBlockedPlayerAdded(BlockedPlayerAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA62 RID: 51810 RVA: 0x004A977A File Offset: 0x004A797A
 			public virtual Task<NO_RESPONSE> OnBlockedPlayerRemoved(BlockedPlayerRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA63 RID: 51811 RVA: 0x004A978E File Offset: 0x004A798E
 			public virtual Task<NO_RESPONSE> OnRecentPlayersAdded(RecentPlayersAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CA64 RID: 51812 RVA: 0x004A97A2 File Offset: 0x004A79A2
 			public virtual Task<NO_RESPONSE> OnRecentPlayersRemoved(RecentPlayersRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

@@ -139,43 +139,43 @@ namespace Bgs.Protocol.Channel.V1
 			// Token: 0x0600D9E0 RID: 55776 RVA: 0x004BB530 File Offset: 0x004B9730
 			public virtual Task<NO_RESPONSE> OnJoin(JoinNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9E1 RID: 55777 RVA: 0x004BB544 File Offset: 0x004B9744
 			public virtual Task<NO_RESPONSE> OnMemberAdded(MemberAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9E2 RID: 55778 RVA: 0x004BB558 File Offset: 0x004B9758
 			public virtual Task<NO_RESPONSE> OnLeave(LeaveNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9E3 RID: 55779 RVA: 0x004BB56C File Offset: 0x004B976C
 			public virtual Task<NO_RESPONSE> OnMemberRemoved(MemberRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9E4 RID: 55780 RVA: 0x004BB580 File Offset: 0x004B9780
 			public virtual Task<NO_RESPONSE> OnSendMessage(SendMessageNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9E5 RID: 55781 RVA: 0x004BB594 File Offset: 0x004B9794
 			public virtual Task<NO_RESPONSE> OnUpdateChannelState(UpdateChannelStateNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9E6 RID: 55782 RVA: 0x004BB5A8 File Offset: 0x004B97A8
 			public virtual Task<NO_RESPONSE> OnUpdateMemberState(UpdateMemberStateNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

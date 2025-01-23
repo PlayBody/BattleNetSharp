@@ -102,13 +102,13 @@ namespace Bgs.Protocol.Resources.V1
 			// Token: 0x0600CB10 RID: 51984 RVA: 0x004AA4E8 File Offset: 0x004A86E8
 			public virtual Task<ContentHandle> GetContentHandle(ContentHandleRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CB11 RID: 51985 RVA: 0x004AA4FC File Offset: 0x004A86FC
 			public virtual Task<GetTitleIconsResponse> GetTitleIcons(GetTitleIconsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

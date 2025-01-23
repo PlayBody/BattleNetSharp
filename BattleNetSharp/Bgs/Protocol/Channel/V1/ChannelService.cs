@@ -123,31 +123,31 @@ namespace Bgs.Protocol.Channel.V1
 			// Token: 0x0600D9B8 RID: 55736 RVA: 0x004BB0D8 File Offset: 0x004B92D8
 			public virtual Task<NoData> RemoveMember(RemoveMemberRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9B9 RID: 55737 RVA: 0x004BB0EC File Offset: 0x004B92EC
 			public virtual Task<NoData> SendMessage(SendMessageRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9BA RID: 55738 RVA: 0x004BB100 File Offset: 0x004B9300
 			public virtual Task<NoData> UpdateChannelState(UpdateChannelStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9BB RID: 55739 RVA: 0x004BB114 File Offset: 0x004B9314
 			public virtual Task<NoData> UpdateMemberState(UpdateMemberStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D9BC RID: 55740 RVA: 0x004BB128 File Offset: 0x004B9328
 			public virtual Task<NoData> Dissolve(DissolveRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

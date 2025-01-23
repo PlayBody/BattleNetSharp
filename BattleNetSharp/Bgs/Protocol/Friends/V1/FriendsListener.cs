@@ -133,43 +133,43 @@ namespace Bgs.Protocol.Friends.V1
 			// Token: 0x0600CC5E RID: 52318 RVA: 0x004ABE53 File Offset: 0x004AA053
 			public virtual Task<NO_RESPONSE> OnFriendAdded(FriendNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC5F RID: 52319 RVA: 0x004ABE67 File Offset: 0x004AA067
 			public virtual Task<NO_RESPONSE> OnFriendRemoved(FriendNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC60 RID: 52320 RVA: 0x004ABE7B File Offset: 0x004AA07B
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationAdded(InvitationNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC61 RID: 52321 RVA: 0x004ABE8F File Offset: 0x004AA08F
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationRemoved(InvitationNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC62 RID: 52322 RVA: 0x004ABEA3 File Offset: 0x004AA0A3
 			public virtual Task<NO_RESPONSE> OnSentInvitationAdded(SentInvitationAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC63 RID: 52323 RVA: 0x004ABEB7 File Offset: 0x004AA0B7
 			public virtual Task<NO_RESPONSE> OnSentInvitationRemoved(SentInvitationRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC64 RID: 52324 RVA: 0x004ABECB File Offset: 0x004AA0CB
 			public virtual Task<NO_RESPONSE> OnUpdateFriendState(UpdateFriendStateNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

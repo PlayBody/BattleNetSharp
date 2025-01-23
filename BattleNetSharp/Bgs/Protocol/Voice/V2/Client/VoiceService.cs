@@ -102,13 +102,13 @@ namespace Bgs.Protocol.Voice.V2.Client
 			// Token: 0x0600D033 RID: 53299 RVA: 0x004AF5A9 File Offset: 0x004AD7A9
 			public virtual Task<CreateLoginCredentialsResponse> CreateLoginCredentials(CreateLoginCredentialsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D034 RID: 53300 RVA: 0x004AF5BD File Offset: 0x004AD7BD
 			public virtual Task<CreateChannelSttTokenResponse> CreateChannelSttToken(CreateChannelSttTokenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

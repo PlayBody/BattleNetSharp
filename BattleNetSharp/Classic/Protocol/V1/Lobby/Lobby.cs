@@ -171,103 +171,103 @@ namespace Classic.Protocol.V1.Lobby
 			// Token: 0x0600DC47 RID: 56391 RVA: 0x004BE1DD File Offset: 0x004BC3DD
 			public virtual Task<LobbyResponse> CreateLobby(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC48 RID: 56392 RVA: 0x004BE1F1 File Offset: 0x004BC3F1
 			public virtual Task<LobbyResponse> AcceptLobbyInvite(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC49 RID: 56393 RVA: 0x004BE205 File Offset: 0x004BC405
 			public virtual Task<LobbyResponse> RejectLobbyInvite(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC4A RID: 56394 RVA: 0x004BE219 File Offset: 0x004BC419
 			public virtual Task<LobbyResponse> DisbandLobby(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC4B RID: 56395 RVA: 0x004BE22D File Offset: 0x004BC42D
 			public virtual Task<LobbyResponse> LeavyLobby(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC4C RID: 56396 RVA: 0x004BE241 File Offset: 0x004BC441
 			public virtual Task<LobbyResponse> KickFromLobby(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC4D RID: 56397 RVA: 0x004BE255 File Offset: 0x004BC455
 			public virtual Task<LobbyResponse> PromoteToLeader(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC4E RID: 56398 RVA: 0x004BE269 File Offset: 0x004BC469
 			public virtual Task<LobbyResponse> InviteToLobby(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC4F RID: 56399 RVA: 0x004BE27D File Offset: 0x004BC47D
 			public virtual Task<LobbyResponse> NewInvite(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC50 RID: 56400 RVA: 0x004BE291 File Offset: 0x004BC491
 			public virtual Task<LobbyResponse> LobbyUpdate(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC51 RID: 56401 RVA: 0x004BE2A5 File Offset: 0x004BC4A5
 			public virtual Task<LobbyResponse> LobbyDisbanded(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC52 RID: 56402 RVA: 0x004BE2B9 File Offset: 0x004BC4B9
 			public virtual Task<LobbyResponse> LobbyKicked(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC53 RID: 56403 RVA: 0x004BE2CD File Offset: 0x004BC4CD
 			public virtual Task<LobbyResponse> PromotedToLeader(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC54 RID: 56404 RVA: 0x004BE2E1 File Offset: 0x004BC4E1
 			public virtual Task<LobbyResponse> SetLobbyMeta(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC55 RID: 56405 RVA: 0x004BE2F5 File Offset: 0x004BC4F5
 			public virtual Task<LobbyResponse> SetSelfMeta(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC56 RID: 56406 RVA: 0x004BE309 File Offset: 0x004BC509
 			public virtual Task<LobbyResponse> SendChatMessage(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DC57 RID: 56407 RVA: 0x004BE31D File Offset: 0x004BC51D
 			public virtual Task<LobbyResponse> ChatMessageRecv(LobbyRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

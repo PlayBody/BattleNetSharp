@@ -147,49 +147,49 @@ namespace Bgs.Protocol.Club.V1.Membership
 			// Token: 0x0600CF7C RID: 53116 RVA: 0x004AE531 File Offset: 0x004AC731
 			public virtual Task<NO_RESPONSE> OnClubAdded(ClubAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CF7D RID: 53117 RVA: 0x004AE545 File Offset: 0x004AC745
 			public virtual Task<NO_RESPONSE> OnClubRemoved(ClubRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CF7E RID: 53118 RVA: 0x004AE559 File Offset: 0x004AC759
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationAdded(ReceivedInvitationAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CF7F RID: 53119 RVA: 0x004AE56D File Offset: 0x004AC76D
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationRemoved(ReceivedInvitationRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CF80 RID: 53120 RVA: 0x004AE581 File Offset: 0x004AC781
 			public virtual Task<NO_RESPONSE> OnSharedSettingsChanged(SharedSettingsChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CF81 RID: 53121 RVA: 0x004AE595 File Offset: 0x004AC795
 			public virtual Task<NO_RESPONSE> OnStreamMentionAdded(StreamMentionAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CF82 RID: 53122 RVA: 0x004AE5A9 File Offset: 0x004AC7A9
 			public virtual Task<NO_RESPONSE> OnStreamMentionRemoved(StreamMentionRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CF83 RID: 53123 RVA: 0x004AE5BD File Offset: 0x004AC7BD
 			public virtual Task<NO_RESPONSE> OnStreamMentionAdvanceViewTime(StreamMentionAdvanceViewTimeNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

@@ -97,13 +97,13 @@ namespace Classic.Protocol.External.V1.GenericResource
 			// Token: 0x0600DD8B RID: 56715 RVA: 0x004C0093 File Offset: 0x004BE293
 			public virtual Task<AvailableResources> ReqGenericResource(AvailableResources request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DD8C RID: 56716 RVA: 0x004C00A7 File Offset: 0x004BE2A7
 			public virtual Task<NoData> SetAvailableResources(AvailableResources request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

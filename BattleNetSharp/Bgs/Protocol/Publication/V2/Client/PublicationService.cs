@@ -102,13 +102,13 @@ namespace Bgs.Protocol.Publication.V2.Client
 			// Token: 0x0600D227 RID: 53799 RVA: 0x004B19D8 File Offset: 0x004AFBD8
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D228 RID: 53800 RVA: 0x004B19EC File Offset: 0x004AFBEC
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

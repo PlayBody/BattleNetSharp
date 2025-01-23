@@ -123,31 +123,31 @@ namespace Bgs.Protocol.Channel.V2.Server
 			// Token: 0x0600D840 RID: 55360 RVA: 0x004B9326 File Offset: 0x004B7526
 			public virtual Task<NO_RESPONSE> OnChannelStateChanged(ChannelStateChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D841 RID: 55361 RVA: 0x004B933A File Offset: 0x004B753A
 			public virtual Task<NO_RESPONSE> OnMemberAdded(MemberAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D842 RID: 55362 RVA: 0x004B934E File Offset: 0x004B754E
 			public virtual Task<NO_RESPONSE> OnMemberRemoved(MemberRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D843 RID: 55363 RVA: 0x004B9362 File Offset: 0x004B7562
 			public virtual Task<NO_RESPONSE> OnMemberStateChanged(MemberStateChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D844 RID: 55364 RVA: 0x004B9376 File Offset: 0x004B7576
 			public virtual Task<NO_RESPONSE> OnMemberRoleChanged(MemberRoleChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

@@ -115,25 +115,25 @@ namespace Bgs.Protocol.Account.V1
 			// Token: 0x0600DB77 RID: 56183 RVA: 0x004BD4DC File Offset: 0x004BB6DC
 			public virtual Task<NO_RESPONSE> OnAccountStateUpdated(AccountStateNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DB78 RID: 56184 RVA: 0x004BD4F0 File Offset: 0x004BB6F0
 			public virtual Task<NO_RESPONSE> OnGameAccountStateUpdated(GameAccountStateNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DB79 RID: 56185 RVA: 0x004BD504 File Offset: 0x004BB704
 			public virtual Task<NO_RESPONSE> OnGameAccountsUpdated(GameAccountNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DB7A RID: 56186 RVA: 0x004BD518 File Offset: 0x004BB718
 			public virtual Task<NO_RESPONSE> OnGameSessionUpdated(GameAccountSessionNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

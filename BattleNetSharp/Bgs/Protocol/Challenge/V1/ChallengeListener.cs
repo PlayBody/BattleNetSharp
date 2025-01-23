@@ -99,13 +99,13 @@ namespace Bgs.Protocol.Challenge.V1
 			// Token: 0x0600D011 RID: 53265 RVA: 0x004AF321 File Offset: 0x004AD521
 			public virtual Task<NO_RESPONSE> OnExternalChallenge(ChallengeExternalRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D012 RID: 53266 RVA: 0x004AF335 File Offset: 0x004AD535
 			public virtual Task<NO_RESPONSE> OnExternalChallengeResult(ChallengeExternalResult request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

@@ -195,7 +195,7 @@ namespace BattleNetSharp
 			uint num = this.realmToken;
 			this.realmToken = num + 1U;
 			header2.Token = num;
-			header.ObjectId = (ulong)(-1769855759);
+			header.ObjectId = (ulong)(0xFFFFFFFF968224F1);
 			header.Status = 0U;
 			header.IsResponse = false;
 			header.RequestId = "";
@@ -1071,7 +1071,7 @@ namespace BattleNetSharp
 		// Token: 0x0600BC27 RID: 48167 RVA: 0x00475CB8 File Offset: 0x00473EB8
 		public void Disconnect()
 		{
-			ConnectionService.ConnectionServiceClient connectionServiceClient = new ConnectionService.ConnectionServiceClient(this.BgsConnection);
+            Bgs.Protocol.Connection.V1.ConnectionService.ConnectionServiceClient connectionServiceClient = new Bgs.Protocol.Connection.V1.ConnectionService.ConnectionServiceClient(this.BgsConnection);
 			connectionServiceClient.ForceDisconnect(new DisconnectNotification
 			{
 				ErrorCode = 0U
@@ -1570,7 +1570,7 @@ namespace BattleNetSharp
 					bool flag4 = gameVersionClient == null;
 					if (flag4)
 					{
-						Network.NetworkClient networkClient = new Network.NetworkClient(this.RealmConnection);
+                        Classic.Protocol.V1.Network.Network.NetworkClient networkClient = new Classic.Protocol.V1.Network.Network.NetworkClient(this.RealmConnection);
 						GameManagement.GameManagementClient gameManagementClient = new GameManagement.GameManagementClient(this.RealmConnection);
 						GameGetSitePingListResponse gameGetSitePingListResponse = gameManagementClient.GameGetSitePingList(new NoData(), null, null, default(CancellationToken));
 						foreach (GameSite gameSite in gameGetSitePingListResponse.GameSite)

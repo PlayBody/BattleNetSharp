@@ -99,13 +99,13 @@ namespace Bgs.Protocol.Presence.V1
 			// Token: 0x0600D253 RID: 53843 RVA: 0x004B1CBE File Offset: 0x004AFEBE
 			public virtual Task<NO_RESPONSE> OnSubscribe(SubscribeNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D254 RID: 53844 RVA: 0x004B1CD2 File Offset: 0x004AFED2
 			public virtual Task<NO_RESPONSE> OnStateChanged(StateChangedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

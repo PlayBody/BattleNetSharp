@@ -99,13 +99,13 @@ namespace Bgs.Protocol.BlockList.V1.Client
 			// Token: 0x0600DA5C RID: 55900 RVA: 0x004BBF0B File Offset: 0x004BA10B
 			public virtual Task<NO_RESPONSE> OnBlockedPlayerAdded(BlockedPlayerAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DA5D RID: 55901 RVA: 0x004BBF1F File Offset: 0x004BA11F
 			public virtual Task<NO_RESPONSE> OnBlockedPlayerRemoved(BlockedPlayerRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

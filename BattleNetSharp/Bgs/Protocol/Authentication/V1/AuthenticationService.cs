@@ -153,49 +153,49 @@ namespace Bgs.Protocol.Authentication.V1
 			// Token: 0x0600D50F RID: 54543 RVA: 0x004B523E File Offset: 0x004B343E
 			public virtual Task<NoData> Logon(LogonRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D510 RID: 54544 RVA: 0x004B5252 File Offset: 0x004B3452
 			public virtual Task<NoData> ModuleNotify(ModuleNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D511 RID: 54545 RVA: 0x004B5266 File Offset: 0x004B3466
 			public virtual Task<NoData> ModuleMessage(ModuleMessageRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D512 RID: 54546 RVA: 0x004B527A File Offset: 0x004B347A
 			public virtual Task<NoData> SelectGameAccount_DEPRECATED(EntityId request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D513 RID: 54547 RVA: 0x004B528E File Offset: 0x004B348E
 			public virtual Task<GenerateSSOTokenResponse> GenerateSSOToken(GenerateSSOTokenRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D514 RID: 54548 RVA: 0x004B52A2 File Offset: 0x004B34A2
 			public virtual Task<NoData> SelectGameAccount(SelectGameAccountRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D515 RID: 54549 RVA: 0x004B52B6 File Offset: 0x004B34B6
 			public virtual Task<NoData> VerifyWebCredentials(VerifyWebCredentialsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D516 RID: 54550 RVA: 0x004B52CA File Offset: 0x004B34CA
 			public virtual Task<GenerateWebCredentialsResponse> GenerateWebCredentials(GenerateWebCredentialsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

@@ -91,7 +91,7 @@ namespace Bgs.Protocol.Report.V2
 			// Token: 0x0600D1EF RID: 53743 RVA: 0x004B164D File Offset: 0x004AF84D
 			public virtual Task<NoData> SubmitReport(SubmitReportRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

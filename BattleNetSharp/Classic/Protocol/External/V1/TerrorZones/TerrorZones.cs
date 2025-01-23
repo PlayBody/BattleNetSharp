@@ -92,7 +92,7 @@ namespace Classic.Protocol.External.V1.TerrorZones
 			// Token: 0x0600DD63 RID: 56675 RVA: 0x004BFDA4 File Offset: 0x004BDFA4
 			public virtual Task<NoData> TerrorZonesMessage(TerrorZonesMessageRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

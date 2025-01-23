@@ -148,43 +148,43 @@ namespace Bgs.Protocol.Club.V1.Membership
 			// Token: 0x0600CFD4 RID: 53204 RVA: 0x004AECE7 File Offset: 0x004ACEE7
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CFD5 RID: 53205 RVA: 0x004AECFB File Offset: 0x004ACEFB
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CFD6 RID: 53206 RVA: 0x004AED0F File Offset: 0x004ACF0F
 			public virtual Task<GetStateResponse> GetState(GetStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CFD7 RID: 53207 RVA: 0x004AED23 File Offset: 0x004ACF23
 			public virtual Task<NoData> UpdateClubSharedSettings(UpdateClubSharedSettingsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CFD8 RID: 53208 RVA: 0x004AED37 File Offset: 0x004ACF37
 			public virtual Task<GetStreamMentionsResponse> GetStreamMentions(GetStreamMentionsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CFD9 RID: 53209 RVA: 0x004AED4B File Offset: 0x004ACF4B
 			public virtual Task<NoData> RemoveStreamMentions(RemoveStreamMentionsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CFDA RID: 53210 RVA: 0x004AED5F File Offset: 0x004ACF5F
 			public virtual Task<NoData> AdvanceStreamMentionViewTime(AdvanceStreamMentionViewTimeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

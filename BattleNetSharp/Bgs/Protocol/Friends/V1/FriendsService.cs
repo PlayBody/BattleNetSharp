@@ -196,79 +196,79 @@ namespace Bgs.Protocol.Friends.V1
 			// Token: 0x0600CC03 RID: 52227 RVA: 0x004AB3CC File Offset: 0x004A95CC
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC04 RID: 52228 RVA: 0x004AB3E0 File Offset: 0x004A95E0
 			public virtual Task<NoData> SendInvitation(SendInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC05 RID: 52229 RVA: 0x004AB3F4 File Offset: 0x004A95F4
 			public virtual Task<NoData> AcceptInvitation(AcceptInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC06 RID: 52230 RVA: 0x004AB408 File Offset: 0x004A9608
 			public virtual Task<NoData> RevokeInvitation(RevokeInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC07 RID: 52231 RVA: 0x004AB41C File Offset: 0x004A961C
 			public virtual Task<NoData> DeclineInvitation(DeclineInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC08 RID: 52232 RVA: 0x004AB430 File Offset: 0x004A9630
 			public virtual Task<NoData> IgnoreInvitation(IgnoreInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC09 RID: 52233 RVA: 0x004AB444 File Offset: 0x004A9644
 			public virtual Task<NoData> RemoveFriend(RemoveFriendRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC0A RID: 52234 RVA: 0x004AB458 File Offset: 0x004A9658
 			public virtual Task<ViewFriendsResponse> ViewFriends(ViewFriendsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC0B RID: 52235 RVA: 0x004AB46C File Offset: 0x004A966C
 			public virtual Task<NoData> UpdateFriendState(UpdateFriendStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC0C RID: 52236 RVA: 0x004AB480 File Offset: 0x004A9680
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC0D RID: 52237 RVA: 0x004AB494 File Offset: 0x004A9694
 			public virtual Task<NoData> RevokeAllInvitations(RevokeAllInvitationsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC0E RID: 52238 RVA: 0x004AB4A8 File Offset: 0x004A96A8
 			public virtual Task<GetFriendListResponse> GetFriendList(GetFriendListRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600CC0F RID: 52239 RVA: 0x004AB4BC File Offset: 0x004A96BC
 			public virtual Task<NoData> CreateFriendship(CreateFriendshipRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

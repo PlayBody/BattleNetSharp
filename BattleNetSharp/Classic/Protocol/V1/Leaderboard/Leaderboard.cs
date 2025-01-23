@@ -108,19 +108,19 @@ namespace Classic.Protocol.V1.Leaderboard
 			// Token: 0x0600DCB6 RID: 56502 RVA: 0x004BEF00 File Offset: 0x004BD100
 			public virtual Task<Leaderboards> GetLeaderboardIds(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DCB7 RID: 56503 RVA: 0x004BEF14 File Offset: 0x004BD114
 			public virtual Task<ServerTime> GetServerTime(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DCB8 RID: 56504 RVA: 0x004BEF28 File Offset: 0x004BD128
 			public virtual Task<NoData> SetSeasonInfo(SeasonInfo request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

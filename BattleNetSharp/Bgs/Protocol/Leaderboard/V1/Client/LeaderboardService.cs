@@ -146,37 +146,37 @@ namespace Bgs.Protocol.Leaderboard.V1.Client
 			// Token: 0x0600D642 RID: 54850 RVA: 0x004B6A5E File Offset: 0x004B4C5E
 			public virtual Task<GetRanksResponse> GetRanks(GetRanksRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D643 RID: 54851 RVA: 0x004B6A72 File Offset: 0x004B4C72
 			public virtual Task<GetRanksByPositionResponse> GetRanksByPosition(GetRanksByPositionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D644 RID: 54852 RVA: 0x004B6A86 File Offset: 0x004B4C86
 			public virtual Task<GetRanksByPositionRangeResponse> GetRanksByPositionRange(GetRanksByPositionRangeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D645 RID: 54853 RVA: 0x004B6A9A File Offset: 0x004B4C9A
 			public virtual Task<GetRanksByEntityRangeResponse> GetRanksByEntityRange(GetRanksByEntityRangeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D646 RID: 54854 RVA: 0x004B6AAE File Offset: 0x004B4CAE
 			public virtual Task<GetRanksByEntityIdsResponse> GetRanksByEntityIds(GetRanksByEntityIdsRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D647 RID: 54855 RVA: 0x004B6AC2 File Offset: 0x004B4CC2
 			public virtual Task<GetRanksByClubIdResponse> GetRanksByClubId(GetRanksByClubIdRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

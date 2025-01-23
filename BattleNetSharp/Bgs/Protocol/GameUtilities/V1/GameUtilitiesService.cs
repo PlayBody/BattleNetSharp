@@ -165,49 +165,49 @@ namespace Bgs.Protocol.GameUtilities.V1
 			// Token: 0x0600D3E7 RID: 54247 RVA: 0x004B3A24 File Offset: 0x004B1C24
 			public virtual Task<ClientResponse> ProcessClientRequest(ClientRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D3E8 RID: 54248 RVA: 0x004B3A38 File Offset: 0x004B1C38
 			public virtual Task<NoData> PresenceChannelCreated(PresenceChannelCreatedRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D3E9 RID: 54249 RVA: 0x004B3A4C File Offset: 0x004B1C4C
 			public virtual Task<GetPlayerVariablesResponse> GetPlayerVariables(GetPlayerVariablesRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D3EA RID: 54250 RVA: 0x004B3A60 File Offset: 0x004B1C60
 			public virtual Task<ServerResponse> ProcessServerRequest(ServerRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D3EB RID: 54251 RVA: 0x004B3A74 File Offset: 0x004B1C74
 			public virtual Task<NO_RESPONSE> OnGameAccountOnline(GameAccountOnlineNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D3EC RID: 54252 RVA: 0x004B3A88 File Offset: 0x004B1C88
 			public virtual Task<NO_RESPONSE> OnGameAccountOffline(GameAccountOfflineNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D3ED RID: 54253 RVA: 0x004B3A9C File Offset: 0x004B1C9C
 			public virtual Task<GetAchievementsFileResponse> GetAchievementsFile(GetAchievementsFileRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D3EE RID: 54254 RVA: 0x004B3AB0 File Offset: 0x004B1CB0
 			public virtual Task<GetAllValuesForAttributeResponse> GetAllValuesForAttribute(GetAllValuesForAttributeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

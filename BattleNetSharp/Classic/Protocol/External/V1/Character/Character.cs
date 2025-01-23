@@ -124,31 +124,31 @@ namespace Classic.Protocol.External.V1.Character
 			// Token: 0x0600DE4B RID: 56907 RVA: 0x004C0EE0 File Offset: 0x004BF0E0
 			public virtual Task<CharacterResponse> CreateCharacter(CreateCharacterRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DE4C RID: 56908 RVA: 0x004C0EF4 File Offset: 0x004BF0F4
 			public virtual Task<CharacterResponse> DeleteCharacter(DeleteCharacterRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DE4D RID: 56909 RVA: 0x004C0F08 File Offset: 0x004BF108
 			public virtual Task<CharacterResponse> ConvertCharacter(CharacterRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DE4E RID: 56910 RVA: 0x004C0F1C File Offset: 0x004BF11C
 			public virtual Task<ReadCharacterResponse> ReadCharacter(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600DE4F RID: 56911 RVA: 0x004C0F30 File Offset: 0x004BF130
 			public virtual Task<CharacterResponse> UseCharacter(CharacterRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 

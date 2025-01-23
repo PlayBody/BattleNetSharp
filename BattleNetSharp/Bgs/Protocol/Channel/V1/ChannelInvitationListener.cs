@@ -107,19 +107,19 @@ namespace Bgs.Protocol.Channel.V1
 			// Token: 0x0600D920 RID: 55584 RVA: 0x004BA664 File Offset: 0x004B8864
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationAdded(InvitationAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D921 RID: 55585 RVA: 0x004BA678 File Offset: 0x004B8878
 			public virtual Task<NO_RESPONSE> OnReceivedInvitationRemoved(InvitationRemovedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 
 			// Token: 0x0600D922 RID: 55586 RVA: 0x004BA68C File Offset: 0x004B888C
 			public virtual Task<NO_RESPONSE> OnReceivedSuggestionAdded(SuggestionAddedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+				throw new RpcException(new Status(12, ""));
 			}
 		}
 
