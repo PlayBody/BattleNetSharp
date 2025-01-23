@@ -13,14 +13,14 @@ using Grpc.Core;
 
 namespace BattleNetSharp.Services
 {
-	// Token: 0x02000AF8 RID: 2808
-	public class GameUtilitiesServiceV2 : GameUtilitiesService.GameUtilitiesServiceBase, IServiceListener
-	{
-		// Token: 0x0600BDA7 RID: 48551 RVA: 0x00486D80 File Offset: 0x00484F80
-		public override Task<GetAllValuesForAttributeResponse> GetAllValuesForAttribute(GetAllValuesForAttributeRequest request, ServerCallContext context)
-		{
-			return base.GetAllValuesForAttribute(request, context);
-		}
+    // Token: 0x02000AF8 RID: 2808
+    public class GameUtilitiesServiceV2 : GameUtilitiesService.GameUtilitiesServiceBase, IServiceListener
+    {
+        // Token: 0x0600BDA7 RID: 48551 RVA: 0x00486D80 File Offset: 0x00484F80
+        public override Task<GetAllValuesForAttributeResponse> GetAllValuesForAttribute(GetAllValuesForAttributeRequest request, ServerCallContext context)
+        {
+            return base.GetAllValuesForAttribute(request, context);
+        }
 
         // Token: 0x0600BDA8 RID: 48552 RVA: 0x00486D9C File Offset: 0x00484F9C
         public override Task<ProcessTaskResponse> ProcessTask(ProcessTaskRequest request, ServerCallContext context)
@@ -185,3 +185,4 @@ namespace BattleNetSharp.Services
         }
 
     }
+}

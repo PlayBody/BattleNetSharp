@@ -1,11 +1,14 @@
-﻿using System;
+﻿#nullable enable // @Review
+
+using System;
 using System.Runtime.CompilerServices;
+
 
 namespace D4Packets.Game.Client
 {
 	// Token: 0x02000882 RID: 2178
-	[NullableContext(2)]
-	[Nullable(0)]
+	//[NullableContext(2)]
+	//[Nullable(0)]
 	[D4Packet.OpcodeAttribute(Opcodes.SMSG_ACD_ENTER_KNOWN)]
 	public class AcdEnterKnown : D4Packet
 	{
@@ -101,12 +104,12 @@ namespace D4Packets.Game.Client
 		public long? Field27;
 
 		// Token: 0x04006432 RID: 25650
-		[Nullable(0)]
+//		[Nullable(0)]
 		[FixedLen(4U)]
 		public TypeA9417475[] Field28;
 
 		// Token: 0x04006433 RID: 25651
-		[Nullable(0)]
+//		[Nullable(0)]
 		[FixedLen(4U)]
 		public TypeA9417475[] Field29;
 	}

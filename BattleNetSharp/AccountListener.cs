@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AD5 RID: 2773
-	public class AccountListener : AccountListener.AccountListenerBase, IServiceListener
+	public class AccountListener : Bgs.Protocol.Account.V1.AccountListener.AccountListenerBase, IServiceListener
 	{
 		// Token: 0x0600BC99 RID: 48281 RVA: 0x0048323C File Offset: 0x0048143C
 		public override Task<NO_RESPONSE> OnAccountStateUpdated(AccountStateNotification request, ServerCallContext context)

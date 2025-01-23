@@ -9,7 +9,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AE9 RID: 2793
-	public class ChannelService : ChannelService.ChannelServiceBase
+	public class ChannelService : Bgs.Protocol.Channel.V2.ChannelService.ChannelServiceBase
 	{
 		// Token: 0x0600BD11 RID: 48401 RVA: 0x004849B8 File Offset: 0x00482BB8
 		public override Task<NoData> AcceptInvitation(AcceptInvitationRequest request, ServerCallContext context)

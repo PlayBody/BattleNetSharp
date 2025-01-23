@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000AF6 RID: 2806
-	public class ClubMembershipService : ClubMembershipService.ClubMembershipServiceBase, IServiceListener
+	public class ClubMembershipService : Bgs.Protocol.Club.V1.Membership.ClubMembershipService.ClubMembershipServiceBase, IServiceListener
 	{
 		// Token: 0x0600BD91 RID: 48529 RVA: 0x00486AD0 File Offset: 0x00484CD0
 		public override Task<NoData> AdvanceStreamMentionViewTime(AdvanceStreamMentionViewTimeRequest request, ServerCallContext context)

@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000AD6 RID: 2774
-	public class AuthenticationListenerV2 : AuthenticationListener.AuthenticationListenerBase, IServiceListener
+	public class AuthenticationListenerV2 : Bgs.Protocol.Authentication.V2.Client.AuthenticationListener.AuthenticationListenerBase, IServiceListener
 	{
 		// Token: 0x0600BC9E RID: 48286 RVA: 0x004832B4 File Offset: 0x004814B4
 		public override Task<NO_RESPONSE> OnExternalChallenge(ExternalChallengeNotification request, ServerCallContext context)

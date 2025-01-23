@@ -8,7 +8,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000AFC RID: 2812
-	public class PresenceService : PresenceService.PresenceServiceBase, IServiceListener
+	public class PresenceService : Bgs.Protocol.Presence.V1.PresenceService.PresenceServiceBase, IServiceListener
 	{
 		// Token: 0x0600BDC0 RID: 48576 RVA: 0x004873F8 File Offset: 0x004855F8
 		public override Task<BatchSubscribeResponse> BatchSubscribe(BatchSubscribeRequest request, ServerCallContext context)

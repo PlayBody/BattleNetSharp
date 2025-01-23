@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000B0E RID: 2830
-	public class WhisperService : WhisperService.WhisperServiceBase, IServiceListener
+	public class WhisperService : Bgs.Protocol.Whisper.V1.WhisperService.WhisperServiceBase, IServiceListener
 	{
 		// Token: 0x0600BE1F RID: 48671 RVA: 0x00488248 File Offset: 0x00486448
 		public override Task<NoData> AdvanceClearTime(AdvanceClearTimeRequest request, ServerCallContext context)

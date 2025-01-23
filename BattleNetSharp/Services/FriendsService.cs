@@ -7,7 +7,7 @@ using Grpc.Core;
 namespace BattleNetSharp.Services
 {
 	// Token: 0x02000AF7 RID: 2807
-	public class FriendsService : FriendsService.FriendsServiceBase, IServiceListener
+	public class FriendsService : Bgs.Protocol.Friends.V1.FriendsService.FriendsServiceBase, IServiceListener
 	{
 		// Token: 0x0600BD99 RID: 48537 RVA: 0x00486B9C File Offset: 0x00484D9C
 		public override Task<NoData> AcceptInvitation(AcceptInvitationRequest request, ServerCallContext context)

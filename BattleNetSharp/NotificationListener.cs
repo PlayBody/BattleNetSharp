@@ -8,7 +8,7 @@ using Grpc.Core;
 namespace BattleNetSharp
 {
 	// Token: 0x02000ADE RID: 2782
-	public class NotificationListener : NotificationListener.NotificationListenerBase, IServiceListener
+	public class NotificationListener : Bgs.Protocol.Notification.V2.Client.NotificationListener.NotificationListenerBase, IServiceListener
 	{
 		// Token: 0x0600BCE2 RID: 48354 RVA: 0x0048406C File Offset: 0x0048226C
 		public override Task<NO_RESPONSE> OnNotificationReceived(NotificationReceivedNotification request, ServerCallContext context)
