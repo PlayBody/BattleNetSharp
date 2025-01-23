@@ -68,7 +68,7 @@ namespace Bgs.Protocol.GameUtilities.V2.Client
 		// Token: 0x17002CFA RID: 11514
 		// (get) Token: 0x06008FD1 RID: 36817 RVA: 0x0022E110 File Offset: 0x0022C310
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Result
+		public RepeatedField<Bgs.Protocol.Attribute> Result
 		{
 			get
 			{
@@ -212,9 +212,9 @@ namespace Bgs.Protocol.GameUtilities.V2.Client
 		public const int ResultFieldNumber = 1;
 
 		// Token: 0x040040F5 RID: 16629
-		private static readonly FieldCodec<Attribute> _repeated_result_codec = FieldCodec.ForMessage<Attribute>(10U, Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.Attribute> _repeated_result_codec = FieldCodec.ForMessage<Bgs.Protocol.Attribute>(10U, Attribute.Parser);
 
 		// Token: 0x040040F6 RID: 16630
-		private readonly RepeatedField<Attribute> result_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.Attribute> result_ = new RepeatedField<Bgs.Protocol.Attribute>();
 	}
 }

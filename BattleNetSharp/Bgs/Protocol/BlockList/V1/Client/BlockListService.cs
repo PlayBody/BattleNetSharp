@@ -134,37 +134,37 @@ namespace Bgs.Protocol.BlockList.V1.Client
 			// Token: 0x0600DA87 RID: 55943 RVA: 0x004BC1E5 File Offset: 0x004BA3E5
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DA88 RID: 55944 RVA: 0x004BC1F9 File Offset: 0x004BA3F9
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DA89 RID: 55945 RVA: 0x004BC20D File Offset: 0x004BA40D
 			public virtual Task<GetStateResponse> GetState(GetStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DA8A RID: 55946 RVA: 0x004BC221 File Offset: 0x004BA421
 			public virtual Task<NoData> BlockPlayer(BlockPlayerRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DA8B RID: 55947 RVA: 0x004BC235 File Offset: 0x004BA435
 			public virtual Task<NoData> UnblockPlayer(UnblockPlayerRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DA8C RID: 55948 RVA: 0x004BC249 File Offset: 0x004BA449
 			public virtual Task<NoData> BlockPlayerForSession(BlockPlayerRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

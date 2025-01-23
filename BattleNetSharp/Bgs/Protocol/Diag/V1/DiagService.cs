@@ -113,19 +113,19 @@ namespace Bgs.Protocol.Diag.V1
 			// Token: 0x0600CCBA RID: 52410 RVA: 0x004AC59C File Offset: 0x004AA79C
 			public virtual Task<GetVarResponse> GetVar(GetVarRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CCBB RID: 52411 RVA: 0x004AC5B0 File Offset: 0x004AA7B0
 			public virtual Task<NoData> SetVar(SetVarRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CCBC RID: 52412 RVA: 0x004AC5C4 File Offset: 0x004AA7C4
 			public virtual Task<QueryResponse> Query(QueryRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

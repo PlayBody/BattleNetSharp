@@ -145,43 +145,43 @@ namespace Bgs.Protocol.Channel.V1
 			// Token: 0x0600D8EA RID: 55530 RVA: 0x004BA06F File Offset: 0x004B826F
 			public virtual Task<NoData> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D8EB RID: 55531 RVA: 0x004BA083 File Offset: 0x004B8283
 			public virtual Task<NoData> SendInvitation(SendInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D8EC RID: 55532 RVA: 0x004BA097 File Offset: 0x004B8297
 			public virtual Task<AcceptInvitationResponse> AcceptInvitation(AcceptInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D8ED RID: 55533 RVA: 0x004BA0AB File Offset: 0x004B82AB
 			public virtual Task<NoData> DeclineInvitation(DeclineInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D8EE RID: 55534 RVA: 0x004BA0BF File Offset: 0x004B82BF
 			public virtual Task<NoData> RevokeInvitation(RevokeInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D8EF RID: 55535 RVA: 0x004BA0D3 File Offset: 0x004B82D3
 			public virtual Task<NoData> SuggestInvitation(SuggestInvitationRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D8F0 RID: 55536 RVA: 0x004BA0E7 File Offset: 0x004B82E7
 			public virtual Task<ListChannelCountResponse> ListChannelCount(ListChannelCountRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

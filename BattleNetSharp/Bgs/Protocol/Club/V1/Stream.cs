@@ -166,7 +166,7 @@ namespace Bgs.Protocol.Club.V1
 		// Token: 0x1700276C RID: 10092
 		// (get) Token: 0x06007C21 RID: 31777 RVA: 0x001E3810 File Offset: 0x001E1A10
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -770,10 +770,10 @@ namespace Bgs.Protocol.Club.V1
 		public const int AttributeFieldNumber = 3;
 
 		// Token: 0x04003873 RID: 14451
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(26U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(26U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x04003874 RID: 14452
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x04003875 RID: 14453
 		public const int NameFieldNumber = 4;

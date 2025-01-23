@@ -89,7 +89,7 @@ namespace Bgs.Protocol.Club.V1
 		// Token: 0x170022E3 RID: 8931
 		// (get) Token: 0x06006CE1 RID: 27873 RVA: 0x001A77D4 File Offset: 0x001A59D4
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -532,10 +532,10 @@ namespace Bgs.Protocol.Club.V1
 		public const int AttributeFieldNumber = 2;
 
 		// Token: 0x0400320D RID: 12813
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x0400320E RID: 12814
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x0400320F RID: 12815
 		public const int AllowedRedeemCountFieldNumber = 3;

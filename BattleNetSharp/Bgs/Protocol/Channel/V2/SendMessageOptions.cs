@@ -103,7 +103,7 @@ namespace Bgs.Protocol.Channel.V2
 		// Token: 0x1700306D RID: 12397
 		// (get) Token: 0x06009BC3 RID: 39875 RVA: 0x0025D610 File Offset: 0x0025B810
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -292,9 +292,9 @@ namespace Bgs.Protocol.Channel.V2
 		public const int AttributeFieldNumber = 5;
 
 		// Token: 0x04004645 RID: 17989
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(42U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(42U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x04004646 RID: 17990
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 	}
 }

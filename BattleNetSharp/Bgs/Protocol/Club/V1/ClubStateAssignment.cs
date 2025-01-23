@@ -128,7 +128,7 @@ namespace Bgs.Protocol.Club.V1
 		// Token: 0x17002278 RID: 8824
 		// (get) Token: 0x06006BA8 RID: 27560 RVA: 0x001A2124 File Offset: 0x001A0324
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -458,7 +458,7 @@ namespace Bgs.Protocol.Club.V1
 		// Token: 0x1700228B RID: 8843
 		// (get) Token: 0x06006BCC RID: 27596 RVA: 0x001A2498 File Offset: 0x001A0698
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> SearchAttribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> SearchAttribute
 		{
 			get
 			{
@@ -1165,10 +1165,10 @@ namespace Bgs.Protocol.Club.V1
 		public const int AttributeFieldNumber = 2;
 
 		// Token: 0x0400313E RID: 12606
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x0400313F RID: 12607
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x04003140 RID: 12608
 		public const int NameFieldNumber = 3;
@@ -1264,10 +1264,10 @@ namespace Bgs.Protocol.Club.V1
 		public const int SearchAttributeFieldNumber = 14;
 
 		// Token: 0x0400315F RID: 12639
-		private static readonly FieldCodec<Attribute> _repeated_searchAttribute_codec = FieldCodec.ForMessage<Attribute>(114U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_searchAttribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(114U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x04003160 RID: 12640
-		private readonly RepeatedField<Attribute> searchAttribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> searchAttribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x04003161 RID: 12641
 		public const int TagClearedFieldNumber = 15;

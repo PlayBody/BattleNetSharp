@@ -113,19 +113,19 @@ namespace Bgs.Protocol.Channel.V2.Membership
 			// Token: 0x0600D883 RID: 55427 RVA: 0x004B987C File Offset: 0x004B7A7C
 			public virtual Task<SubscribeResponse> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D884 RID: 55428 RVA: 0x004B9890 File Offset: 0x004B7A90
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D885 RID: 55429 RVA: 0x004B98A4 File Offset: 0x004B7AA4
 			public virtual Task<GetStateResponse> GetState(GetStateRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

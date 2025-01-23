@@ -91,7 +91,7 @@ namespace Classic.Protocol.External.V1.GemTicket.GemTicket
 			// Token: 0x0600DDA6 RID: 56742 RVA: 0x004C02D4 File Offset: 0x004BE4D4
 			public virtual Task<GemTicketResponse> ReqGemTicket(GemTicketRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

@@ -96,13 +96,13 @@ namespace Classic.Protocol.V1.Chat
 			// Token: 0x0600DD4B RID: 56651 RVA: 0x004BFB7D File Offset: 0x004BDD7D
 			public virtual Task<ChatResponse> ChannelMessage(ChatRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DD4C RID: 56652 RVA: 0x004BFB91 File Offset: 0x004BDD91
 			public virtual Task<ChatResponse> WhisperMessage(ChatRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

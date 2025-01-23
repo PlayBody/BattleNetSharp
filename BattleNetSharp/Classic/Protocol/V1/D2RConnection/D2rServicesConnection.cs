@@ -132,37 +132,37 @@ namespace Classic.Protocol.V1.D2RConnection
 			// Token: 0x0600DD17 RID: 56599 RVA: 0x004BF629 File Offset: 0x004BD829
 			public virtual Task<AuthSessionResponse> AuthSession(AuthSessionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DD18 RID: 56600 RVA: 0x004BF63D File Offset: 0x004BD83D
 			public virtual Task<SessionUpdateResponse> SessionUpdate(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DD19 RID: 56601 RVA: 0x004BF651 File Offset: 0x004BD851
 			public virtual Task<AuthResponse> SessionDestroyed(AuthRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DD1A RID: 56602 RVA: 0x004BF665 File Offset: 0x004BD865
 			public virtual Task<CookieUpdateResponse> CookieUpdate(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DD1B RID: 56603 RVA: 0x004BF679 File Offset: 0x004BD879
 			public virtual Task<NoData> Ping(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DD1C RID: 56604 RVA: 0x004BF68D File Offset: 0x004BD88D
 			public virtual Task<NoData> ServerPing(NoData request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

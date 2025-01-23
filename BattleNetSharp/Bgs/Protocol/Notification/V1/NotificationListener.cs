@@ -91,7 +91,7 @@ namespace Bgs.Protocol.Notification.V1
 			// Token: 0x0600D372 RID: 54130 RVA: 0x004B33A3 File Offset: 0x004B15A3
 			public virtual Task<NO_RESPONSE> OnNotificationReceived(Notification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

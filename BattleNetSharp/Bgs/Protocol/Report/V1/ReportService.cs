@@ -99,13 +99,13 @@ namespace Bgs.Protocol.Report.V1
 			// Token: 0x0600D1BB RID: 53691 RVA: 0x004B131D File Offset: 0x004AF51D
 			public virtual Task<NoData> SendReport(SendReportRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D1BC RID: 53692 RVA: 0x004B1331 File Offset: 0x004AF531
 			public virtual Task<NoData> SubmitReport(SubmitReportRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

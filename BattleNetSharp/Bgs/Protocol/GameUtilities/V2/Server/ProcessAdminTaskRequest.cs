@@ -69,7 +69,7 @@ namespace Bgs.Protocol.GameUtilities.V2.Server
 		// Token: 0x17002CB7 RID: 11447
 		// (get) Token: 0x06008EDA RID: 36570 RVA: 0x0022ABD0 File Offset: 0x00228DD0
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -80,7 +80,7 @@ namespace Bgs.Protocol.GameUtilities.V2.Server
 		// Token: 0x17002CB8 RID: 11448
 		// (get) Token: 0x06008EDB RID: 36571 RVA: 0x0022ABE8 File Offset: 0x00228DE8
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Payload
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Payload
 		{
 			get
 			{
@@ -243,18 +243,18 @@ namespace Bgs.Protocol.GameUtilities.V2.Server
 		public const int AttributeFieldNumber = 1;
 
 		// Token: 0x0400408D RID: 16525
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(10U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(10U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x0400408E RID: 16526
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x0400408F RID: 16527
 		public const int PayloadFieldNumber = 2;
 
 		// Token: 0x04004090 RID: 16528
-		private static readonly FieldCodec<Attribute> _repeated_payload_codec = FieldCodec.ForMessage<Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_payload_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x04004091 RID: 16529
-		private readonly RepeatedField<Attribute> payload_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> payload_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 	}
 }

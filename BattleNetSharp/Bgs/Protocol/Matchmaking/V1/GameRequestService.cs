@@ -113,19 +113,19 @@ namespace Bgs.Protocol.Matchmaking.V1
 			// Token: 0x0600CB81 RID: 52097 RVA: 0x004AAA52 File Offset: 0x004A8C52
 			public virtual Task<QueueMatchmakingResponse> QueueMatchmaking(QueueMatchmakingRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CB82 RID: 52098 RVA: 0x004AAA66 File Offset: 0x004A8C66
 			public virtual Task<JoinGameResponse> JoinGame(JoinGameRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600CB83 RID: 52099 RVA: 0x004AAA7A File Offset: 0x004A8C7A
 			public virtual Task<NoData> CancelMatchmaking(CancelMatchmakingRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

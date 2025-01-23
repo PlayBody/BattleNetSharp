@@ -115,25 +115,25 @@ namespace Bgs.Protocol.Session.V1
 			// Token: 0x0600D092 RID: 53394 RVA: 0x004AFA6E File Offset: 0x004ADC6E
 			public virtual Task<NO_RESPONSE> OnSessionCreated(SessionCreatedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D093 RID: 53395 RVA: 0x004AFA82 File Offset: 0x004ADC82
 			public virtual Task<NO_RESPONSE> OnSessionDestroyed(SessionDestroyedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D094 RID: 53396 RVA: 0x004AFA96 File Offset: 0x004ADC96
 			public virtual Task<NO_RESPONSE> OnSessionUpdated(SessionUpdatedNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D095 RID: 53397 RVA: 0x004AFAAA File Offset: 0x004ADCAA
 			public virtual Task<NO_RESPONSE> OnSessionGameTimeWarning(SessionGameTimeWarningNotification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

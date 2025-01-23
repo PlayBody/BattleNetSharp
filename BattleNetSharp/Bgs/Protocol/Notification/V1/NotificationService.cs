@@ -115,25 +115,25 @@ namespace Bgs.Protocol.Notification.V1
 			// Token: 0x0600D350 RID: 54096 RVA: 0x004B300C File Offset: 0x004B120C
 			public virtual Task<NoData> SendNotification(Notification request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D351 RID: 54097 RVA: 0x004B3020 File Offset: 0x004B1220
 			public virtual Task<NoData> Subscribe(SubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D352 RID: 54098 RVA: 0x004B3034 File Offset: 0x004B1234
 			public virtual Task<NoData> Unsubscribe(UnsubscribeRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D353 RID: 54099 RVA: 0x004B3048 File Offset: 0x004B1248
 			public virtual Task<NoData> Publish(PublishRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

@@ -90,7 +90,7 @@ namespace D2Packets.Game.Server
 			{
 				get
 				{
-					return this.Level + this.Bonus;
+					return (byte)(this.Level + this.Bonus);
 				}
 			}
 

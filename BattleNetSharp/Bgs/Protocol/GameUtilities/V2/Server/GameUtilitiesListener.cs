@@ -113,19 +113,19 @@ namespace Bgs.Protocol.GameUtilities.V2.Server
 			// Token: 0x0600D43F RID: 54335 RVA: 0x004B41ED File Offset: 0x004B23ED
 			public virtual Task<ProcessClientTaskResponse> ProcessClientTask(ProcessClientTaskRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D440 RID: 54336 RVA: 0x004B4201 File Offset: 0x004B2401
 			public virtual Task<ProcessServerTaskResponse> ProcessServerTask(ProcessServerTaskRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600D441 RID: 54337 RVA: 0x004B4215 File Offset: 0x004B2415
 			public virtual Task<ProcessAdminTaskResponse> ProcessAdminTask(ProcessAdminTaskRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

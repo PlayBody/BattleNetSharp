@@ -105,19 +105,19 @@ namespace Classic.Protocol.V1.GameVersion
 			// Token: 0x0600DCD8 RID: 56536 RVA: 0x004BF20E File Offset: 0x004BD40E
 			public virtual Task<NoData> SetGameVersion(GameVersionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DCD9 RID: 56537 RVA: 0x004BF222 File Offset: 0x004BD422
 			public virtual Task<GameVersionResponse> GameUpdateRequired(GameVersionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 
 			// Token: 0x0600DCDA RID: 56538 RVA: 0x004BF236 File Offset: 0x004BD436
 			public virtual Task<GameVersionResponse> GameUpdateCanceled(GameVersionRequest request, ServerCallContext context)
 			{
-				throw new RpcException(new Status(12, ""));
+				throw new RpcException(new Status(StatusCode.Unimplemented, ""));
 			}
 		}
 

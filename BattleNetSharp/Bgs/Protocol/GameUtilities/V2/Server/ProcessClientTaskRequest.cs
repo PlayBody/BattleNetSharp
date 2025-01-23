@@ -70,7 +70,7 @@ namespace Bgs.Protocol.GameUtilities.V2.Server
 		// Token: 0x17002CC0 RID: 11456
 		// (get) Token: 0x06008EFF RID: 36607 RVA: 0x0022B2B0 File Offset: 0x002294B0
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Attribute
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Attribute
 		{
 			get
 			{
@@ -81,7 +81,7 @@ namespace Bgs.Protocol.GameUtilities.V2.Server
 		// Token: 0x17002CC1 RID: 11457
 		// (get) Token: 0x06008F00 RID: 36608 RVA: 0x0022B2C8 File Offset: 0x002294C8
 		[DebuggerNonUserCode]
-		public RepeatedField<Attribute> Payload
+		public RepeatedField<Bgs.Protocol.V2.Attribute> Payload
 		{
 			get
 			{
@@ -306,19 +306,19 @@ namespace Bgs.Protocol.GameUtilities.V2.Server
 		public const int AttributeFieldNumber = 1;
 
 		// Token: 0x0400409A RID: 16538
-		private static readonly FieldCodec<Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Attribute>(10U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(10U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x0400409B RID: 16539
-		private readonly RepeatedField<Attribute> attribute_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x0400409C RID: 16540
 		public const int PayloadFieldNumber = 2;
 
 		// Token: 0x0400409D RID: 16541
-		private static readonly FieldCodec<Attribute> _repeated_payload_codec = FieldCodec.ForMessage<Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
+		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_payload_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
 
 		// Token: 0x0400409E RID: 16542
-		private readonly RepeatedField<Attribute> payload_ = new RepeatedField<Attribute>();
+		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> payload_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();
 
 		// Token: 0x0400409F RID: 16543
 		public const int ClientInfoFieldNumber = 3;
