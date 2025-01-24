@@ -5,10 +5,75 @@ using System.Linq;
 
 namespace Lz4
 {
-	// Token: 0x020007AD RID: 1965
 	public class Lz4DecoderStream : Stream
 	{
-		// Token: 0x0600B417 RID: 46103 RVA: 0x002BCEE0 File Offset: 0x002BB0E0
+		public Lz4DecoderStream()
+		{
+		}
+
+		public Lz4DecoderStream( Stream input, long inputLength = long.MaxValue )
+		{
+			Reset( input, inputLength );
+		}
+
+		public void Reset( Stream input, long inputLength = long.MaxValue )
+		{
+			this.inputLength = inputLength;
+			this.input = input;
+
+			phase = DecodePhase.ReadToken;
+			
+			decodeBufferPos = 0;
+			
+			litLen = 0;
+			matLen = 0;
+			matDst = 0;
+
+			inBufPos = DecBufLen;
+			inBufEnd = DecBufLen;
+		}
+
+		public override void Close()
+		{
+			this.input = null;
+		}
+
+		private long inputLength;
+		private Stream input;
+
+		//because we might not be able to match back across invocations,
+		//we have to keep the last window's worth of bytes around for reuse
+		//we use a circular buffer for this - every time we write into this
+		//buffer, we also write the same into our output buffer
+
+		private const int DecBufLen = 0x10000;
+		private const int DecBufMask = 0xFFFF;
+
+		private const int InBufLen = 128;
+
+		private byte[] decodeBuffer = new byte[DecBufLen + InBufLen];
+		private int decodeBufferPos, inBufPos, inBufEnd;
+
+		//we keep track of which phase we're in so that we can jump right back
+		//into the correct part of decoding
+
+		private DecodePhase phase;
+
+		private enum DecodePhase
+		{
+			ReadToken,
+			ReadExLiteralLength,
+			CopyLiteral,
+			ReadOffset,
+			ReadExMatchLength,
+			CopyMatch,
+		}
+
+		//state within interruptable phases and across phase boundaries is
+		//kept here - again, so that we can punt out and restart freely
+
+		private int litLen, matLen, matDst;
+
 		public static byte[] Decompress(byte[] data)
 		{
 			byte[] array2;
@@ -32,555 +97,469 @@ namespace Lz4
 			return array2;
 		}
 
-		// Token: 0x0600B418 RID: 46104 RVA: 0x002BCF70 File Offset: 0x002BB170
-		public Lz4DecoderStream()
+		public override int Read( byte[] buffer, int offset, int count )
 		{
-		}
-
-		// Token: 0x0600B419 RID: 46105 RVA: 0x002BCF8A File Offset: 0x002BB18A
-		public Lz4DecoderStream(Stream input, long inputLength = 9223372036854775807L)
-		{
-			this.Reset(input, inputLength);
-		}
-
-		// Token: 0x0600B41A RID: 46106 RVA: 0x002BCFB0 File Offset: 0x002BB1B0
-		public void Reset(Stream input, long inputLength = 9223372036854775807L)
-		{
-			this.inputLength = inputLength;
-			this.input = input;
-			this.phase = Lz4DecoderStream.DecodePhase.ReadToken;
-			this.decodeBufferPos = 0;
-			this.litLen = 0;
-			this.matLen = 0;
-			this.matDst = 0;
-			this.inBufPos = 65536;
-			this.inBufEnd = 65536;
-		}
-
-		// Token: 0x0600B41B RID: 46107 RVA: 0x002BD005 File Offset: 0x002BB205
-		public override void Close()
-		{
-			this.input = null;
-		}
-
-		// Token: 0x0600B41C RID: 46108 RVA: 0x002BD010 File Offset: 0x002BB210
-		public override int Read(byte[] buffer, int offset, int count)
-		{
-			bool flag = buffer == null;
-			if (flag)
-			{
-				throw new ArgumentNullException("buffer");
-			}
-			bool flag2 = offset < 0 || count < 0 || buffer.Length - count < offset;
-			if (flag2)
-			{
+#if CHECK_ARGS
+			if( buffer == null )
+				throw new ArgumentNullException( "buffer" );
+			if( offset < 0 || count < 0 || buffer.Length - count < offset )
 				throw new ArgumentOutOfRangeException();
-			}
-			bool flag3 = this.input == null;
-			if (flag3)
-			{
+
+			if( input == null )
 				throw new InvalidOperationException();
-			}
-			int num = count;
-			byte[] array = this.decodeBuffer;
-			switch (this.phase)
+#endif
+			int nRead, nToRead = count;
+
+			var decBuf = decodeBuffer;
+
+			//the stringy gotos are obnoxious, but their purpose is to
+			//make it *blindingly* obvious how the state machine transitions
+			//back and forth as it reads - remember, we can yield out of
+			//this routine in several places, and we must be able to re-enter
+			//and pick up where we left off!
+
+#if LOCAL_SHADOW
+			var phase = this.phase;
+			var inBufPos = this.inBufPos;
+			var inBufEnd = this.inBufEnd;
+#endif
+			switch( phase )
 			{
-			case Lz4DecoderStream.DecodePhase.ReadToken:
-				goto IL_009B;
-			case Lz4DecoderStream.DecodePhase.ReadExLiteralLength:
-				break;
-			case Lz4DecoderStream.DecodePhase.CopyLiteral:
-				break;//goto IL_01A4; !!!
-			case Lz4DecoderStream.DecodePhase.ReadOffset:
-				goto IL_0281;
-			case Lz4DecoderStream.DecodePhase.ReadExMatchLength:
-				break;//goto IL_030B; !!!
-			case Lz4DecoderStream.DecodePhase.CopyMatch:
-				goto IL_037F;
+			case DecodePhase.ReadToken:
+				goto readToken;
+
+			case DecodePhase.ReadExLiteralLength:
+				goto readExLiteralLength;
+
+			case DecodePhase.CopyLiteral:
+				goto copyLiteral;
+
+			case DecodePhase.ReadOffset:
+				goto readOffset;
+
+			case DecodePhase.ReadExMatchLength:
+				goto readExMatchLength;
+
+			case DecodePhase.CopyMatch:
+				goto copyMatch;
+			}
+
+		readToken:
+			int tok;
+			if( inBufPos < inBufEnd )
+			{
+				tok = decBuf[inBufPos++];
+			}
+			else
+			{
+#if LOCAL_SHADOW
+				this.inBufPos = inBufPos;
+#endif
+
+				tok = ReadByteCore();
+#if LOCAL_SHADOW
+				inBufPos = this.inBufPos;
+				inBufEnd = this.inBufEnd;
+#endif
+#if CHECK_EOF
+				if( tok == -1 )
+					goto finish;
+#endif
+			}
+
+			litLen = tok >> 4;
+			matLen = (tok & 0xF) + 4;
+
+			switch( litLen )
+			{
+			case 0:
+				phase = DecodePhase.ReadOffset;
+				goto readOffset;
+
+			case 0xF:
+				phase = DecodePhase.ReadExLiteralLength;
+				goto readExLiteralLength;
+
 			default:
-				goto IL_009B;
+				phase = DecodePhase.CopyLiteral;
+				goto copyLiteral;
 			}
-			for (;;)
+
+		readExLiteralLength:
+			int exLitLen;
+			if( inBufPos < inBufEnd )
 			{
-				IL_0130:
-				bool flag4 = this.inBufPos < this.inBufEnd;
-				int num3;
-				if (flag4)
-				{
-					byte[] array2 = array;
-					int num2 = this.inBufPos;
-					this.inBufPos = num2 + 1;
-					num3 = array2[num2];
-				}
-				else
-				{
-					num3 = this.ReadByteCore();
-					bool flag5 = num3 == -1;
-					if (flag5)
-					{
-						break;
-					}
-				}
-				this.litLen += num3;
-				bool flag6 = num3 == 255;
-				if (!flag6)
-				{
-					goto IL_019B;
-				}
-			}
-			goto IL_0480;
-			IL_019B:
-			this.phase = Lz4DecoderStream.DecodePhase.CopyLiteral;
-			int num8;
-			for (;;)
-			{
-				IL_01A4:
-				int num4 = ((this.litLen < num) ? this.litLen : num);
-				bool flag7 = num4 != 0;
-				if (!flag7)
-				{
-					goto IL_0269;
-				}
-				bool flag8 = this.inBufPos + num4 <= this.inBufEnd;
-				if (flag8)
-				{
-					int num5 = offset;
-					int num6 = num4;
-					while (num6-- != 0)
-					{
-						int num7 = num5++;
-						byte[] array3 = array;
-						int num2 = this.inBufPos;
-						this.inBufPos = num2 + 1;
-						buffer[num7] = array3[num2];
-					}
-					num8 = num4;
-				}
-				else
-				{
-					num8 = this.ReadCore(buffer, offset, num4);
-					bool flag9 = num8 == 0;
-					if (flag9)
-					{
-						break;
-					}
-				}
-				offset += num8;
-				num -= num8;
-				this.litLen -= num8;
-				bool flag10 = this.litLen != 0;
-				if (!flag10)
-				{
-					goto IL_0268;
-				}
-			}
-			goto IL_0480;
-			IL_0268:
-			IL_0269:
-			bool flag11 = num == 0;
-			if (flag11)
-			{
-				goto IL_0480;
-			}
-			this.phase = Lz4DecoderStream.DecodePhase.ReadOffset;
-			goto IL_0281;
-			for (;;)
-			{
-				IL_030B:
-				bool flag12 = this.inBufPos < this.inBufEnd;
-				int num9;
-				if (flag12)
-				{
-					byte[] array4 = array;
-					int num2 = this.inBufPos;
-					this.inBufPos = num2 + 1;
-					num9 = array4[num2];
-				}
-				else
-				{
-					num9 = this.ReadByteCore();
-					bool flag13 = num9 == -1;
-					if (flag13)
-					{
-						break;
-					}
-				}
-				this.matLen += num9;
-				bool flag14 = num9 == 255;
-				if (!flag14)
-				{
-					goto IL_0376;
-				}
-			}
-			goto IL_0480;
-			IL_0376:
-			this.phase = Lz4DecoderStream.DecodePhase.CopyMatch;
-			goto IL_037F;
-			IL_009B:
-			bool flag15 = this.inBufPos < this.inBufEnd;
-			int num10;
-			if (flag15)
-			{
-				byte[] array5 = array;
-				int num2 = this.inBufPos;
-				this.inBufPos = num2 + 1;
-				num10 = array5[num2];
+				exLitLen = decBuf[inBufPos++];
 			}
 			else
 			{
-				num10 = this.ReadByteCore();
-				bool flag16 = num10 == -1;
-				if (flag16)
+#if LOCAL_SHADOW
+				this.inBufPos = inBufPos;
+#endif
+				exLitLen = ReadByteCore();
+#if LOCAL_SHADOW				
+				inBufPos = this.inBufPos;
+				inBufEnd = this.inBufEnd;
+#endif
+
+#if CHECK_EOF
+				if( exLitLen == -1 )
+					goto finish;
+#endif
+			}
+
+			litLen += exLitLen;
+			if( exLitLen == 255 )
+				goto readExLiteralLength;
+
+			phase = DecodePhase.CopyLiteral;
+			goto copyLiteral;
+
+		copyLiteral:
+			int nReadLit = litLen < nToRead ? litLen : nToRead;
+			if( nReadLit != 0 )
+			{
+				if( inBufPos + nReadLit <= inBufEnd )
 				{
-					goto IL_0480;
-				}
-			}
-			this.litLen = num10 >> 4;
-			this.matLen = (num10 & 15) + 4;
-			int num11 = this.litLen;
-			int num12 = num11;
-			if (num12 != 0)
-			{
-				if (num12 != 15)
-				{
-					this.phase = Lz4DecoderStream.DecodePhase.CopyLiteral;
-					//goto IL_01A4; !!!
-				}
-				this.phase = Lz4DecoderStream.DecodePhase.ReadExLiteralLength;
-				// goto IL_0130; !!!
-			}
-			else
-			{
-				this.phase = Lz4DecoderStream.DecodePhase.ReadOffset;
-			}
-			IL_0281:
-			bool flag17 = this.inBufPos + 1 < this.inBufEnd;
-			if (flag17)
-			{
-				this.matDst = ((int)array[this.inBufPos + 1] << 8) | (int)array[this.inBufPos];
-				this.inBufPos += 2;
-			}
-			else
-			{
-				this.matDst = this.ReadOffsetCore();
-				bool flag18 = this.matDst == -1;
-				if (flag18)
-				{
-					goto IL_0480;
-				}
-			}
-			bool flag19 = this.matLen == 19;
-			if (flag19)
-			{
-				this.phase = Lz4DecoderStream.DecodePhase.ReadExMatchLength;
-				// goto IL_030B; !!!
-			}
-			this.phase = Lz4DecoderStream.DecodePhase.CopyMatch;
-			IL_037F:
-			int num13 = ((this.matLen < num) ? this.matLen : num);
-			bool flag20 = num13 != 0;
-			if (flag20)
-			{
-				num8 = count - num;
-				int num14 = this.matDst - num8;
-				bool flag21 = num14 > 0;
-				if (flag21)
-				{
-					int num15 = this.decodeBufferPos - num14;
-					bool flag22 = num15 < 0;
-					if (flag22)
-					{
-						num15 += 65536;
-					}
-					int num16 = ((num14 < num13) ? num14 : num13);
-					int num17 = num16;
-					while (num17-- != 0)
-					{
-						buffer[offset++] = array[num15++ & 65535];
-					}
+					int ofs = offset;
+
+					for( int c = nReadLit; c-- != 0; )
+						buffer[ofs++] = decBuf[inBufPos++];
+
+					nRead = nReadLit;
 				}
 				else
 				{
-					num14 = 0;
+#if LOCAL_SHADOW
+					this.inBufPos = inBufPos;
+#endif
+					nRead = ReadCore( buffer, offset, nReadLit );
+#if LOCAL_SHADOW
+					inBufPos = this.inBufPos;
+					inBufEnd = this.inBufEnd;
+#endif
+#if CHECK_EOF
+					if( nRead == 0 )
+						goto finish;
+#endif
 				}
-				int num18 = offset - this.matDst;
-				for (int i = num14; i < num13; i++)
-				{
-					buffer[offset++] = buffer[num18++];
-				}
-				num -= num13;
-				this.matLen -= num13;
+
+				offset += nRead;
+				nToRead -= nRead;
+
+				litLen -= nRead;
+
+				if( litLen != 0 )
+					goto copyLiteral;
 			}
-			bool flag23 = num == 0;
-			if (!flag23)
+
+			if( nToRead == 0 )
+				goto finish;
+
+			phase = DecodePhase.ReadOffset;
+			goto readOffset;
+
+		readOffset:
+			if( inBufPos + 1 < inBufEnd )
 			{
-				this.phase = Lz4DecoderStream.DecodePhase.ReadToken;
-				goto IL_009B;
-			}
-			IL_0480:
-			num8 = count - num;
-			int num19 = ((num8 < 65536) ? num8 : 65536);
-			int num20 = offset - num19;
-			bool flag24 = num19 == 65536;
-			if (flag24)
-			{
-				Buffer.BlockCopy(buffer, num20, array, 0, 65536);
-				this.decodeBufferPos = 0;
+				matDst = (decBuf[inBufPos + 1] << 8) | decBuf[inBufPos];
+				inBufPos += 2;
 			}
 			else
 			{
-				int num21 = this.decodeBufferPos;
-				while (num19-- != 0)
-				{
-					array[num21++ & 65535] = buffer[num20++];
-				}
-				this.decodeBufferPos = num21 & 65535;
+#if LOCAL_SHADOW
+				this.inBufPos = inBufPos;
+#endif
+				matDst = ReadOffsetCore();
+#if LOCAL_SHADOW
+				inBufPos = this.inBufPos;
+				inBufEnd = this.inBufEnd;
+#endif
+#if CHECK_EOF
+				if( matDst == -1 )
+					goto finish;
+#endif
 			}
-			return num8;
+
+			if( matLen == 15 + 4 )
+			{
+				phase = DecodePhase.ReadExMatchLength;
+				goto readExMatchLength;
+			}
+			else
+			{
+				phase = DecodePhase.CopyMatch;
+				goto copyMatch;
+			}
+
+		readExMatchLength:
+			int exMatLen;
+			if( inBufPos < inBufEnd )
+			{
+				exMatLen = decBuf[inBufPos++];
+			}
+			else
+			{
+#if LOCAL_SHADOW
+				this.inBufPos = inBufPos;
+#endif
+				exMatLen = ReadByteCore();
+#if LOCAL_SHADOW
+				inBufPos = this.inBufPos;
+				inBufEnd = this.inBufEnd;
+#endif
+#if CHECK_EOF
+				if( exMatLen == -1 )
+					goto finish;
+#endif
+			}
+
+			matLen += exMatLen;
+			if( exMatLen == 255 )
+				goto readExMatchLength;
+
+			phase = DecodePhase.CopyMatch;
+			goto copyMatch;
+
+		copyMatch:
+			int nCpyMat = matLen < nToRead ? matLen : nToRead;
+			if( nCpyMat != 0 )
+			{
+				nRead = count - nToRead;
+
+				int bufDst = matDst - nRead;
+				if( bufDst > 0 )
+				{
+					//offset is fairly far back, we need to pull from the buffer
+
+					int bufSrc = decodeBufferPos - bufDst;
+					if( bufSrc < 0 )
+						bufSrc += DecBufLen;
+					int bufCnt = bufDst < nCpyMat ? bufDst : nCpyMat;
+
+					for( int c = bufCnt; c-- != 0; )
+						buffer[offset++] = decBuf[bufSrc++ & DecBufMask];
+				}
+				else
+				{
+					bufDst = 0;
+				}
+
+				int sOfs = offset - matDst;
+				for( int i = bufDst; i < nCpyMat; i++ )
+					buffer[offset++] = buffer[sOfs++];
+
+				nToRead -= nCpyMat;
+				matLen -= nCpyMat;
+			}
+
+			if( nToRead == 0 )
+				goto finish;
+
+			phase = DecodePhase.ReadToken;
+			goto readToken;
+
+		finish:
+			nRead = count - nToRead;
+
+			int nToBuf = nRead < DecBufLen ? nRead : DecBufLen;
+			int repPos = offset - nToBuf;
+
+			if( nToBuf == DecBufLen )
+			{
+				Buffer.BlockCopy( buffer, repPos, decBuf, 0, DecBufLen );
+				decodeBufferPos = 0;
+			}
+			else
+			{
+				int decPos = decodeBufferPos;
+
+				while( nToBuf-- != 0 )
+					decBuf[decPos++ & DecBufMask] = buffer[repPos++];
+
+				decodeBufferPos = decPos & DecBufMask;
+			}
+
+#if LOCAL_SHADOW
+			this.phase = phase;
+			this.inBufPos = inBufPos;
+#endif
+			return nRead;
 		}
 
-		// Token: 0x0600B41D RID: 46109 RVA: 0x002BD530 File Offset: 0x002BB730
 		private int ReadByteCore()
 		{
-			byte[] array = this.decodeBuffer;
-			bool flag = this.inBufPos == this.inBufEnd;
-			if (flag)
+			var buf = decodeBuffer;
+
+			if( inBufPos == inBufEnd )
 			{
-				int num = this.input.Read(array, 65536, (128L < this.inputLength) ? 128 : ((int)this.inputLength));
-				bool flag2 = num == 0;
-				if (flag2)
-				{
+				int nRead = input.Read( buf, DecBufLen,
+					InBufLen < inputLength ? InBufLen : (int)inputLength );
+
+#if CHECK_EOF
+				if( nRead == 0 )
 					return -1;
-				}
-				this.inputLength -= (long)num;
-				this.inBufPos = 65536;
-				this.inBufEnd = 65536 + num;
+#endif
+
+				inputLength -= nRead;
+
+				inBufPos = DecBufLen;
+				inBufEnd = DecBufLen + nRead;
 			}
-			byte[] array2 = array;
-			int num2 = this.inBufPos;
-			this.inBufPos = num2 + 1;
-			return array2[num2];
+
+			return buf[inBufPos++];
 		}
 
-		// Token: 0x0600B41E RID: 46110 RVA: 0x002BD5D8 File Offset: 0x002BB7D8
 		private int ReadOffsetCore()
 		{
-			byte[] array = this.decodeBuffer;
-			bool flag = this.inBufPos == this.inBufEnd;
-			if (flag)
+			var buf = decodeBuffer;
+
+			if( inBufPos == inBufEnd )
 			{
-				int num = this.input.Read(array, 65536, (128L < this.inputLength) ? 128 : ((int)this.inputLength));
-				bool flag2 = num == 0;
-				if (flag2)
+				int nRead = input.Read( buf, DecBufLen,
+					InBufLen < inputLength ? InBufLen : (int)inputLength );
+
+#if CHECK_EOF
+				if( nRead == 0 )
+					return -1;
+#endif
+
+				inputLength -= nRead;
+
+				inBufPos = DecBufLen;
+				inBufEnd = DecBufLen + nRead;
+			}
+
+			if( inBufEnd - inBufPos == 1 )
+			{
+				buf[DecBufLen] = buf[inBufPos];
+
+				int nRead = input.Read( buf, DecBufLen + 1,
+					InBufLen - 1 < inputLength ? InBufLen - 1 : (int)inputLength );
+
+#if CHECK_EOF
+				if( nRead == 0 )
 				{
+					inBufPos = DecBufLen;
+					inBufEnd = DecBufLen + 1;
+
 					return -1;
 				}
-				this.inputLength -= (long)num;
-				this.inBufPos = 65536;
-				this.inBufEnd = 65536 + num;
+#endif
+
+				inputLength -= nRead;
+
+				inBufPos = DecBufLen;
+				inBufEnd = DecBufLen + nRead + 1;
 			}
-			bool flag3 = this.inBufEnd - this.inBufPos == 1;
-			if (flag3)
-			{
-				array[65536] = array[this.inBufPos];
-				int num2 = this.input.Read(array, 65537, (127L < this.inputLength) ? 127 : ((int)this.inputLength));
-				bool flag4 = num2 == 0;
-				if (flag4)
-				{
-					this.inBufPos = 65536;
-					this.inBufEnd = 65537;
-					return -1;
-				}
-				this.inputLength -= (long)num2;
-				this.inBufPos = 65536;
-				this.inBufEnd = 65536 + num2 + 1;
-			}
-			int num3 = ((int)array[this.inBufPos + 1] << 8) | (int)array[this.inBufPos];
-			this.inBufPos += 2;
-			return num3;
+
+			int ret = (buf[inBufPos + 1] << 8) | buf[inBufPos];
+			inBufPos += 2;
+
+			return ret;
 		}
 
-		// Token: 0x0600B41F RID: 46111 RVA: 0x002BD738 File Offset: 0x002BB938
-		private int ReadCore(byte[] buffer, int offset, int count)
+		private int ReadCore( byte[] buffer, int offset, int count )
 		{
-			int num = count;
-			byte[] array = this.decodeBuffer;
-			int num2 = this.inBufEnd - this.inBufPos;
-			int num3 = ((num < num2) ? num : num2);
-			bool flag = num3 != 0;
-			if (flag)
+			int nToRead = count;
+
+			var buf = decodeBuffer;
+			int inBufLen = inBufEnd - inBufPos;
+
+			int fromBuf = nToRead < inBufLen ? nToRead : inBufLen;
+			if( fromBuf != 0 )
 			{
-				int num4 = this.inBufPos;
-				int num5 = num3;
-				while (num5-- != 0)
-				{
-					buffer[offset++] = array[num4++];
-				}
-				this.inBufPos = num4;
-				num -= num3;
+				var bufPos = inBufPos;
+
+				for( int c = fromBuf; c-- != 0; )
+					buffer[offset++] = buf[bufPos++];
+
+				inBufPos = bufPos;
+				nToRead -= fromBuf;
 			}
-			bool flag2 = num != 0;
-			if (flag2)
+
+			if( nToRead != 0 )
 			{
-				bool flag3 = num >= 128;
-				int num6;
-				if (flag3)
+				int nRead;
+
+				if( nToRead >= InBufLen )
 				{
-					num6 = this.input.Read(buffer, offset, ((long)num < this.inputLength) ? num : ((int)this.inputLength));
-					num -= num6;
+					nRead = input.Read( buffer, offset,
+						nToRead < inputLength ? nToRead : (int)inputLength );
+					nToRead -= nRead;
 				}
 				else
 				{
-					num6 = this.input.Read(array, 65536, (128L < this.inputLength) ? 128 : ((int)this.inputLength));
-					this.inBufPos = 65536;
-					this.inBufEnd = 65536 + num6;
-					num3 = ((num < num6) ? num : num6);
-					int num7 = this.inBufPos;
-					int num8 = num3;
-					while (num8-- != 0)
-					{
-						buffer[offset++] = array[num7++];
-					}
-					this.inBufPos = num7;
-					num -= num3;
+					nRead = input.Read( buf, DecBufLen,
+						InBufLen < inputLength ? InBufLen : (int)inputLength );
+
+					inBufPos = DecBufLen;
+					inBufEnd = DecBufLen + nRead;
+
+					fromBuf = nToRead < nRead ? nToRead : nRead;
+
+					var bufPos = inBufPos;
+
+					for( int c = fromBuf; c-- != 0; )
+						buffer[offset++] = buf[bufPos++];
+
+					inBufPos = bufPos;
+					nToRead -= fromBuf;
 				}
-				this.inputLength -= (long)num6;
+
+				inputLength -= nRead;
 			}
-			return count - num;
+
+			return count - nToRead;
 		}
 
-		// Token: 0x170037C1 RID: 14273
-		// (get) Token: 0x0600B420 RID: 46112 RVA: 0x002BD8A4 File Offset: 0x002BBAA4
+		#region Stream internals
+
 		public override bool CanRead
 		{
-			get
-			{
-				return true;
-			}
+			get { return true; }
 		}
 
-		// Token: 0x170037C2 RID: 14274
-		// (get) Token: 0x0600B421 RID: 46113 RVA: 0x002BD8B8 File Offset: 0x002BBAB8
 		public override bool CanSeek
 		{
-			get
-			{
-				return false;
-			}
+			get { return false; }
 		}
 
-		// Token: 0x170037C3 RID: 14275
-		// (get) Token: 0x0600B422 RID: 46114 RVA: 0x002BD8CC File Offset: 0x002BBACC
 		public override bool CanWrite
 		{
-			get
-			{
-				return false;
-			}
+			get { return false; }
 		}
 
-		// Token: 0x0600B423 RID: 46115 RVA: 0x002BD8DF File Offset: 0x002BBADF
 		public override void Flush()
 		{
 		}
 
-		// Token: 0x170037C4 RID: 14276
-		// (get) Token: 0x0600B424 RID: 46116 RVA: 0x002BD8E2 File Offset: 0x002BBAE2
 		public override long Length
 		{
-			get
-			{
-				throw new NotSupportedException();
-			}
+			get { throw new NotSupportedException(); }
 		}
 
-		// Token: 0x170037C5 RID: 14277
-		// (get) Token: 0x0600B425 RID: 46117 RVA: 0x002BD8EA File Offset: 0x002BBAEA
-		// (set) Token: 0x0600B426 RID: 46118 RVA: 0x002BD8F2 File Offset: 0x002BBAF2
 		public override long Position
 		{
-			get
-			{
-				throw new NotSupportedException();
-			}
-			set
-			{
-				throw new NotSupportedException();
-			}
+			get { throw new NotSupportedException(); }
+			set { throw new NotSupportedException(); }
 		}
 
-		// Token: 0x0600B427 RID: 46119 RVA: 0x002BD8FA File Offset: 0x002BBAFA
-		public override long Seek(long offset, SeekOrigin origin)
+		public override long Seek( long offset, SeekOrigin origin )
 		{
 			throw new NotSupportedException();
 		}
 
-		// Token: 0x0600B428 RID: 46120 RVA: 0x002BD902 File Offset: 0x002BBB02
-		public override void SetLength(long value)
+		public override void SetLength( long value )
 		{
 			throw new NotSupportedException();
 		}
 
-		// Token: 0x0600B429 RID: 46121 RVA: 0x002BD90A File Offset: 0x002BBB0A
-		public override void Write(byte[] buffer, int offset, int count)
+		public override void Write( byte[] buffer, int offset, int count )
 		{
 			throw new NotSupportedException();
 		}
 
-		// Token: 0x04005956 RID: 22870
-		private long inputLength;
-
-		// Token: 0x04005957 RID: 22871
-		private Stream input;
-
-		// Token: 0x04005958 RID: 22872
-		private const int DecBufLen = 65536;
-
-		// Token: 0x04005959 RID: 22873
-		private const int DecBufMask = 65535;
-
-		// Token: 0x0400595A RID: 22874
-		private const int InBufLen = 128;
-
-		// Token: 0x0400595B RID: 22875
-		private byte[] decodeBuffer = new byte[65664];
-
-		// Token: 0x0400595C RID: 22876
-		private int decodeBufferPos;
-
-		// Token: 0x0400595D RID: 22877
-		private int inBufPos;
-
-		// Token: 0x0400595E RID: 22878
-		private int inBufEnd;
-
-		// Token: 0x0400595F RID: 22879
-		private Lz4DecoderStream.DecodePhase phase;
-
-		// Token: 0x04005960 RID: 22880
-		private int litLen;
-
-		// Token: 0x04005961 RID: 22881
-		private int matLen;
-
-		// Token: 0x04005962 RID: 22882
-		private int matDst;
-
-		// Token: 0x020012DA RID: 4826
-		private enum DecodePhase
-		{
-			// Token: 0x040099E1 RID: 39393
-			ReadToken,
-			// Token: 0x040099E2 RID: 39394
-			ReadExLiteralLength,
-			// Token: 0x040099E3 RID: 39395
-			CopyLiteral,
-			// Token: 0x040099E4 RID: 39396
-			ReadOffset,
-			// Token: 0x040099E5 RID: 39397
-			ReadExMatchLength,
-			// Token: 0x040099E6 RID: 39398
-			CopyMatch
-		}
+		#endregion
 	}
 }
