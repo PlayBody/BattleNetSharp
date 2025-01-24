@@ -58,7 +58,7 @@ namespace BattleNetSharp
 			uint num = this.token;
 			this.token = num + 1U;
 			header2.Token = num;
-			header.ObjectId = (ulong)(-1769855759);
+			header.ObjectId = 2525111537UL; // Equivalent to -1769855759 as an unsigned value
 			header.Status = 0U;
 			Type type = Type.GetType(method.ServiceName.Replace("_", ""), false, true);
 			bool flag = this.logging;
@@ -250,7 +250,7 @@ namespace BattleNetSharp
 									header2.Status = 0U;
 									header2.Size = (uint)array3.Length;
 									header2.IsResponse = true;
-									header2.ObjectId = (ulong)(-1769855759);
+									header2.ObjectId = 2525111537UL;
 									header2.RequestId = "";
 									bool flag6 = message is CookieUpdateResponse;
 									if (flag6)

@@ -41,7 +41,7 @@ namespace PacketDotNet
 				array2 = new byte[length];
 				for (int i = 0; i < array2.Length; i++)
 				{
-					array2[i] = array5[i] ^ array6[i];
+					array2[i] = (byte)(array5[i] ^ array6[i]);
 				}
 			}
 			return array2;

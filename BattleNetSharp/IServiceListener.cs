@@ -26,7 +26,8 @@ namespace BattleNetSharp
 		{
 			get
 			{
-				return (ServiceDescriptor)((Type)base.GetType().BaseType.GetCustomAttributesData()[0].ConstructorArguments[0].Value).GetProperty("Descriptor").GetValue(null);
+				// @Review base -> this
+				return (ServiceDescriptor)((Type)this.GetType().BaseType.GetCustomAttributesData()[0].ConstructorArguments[0].Value).GetProperty("Descriptor").GetValue(null);
 			}
 		}
 
@@ -117,7 +118,7 @@ namespace BattleNetSharp
             MethodDescriptor methodDescriptor = this.Descriptor.Methods.First(m =>
                 m.GetOptions().GetExtension<BGSMethodOptions>(MethodOptionsExtensions.MethodOptions_).Id == methodId);
 
-            MethodInfo method = base.GetType().GetMethod(methodDescriptor.Name);
+            MethodInfo method = this.GetType().GetMethod(methodDescriptor.Name);
             Type parameterType = method.GetParameters()[0].ParameterType;
 
             IMessage message = (IMessage)Activator.CreateInstance(parameterType);
@@ -149,7 +150,7 @@ namespace BattleNetSharp
 		IMessage GetPacket(uint methodId, byte[] input, out string methodName)
 		{
 			MethodDescriptor methodDescriptor = this.Descriptor.Methods.First((MethodDescriptor m) => m.GetOptions().GetExtension<BGSMethodOptions>(MethodOptionsExtensions.MethodOptions_).Id == methodId);
-			MethodInfo method = base.GetType().GetMethod(methodDescriptor.Name);
+			MethodInfo method = this.GetType().GetMethod(methodDescriptor.Name);
 			methodName = method.Name;
 			Type parameterType = method.GetParameters()[0].ParameterType;
 			IMessage message = (IMessage)Activator.CreateInstance(parameterType);
@@ -161,7 +162,7 @@ namespace BattleNetSharp
 		IMessage GetResult(uint methodId, byte[] input, out string methodName)
 		{
 			MethodDescriptor methodDescriptor = this.Descriptor.Methods.First((MethodDescriptor m) => m.GetOptions().GetExtension<BGSMethodOptions>(MethodOptionsExtensions.MethodOptions_).Id == methodId);
-			MethodInfo method = base.GetType().GetMethod(methodDescriptor.Name);
+			MethodInfo method = this.GetType().GetMethod(methodDescriptor.Name);
 			methodName = method.Name;
 			Type type = method.ReturnType.GenericTypeArguments[0];
 			IMessage message = (IMessage)Activator.CreateInstance(type);

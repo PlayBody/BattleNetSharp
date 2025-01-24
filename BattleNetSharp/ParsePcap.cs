@@ -19,8 +19,8 @@ namespace BattleNetSharp
 		{
 			ICaptureDevice captureDevice = new CaptureFileReaderDevice(pcap);
 			TcpStream tcpStream = new TcpStream();
-			PacketCapture packetCapture;
-			while (captureDevice.GetNextPacket(ref packetCapture) == 1)
+            PacketCapture packetCapture = default;
+            while (captureDevice.GetNextPacket(out packetCapture) == GetPacketStatus.PacketRead)
 			{
 				RawCapture packet = packetCapture.GetPacket();
 				Packet packet2 = Packet.ParsePacket(packet.LinkLayerType, packet.Data);
@@ -43,8 +43,8 @@ namespace BattleNetSharp
 
             while (true)
             {
-                PacketCapture packetCapture;
-                if (captureDevice.GetNextPacket(ref packetCapture) == -2)
+                PacketCapture packetCapture = default;
+                if (captureDevice.GetNextPacket(out packetCapture) == GetPacketStatus.NoRemainingPackets)
                     break;
 
                 Packet payloadPacket = packetCapture.GetPacket().GetPacket().PayloadPacket?.PayloadPacket;
@@ -114,8 +114,8 @@ namespace BattleNetSharp
 
             while (true)
             {
-                PacketCapture packetCapture;
-                if (captureDevice.GetNextPacket(ref packetCapture) == -2)
+                PacketCapture packetCapture = default;
+                if (captureDevice.GetNextPacket(out packetCapture) == GetPacketStatus.NoRemainingPackets)
                     break;
 
                 Packet payloadPacket = packetCapture.GetPacket().GetPacket().PayloadPacket?.PayloadPacket;

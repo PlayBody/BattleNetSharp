@@ -81,7 +81,7 @@ namespace Utilities.Security
 								byte[] array9 = array8;
 								int num4 = k;
 								byte b2 = b;
-								b = b2 - 1;
+								b = (byte)(b2 - 1);
 								array9[num4] = b2;
 							}
 						}

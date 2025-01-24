@@ -90,11 +90,11 @@ namespace Lz4
 			case Lz4DecoderStream.DecodePhase.ReadExLiteralLength:
 				break;
 			case Lz4DecoderStream.DecodePhase.CopyLiteral:
-				goto IL_01A4;
+				break;//goto IL_01A4; !!!
 			case Lz4DecoderStream.DecodePhase.ReadOffset:
 				goto IL_0281;
 			case Lz4DecoderStream.DecodePhase.ReadExMatchLength:
-				goto IL_030B;
+				break;//goto IL_030B; !!!
 			case Lz4DecoderStream.DecodePhase.CopyMatch:
 				goto IL_037F;
 			default:
@@ -244,10 +244,10 @@ namespace Lz4
 				if (num12 != 15)
 				{
 					this.phase = Lz4DecoderStream.DecodePhase.CopyLiteral;
-					goto IL_01A4;
+					//goto IL_01A4; !!!
 				}
 				this.phase = Lz4DecoderStream.DecodePhase.ReadExLiteralLength;
-				goto IL_0130;
+				// goto IL_0130; !!!
 			}
 			else
 			{
@@ -273,7 +273,7 @@ namespace Lz4
 			if (flag19)
 			{
 				this.phase = Lz4DecoderStream.DecodePhase.ReadExMatchLength;
-				goto IL_030B;
+				// goto IL_030B; !!!
 			}
 			this.phase = Lz4DecoderStream.DecodePhase.CopyMatch;
 			IL_037F:

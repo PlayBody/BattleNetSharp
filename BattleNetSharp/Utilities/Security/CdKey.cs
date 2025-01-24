@@ -228,7 +228,7 @@ namespace Utilities.Security
 					if (flag4)
 					{
 						num5 = num6;
-						byte b2 = ((byte)(num5 & 255U) & 7) ^ b;
+						byte b2 = (byte)(((byte)(num5 & 255U) & 7) ^ b);
 						num5 >>= 3;
 						array[l] = (char)b2;
 						num6 = num5;
@@ -269,8 +269,8 @@ namespace Utilities.Security
 				uint num2 = (num + 1973U) % 52U;
 				num = (num2 + 1973U) % 52U;
 				byte b = CdKey.w3KeyMap[(int)array[i]];
-				array2[(int)num2] = b / 5;
-				array2[(int)num] = b % 5;
+				array2[(int)num2] = (byte)(b / 5);
+				array2[(int)num] = (byte)(b % 5);
 			}
 			i = 52;
 			byte[] array4 = new byte[16];

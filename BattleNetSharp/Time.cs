@@ -23,7 +23,7 @@ public static class Time
 	{
 		get
 		{
-			return DateTime.Now.ToUnixTimeMilliseconds();
+			return new DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds();
 		}
 	}
 
@@ -94,7 +94,7 @@ public static class Time
 	// Token: 0x0600001E RID: 30 RVA: 0x000024E0 File Offset: 0x000006E0
 	public static long DateTimeToUnixTime(DateTime dateTime)
 	{
-		return dateTime.ToUnixTimeSeconds();
+		return new DateTimeOffset(dateTime).ToUnixTimeSeconds();
 	}
 
 	// Token: 0x0600001F RID: 31 RVA: 0x00002500 File Offset: 0x00000700

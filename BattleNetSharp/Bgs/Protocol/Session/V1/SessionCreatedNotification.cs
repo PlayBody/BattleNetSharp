@@ -73,7 +73,7 @@ namespace Bgs.Protocol.Session.V1
 		// (get) Token: 0x06008216 RID: 33302 RVA: 0x001F9A78 File Offset: 0x001F7C78
 		// (set) Token: 0x06008217 RID: 33303 RVA: 0x001F9A90 File Offset: 0x001F7C90
 		[DebuggerNonUserCode]
-		public Identity Identity
+		public Bgs.Protocol.Account.V1.Identity Identity
 		{
 			get
 			{
@@ -441,7 +441,7 @@ namespace Bgs.Protocol.Session.V1
 					bool flag3 = this.identity_ == null;
 					if (flag3)
 					{
-						this.Identity = new Identity();
+						this.Identity = new Bgs.Protocol.Account.V1.Identity();
 					}
 					this.Identity.MergeFrom(other.Identity);
 				}
@@ -500,7 +500,7 @@ namespace Bgs.Protocol.Session.V1
 						bool flag = this.identity_ == null;
 						if (flag)
 						{
-							this.Identity = new Identity();
+							this.Identity = new Bgs.Protocol.Account.V1.Identity();
 						}
 						input.ReadMessage(this.Identity);
 					}
@@ -543,7 +543,7 @@ namespace Bgs.Protocol.Session.V1
 		public const int IdentityFieldNumber = 1;
 
 		// Token: 0x04003ADB RID: 15067
-		private Identity identity_;
+		private Bgs.Protocol.Account.V1.Identity identity_;
 
 		// Token: 0x04003ADC RID: 15068
 		public const int ReasonFieldNumber = 2;
