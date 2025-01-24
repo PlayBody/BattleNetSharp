@@ -11,20 +11,20 @@ namespace Lz4
 		{
 		}
 
-		public Lz4DecoderStream( Stream input, long inputLength = long.MaxValue )
+		public Lz4DecoderStream(Stream input, long inputLength = long.MaxValue)
 		{
-			Reset( input, inputLength );
+			Reset(input, inputLength);
 		}
 
-		public void Reset( Stream input, long inputLength = long.MaxValue )
+		public void Reset(Stream input, long inputLength = long.MaxValue)
 		{
 			this.inputLength = inputLength;
 			this.input = input;
 
 			phase = DecodePhase.ReadToken;
-			
+
 			decodeBufferPos = 0;
-			
+
 			litLen = 0;
 			matLen = 0;
 			matDst = 0;
@@ -82,7 +82,7 @@ namespace Lz4
 				Lz4DecoderStream lz4DecoderStream = new Lz4DecoderStream(memoryStream, long.MaxValue);
 				List<byte> list = new List<byte>();
 				byte[] array = new byte[2048];
-				for (;;)
+				for (; ; )
 				{
 					int num = lz4DecoderStream.Read(array, 0, array.Length);
 					bool flag = num == 0;
@@ -97,7 +97,7 @@ namespace Lz4
 			return array2;
 		}
 
-		public override int Read( byte[] buffer, int offset, int count )
+		public override int Read(byte[] buffer, int offset, int count)
 		{
 #if CHECK_ARGS
 			if( buffer == null )
@@ -123,30 +123,30 @@ namespace Lz4
 			var inBufPos = this.inBufPos;
 			var inBufEnd = this.inBufEnd;
 #endif
-			switch( phase )
+			switch (phase)
 			{
-			case DecodePhase.ReadToken:
-				goto readToken;
+				case DecodePhase.ReadToken:
+					goto readToken;
 
-			case DecodePhase.ReadExLiteralLength:
-				goto readExLiteralLength;
+				case DecodePhase.ReadExLiteralLength:
+					goto readExLiteralLength;
 
-			case DecodePhase.CopyLiteral:
-				goto copyLiteral;
+				case DecodePhase.CopyLiteral:
+					goto copyLiteral;
 
-			case DecodePhase.ReadOffset:
-				goto readOffset;
+				case DecodePhase.ReadOffset:
+					goto readOffset;
 
-			case DecodePhase.ReadExMatchLength:
-				goto readExMatchLength;
+				case DecodePhase.ReadExMatchLength:
+					goto readExMatchLength;
 
-			case DecodePhase.CopyMatch:
-				goto copyMatch;
+				case DecodePhase.CopyMatch:
+					goto copyMatch;
 			}
 
 		readToken:
 			int tok;
-			if( inBufPos < inBufEnd )
+			if (inBufPos < inBufEnd)
 			{
 				tok = decBuf[inBufPos++];
 			}
@@ -170,24 +170,24 @@ namespace Lz4
 			litLen = tok >> 4;
 			matLen = (tok & 0xF) + 4;
 
-			switch( litLen )
+			switch (litLen)
 			{
-			case 0:
-				phase = DecodePhase.ReadOffset;
-				goto readOffset;
+				case 0:
+					phase = DecodePhase.ReadOffset;
+					goto readOffset;
 
-			case 0xF:
-				phase = DecodePhase.ReadExLiteralLength;
-				goto readExLiteralLength;
+				case 0xF:
+					phase = DecodePhase.ReadExLiteralLength;
+					goto readExLiteralLength;
 
-			default:
-				phase = DecodePhase.CopyLiteral;
-				goto copyLiteral;
+				default:
+					phase = DecodePhase.CopyLiteral;
+					goto copyLiteral;
 			}
 
 		readExLiteralLength:
 			int exLitLen;
-			if( inBufPos < inBufEnd )
+			if (inBufPos < inBufEnd)
 			{
 				exLitLen = decBuf[inBufPos++];
 			}
@@ -197,7 +197,7 @@ namespace Lz4
 				this.inBufPos = inBufPos;
 #endif
 				exLitLen = ReadByteCore();
-#if LOCAL_SHADOW				
+#if LOCAL_SHADOW
 				inBufPos = this.inBufPos;
 				inBufEnd = this.inBufEnd;
 #endif
@@ -209,7 +209,7 @@ namespace Lz4
 			}
 
 			litLen += exLitLen;
-			if( exLitLen == 255 )
+			if (exLitLen == 255)
 				goto readExLiteralLength;
 
 			phase = DecodePhase.CopyLiteral;
@@ -217,13 +217,13 @@ namespace Lz4
 
 		copyLiteral:
 			int nReadLit = litLen < nToRead ? litLen : nToRead;
-			if( nReadLit != 0 )
+			if (nReadLit != 0)
 			{
-				if( inBufPos + nReadLit <= inBufEnd )
+				if (inBufPos + nReadLit <= inBufEnd)
 				{
 					int ofs = offset;
 
-					for( int c = nReadLit; c-- != 0; )
+					for (int c = nReadLit; c-- != 0;)
 						buffer[ofs++] = decBuf[inBufPos++];
 
 					nRead = nReadLit;
@@ -233,7 +233,7 @@ namespace Lz4
 #if LOCAL_SHADOW
 					this.inBufPos = inBufPos;
 #endif
-					nRead = ReadCore( buffer, offset, nReadLit );
+					nRead = ReadCore(buffer, offset, nReadLit);
 #if LOCAL_SHADOW
 					inBufPos = this.inBufPos;
 					inBufEnd = this.inBufEnd;
@@ -249,18 +249,18 @@ namespace Lz4
 
 				litLen -= nRead;
 
-				if( litLen != 0 )
+				if (litLen != 0)
 					goto copyLiteral;
 			}
 
-			if( nToRead == 0 )
+			if (nToRead == 0)
 				goto finish;
 
 			phase = DecodePhase.ReadOffset;
 			goto readOffset;
 
 		readOffset:
-			if( inBufPos + 1 < inBufEnd )
+			if (inBufPos + 1 < inBufEnd)
 			{
 				matDst = (decBuf[inBufPos + 1] << 8) | decBuf[inBufPos];
 				inBufPos += 2;
@@ -281,7 +281,7 @@ namespace Lz4
 #endif
 			}
 
-			if( matLen == 15 + 4 )
+			if (matLen == 15 + 4)
 			{
 				phase = DecodePhase.ReadExMatchLength;
 				goto readExMatchLength;
@@ -294,7 +294,7 @@ namespace Lz4
 
 		readExMatchLength:
 			int exMatLen;
-			if( inBufPos < inBufEnd )
+			if (inBufPos < inBufEnd)
 			{
 				exMatLen = decBuf[inBufPos++];
 			}
@@ -315,7 +315,7 @@ namespace Lz4
 			}
 
 			matLen += exMatLen;
-			if( exMatLen == 255 )
+			if (exMatLen == 255)
 				goto readExMatchLength;
 
 			phase = DecodePhase.CopyMatch;
@@ -323,21 +323,21 @@ namespace Lz4
 
 		copyMatch:
 			int nCpyMat = matLen < nToRead ? matLen : nToRead;
-			if( nCpyMat != 0 )
+			if (nCpyMat != 0)
 			{
 				nRead = count - nToRead;
 
 				int bufDst = matDst - nRead;
-				if( bufDst > 0 )
+				if (bufDst > 0)
 				{
 					//offset is fairly far back, we need to pull from the buffer
 
 					int bufSrc = decodeBufferPos - bufDst;
-					if( bufSrc < 0 )
+					if (bufSrc < 0)
 						bufSrc += DecBufLen;
 					int bufCnt = bufDst < nCpyMat ? bufDst : nCpyMat;
 
-					for( int c = bufCnt; c-- != 0; )
+					for (int c = bufCnt; c-- != 0;)
 						buffer[offset++] = decBuf[bufSrc++ & DecBufMask];
 				}
 				else
@@ -346,14 +346,14 @@ namespace Lz4
 				}
 
 				int sOfs = offset - matDst;
-				for( int i = bufDst; i < nCpyMat; i++ )
+				for (int i = bufDst; i < nCpyMat; i++)
 					buffer[offset++] = buffer[sOfs++];
 
 				nToRead -= nCpyMat;
 				matLen -= nCpyMat;
 			}
 
-			if( nToRead == 0 )
+			if (nToRead == 0)
 				goto finish;
 
 			phase = DecodePhase.ReadToken;
@@ -365,16 +365,16 @@ namespace Lz4
 			int nToBuf = nRead < DecBufLen ? nRead : DecBufLen;
 			int repPos = offset - nToBuf;
 
-			if( nToBuf == DecBufLen )
+			if (nToBuf == DecBufLen)
 			{
-				Buffer.BlockCopy( buffer, repPos, decBuf, 0, DecBufLen );
+				Buffer.BlockCopy(buffer, repPos, decBuf, 0, DecBufLen);
 				decodeBufferPos = 0;
 			}
 			else
 			{
 				int decPos = decodeBufferPos;
 
-				while( nToBuf-- != 0 )
+				while (nToBuf-- != 0)
 					decBuf[decPos++ & DecBufMask] = buffer[repPos++];
 
 				decodeBufferPos = decPos & DecBufMask;
@@ -391,10 +391,10 @@ namespace Lz4
 		{
 			var buf = decodeBuffer;
 
-			if( inBufPos == inBufEnd )
+			if (inBufPos == inBufEnd)
 			{
-				int nRead = input.Read( buf, DecBufLen,
-					InBufLen < inputLength ? InBufLen : (int)inputLength );
+				int nRead = input.Read(buf, DecBufLen,
+					InBufLen < inputLength ? InBufLen : (int)inputLength);
 
 #if CHECK_EOF
 				if( nRead == 0 )
@@ -414,10 +414,10 @@ namespace Lz4
 		{
 			var buf = decodeBuffer;
 
-			if( inBufPos == inBufEnd )
+			if (inBufPos == inBufEnd)
 			{
-				int nRead = input.Read( buf, DecBufLen,
-					InBufLen < inputLength ? InBufLen : (int)inputLength );
+				int nRead = input.Read(buf, DecBufLen,
+					InBufLen < inputLength ? InBufLen : (int)inputLength);
 
 #if CHECK_EOF
 				if( nRead == 0 )
@@ -430,12 +430,12 @@ namespace Lz4
 				inBufEnd = DecBufLen + nRead;
 			}
 
-			if( inBufEnd - inBufPos == 1 )
+			if (inBufEnd - inBufPos == 1)
 			{
 				buf[DecBufLen] = buf[inBufPos];
 
-				int nRead = input.Read( buf, DecBufLen + 1,
-					InBufLen - 1 < inputLength ? InBufLen - 1 : (int)inputLength );
+				int nRead = input.Read(buf, DecBufLen + 1,
+					InBufLen - 1 < inputLength ? InBufLen - 1 : (int)inputLength);
 
 #if CHECK_EOF
 				if( nRead == 0 )
@@ -459,7 +459,7 @@ namespace Lz4
 			return ret;
 		}
 
-		private int ReadCore( byte[] buffer, int offset, int count )
+		private int ReadCore(byte[] buffer, int offset, int count)
 		{
 			int nToRead = count;
 
@@ -467,31 +467,31 @@ namespace Lz4
 			int inBufLen = inBufEnd - inBufPos;
 
 			int fromBuf = nToRead < inBufLen ? nToRead : inBufLen;
-			if( fromBuf != 0 )
+			if (fromBuf != 0)
 			{
 				var bufPos = inBufPos;
 
-				for( int c = fromBuf; c-- != 0; )
+				for (int c = fromBuf; c-- != 0;)
 					buffer[offset++] = buf[bufPos++];
 
 				inBufPos = bufPos;
 				nToRead -= fromBuf;
 			}
 
-			if( nToRead != 0 )
+			if (nToRead != 0)
 			{
 				int nRead;
 
-				if( nToRead >= InBufLen )
+				if (nToRead >= InBufLen)
 				{
-					nRead = input.Read( buffer, offset,
-						nToRead < inputLength ? nToRead : (int)inputLength );
+					nRead = input.Read(buffer, offset,
+						nToRead < inputLength ? nToRead : (int)inputLength);
 					nToRead -= nRead;
 				}
 				else
 				{
-					nRead = input.Read( buf, DecBufLen,
-						InBufLen < inputLength ? InBufLen : (int)inputLength );
+					nRead = input.Read(buf, DecBufLen,
+						InBufLen < inputLength ? InBufLen : (int)inputLength);
 
 					inBufPos = DecBufLen;
 					inBufEnd = DecBufLen + nRead;
@@ -500,7 +500,7 @@ namespace Lz4
 
 					var bufPos = inBufPos;
 
-					for( int c = fromBuf; c-- != 0; )
+					for (int c = fromBuf; c-- != 0;)
 						buffer[offset++] = buf[bufPos++];
 
 					inBufPos = bufPos;
@@ -545,17 +545,17 @@ namespace Lz4
 			set { throw new NotSupportedException(); }
 		}
 
-		public override long Seek( long offset, SeekOrigin origin )
+		public override long Seek(long offset, SeekOrigin origin)
 		{
 			throw new NotSupportedException();
 		}
 
-		public override void SetLength( long value )
+		public override void SetLength(long value)
 		{
 			throw new NotSupportedException();
 		}
 
-		public override void Write( byte[] buffer, int offset, int count )
+		public override void Write(byte[] buffer, int offset, int count)
 		{
 			throw new NotSupportedException();
 		}
