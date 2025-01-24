@@ -10,11 +10,7 @@ namespace BattleNetSharp.GOAP
 	public sealed class ColorConsoleLogger : ILogger
 	{
 		// Token: 0x0600BE37 RID: 48695 RVA: 0x00489372 File Offset: 0x00487572
-<<<<<<< HEAD
-		public IDisposable BeginScope<TState>(TState state)
-=======
 		public IDisposable BeginScope</*[Nullable(1)]*/ TState>(TState state)
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 		{
 			return null;
 		}

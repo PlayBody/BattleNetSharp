@@ -381,16 +381,6 @@ namespace Bgs.Protocol.Presence.V1
         // Token: 0x04004704 RID: 18180
         private bool healing_;
 
-<<<<<<< HEAD
-		// Token: 0x0200108F RID: 4239
-		[DebuggerNonUserCode]
-		public static class Extensions
-		{
-			// Token: 0x040097DD RID: 38877
-			public static readonly Extension<Bgs.Protocol.Channel.V1.ChannelState, ChannelState> Presence = new Extension<Bgs.Protocol.Channel.V1.ChannelState, ChannelState>(101, FieldCodec.ForMessage<ChannelState>(810U, ChannelState.Parser));
-		}
-	}
-=======
         // Token: 0x02000B83 RID: 2947
         [DebuggerNonUserCode]
         public static class Extensions
@@ -399,5 +389,4 @@ namespace Bgs.Protocol.Presence.V1
             public static readonly Extension<Bgs.Protocol.Channel.V1.ChannelState, Bgs.Protocol.Presence.V1.ChannelState> Presence = new Extension<Bgs.Protocol.Channel.V1.ChannelState, Bgs.Protocol.Presence.V1.ChannelState>(101, FieldCodec.ForMessage<Bgs.Protocol.Presence.V1.ChannelState>(810U, Bgs.Protocol.Presence.V1.ChannelState.Parser));
         }
     }
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 }

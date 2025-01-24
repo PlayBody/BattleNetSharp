@@ -6,11 +6,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
 using D2Data;
-<<<<<<< HEAD
-// using static Google.Protobuf.Collections.MapField<TKey, TValue>;
-=======
 using static D2Map.UnmanagedStructs;
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 
 namespace D2Map
 {
@@ -112,7 +108,6 @@ namespace D2Map
 								MapApi.AddRoomData(ptr, (uint)areaLevel, ptr2->dwPosX, ptr2->dwPosY, null);
 								flag4 = true;
 							}
-<<<<<<< HEAD
                             for (uint roomIndex = 0U; roomIndex < ptr2->dwRoomsNear; roomIndex++)
                             {
                                 // Calculate the pointer to the nearby room
@@ -131,21 +126,6 @@ namespace D2Map
                                 }
                             }
                             Room room = new Room(ptr2, excludeCollisionMask, excludeTileData);
-=======
-							for (uint num4 = 0U; num4 < ptr2->dwRoomsNear; num4 += 1U)
-							{
-								bool flag6 = level->dwLevelNo != ((RoomEx*)(ptr2->pRoom2Near + (ulong)num4 * (ulong)((long)sizeof(UnmanagedStructs.RoomEx*)) / (ulong)sizeof(UnmanagedStructs.RoomEx*)))->pLevel->dwLevelNo;
-								if (flag6)
-								{
-									bool flag7 = !level2.AdjacentLevels.Contains((AreaLevel)((RoomEx*)(ptr2->pRoom2Near + (ulong)num4 * (ulong)((long)sizeof(UnmanagedStructs.RoomEx*)) / (ulong)sizeof(UnmanagedStructs.RoomEx*)))->pLevel->dwLevelNo);
-									if (flag7)
-									{
-										level2.AdjacentLevels.Add((AreaLevel)((RoomEx*)(ptr2->pRoom2Near + (ulong)num4 * (ulong)((long)sizeof(UnmanagedStructs.RoomEx*)) / (ulong)sizeof(UnmanagedStructs.RoomEx*)))->pLevel->dwLevelNo);
-									}
-								}
-							}
-							Room room = new Room(ptr2, excludeCollisionMask, excludeTileData);
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 							level2.Rooms.Add(room);
 							bool flag8 = flag4;
 							if (flag8)

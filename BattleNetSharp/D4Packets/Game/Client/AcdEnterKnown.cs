@@ -7,11 +7,6 @@ using System.Runtime.CompilerServices;
 namespace D4Packets.Game.Client
 {
 	// Token: 0x02000882 RID: 2178
-<<<<<<< HEAD
-=======
-	//[NullableContext(2)]
-	//[Nullable(0)]
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 	[D4Packet.OpcodeAttribute(Opcodes.SMSG_ACD_ENTER_KNOWN)]
 	public class AcdEnterKnown : D4Packet
 	{
@@ -107,19 +102,9 @@ namespace D4Packets.Game.Client
 		public long? Field27;
 
 		// Token: 0x04006432 RID: 25650
-<<<<<<< HEAD
 		public TypeA9417475[] Field28;
 
 		// Token: 0x04006433 RID: 25651
-=======
-//		[Nullable(0)]
-		[FixedLen(4U)]
-		public TypeA9417475[] Field28;
-
-		// Token: 0x04006433 RID: 25651
-//		[Nullable(0)]
-		[FixedLen(4U)]
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 		public TypeA9417475[] Field29;
 	}
 }

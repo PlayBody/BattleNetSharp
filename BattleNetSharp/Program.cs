@@ -215,18 +215,6 @@ namespace BattleNetSharp
 			d2RBGS.RealmLoginLocked(true);
 		}
 
-<<<<<<< HEAD
-        // Token: 0x0600BC7F RID: 48255 RVA: 0x0047D0D8 File Offset: 0x0047B2D8
-        public static void DupetestTrade(string name, string region, string token, bool isPrimary, uint guid)
-        {
-            var d2RBGS = new D2RBGS();
-
-            d2RBGS.BGSLoginLocked(region, token, region, D2RBGS.App.D2R);
-            d2RBGS.RealmLoginLocked(true);
-
-            // Delete existing characters
-            foreach (var charData in d2RBGS.ReadCharacters())
-=======
 		// Token: 0x0600BC7F RID: 48255 RVA: 0x0047D0D8 File Offset: 0x0047B2D8
 		public static void dupetesttrade(string name, string region, string t, bool isPrimary, uint guid)
         {
@@ -239,20 +227,9 @@ namespace BattleNetSharp
             // Step 2: Cleanup old characters
             var characters = d2RBGS.ReadCharacters();
             foreach (var charData in characters)
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
             {
                 d2RBGS.DeleteCharacter(charData.Id);
             }
-
-<<<<<<< HEAD
-            // Create a new character
-            var characterResponse = d2RBGS.CreateCharacter($"testing{(isPrimary ? "a" : "b")}", CharacterClass.Sorceress);
-            string gameName = "testergo";
-
-            if (!d2RBGS.CreateGame(gameName, gameName, characterResponse.Id, 0U, 1U, true, region == "us" ? "USW1" : "ASZ1"))
-            {
-                Console.WriteLine("Game creation failed.");
-=======
             // Step 3: Create a new character
             var characterName = "testing" + (isPrimary ? "a" : "b");
             var characterResponse = d2RBGS.CreateCharacter(characterName, CharacterClass.Sorceress);
@@ -265,50 +242,12 @@ namespace BattleNetSharp
             if (!gameCreated)
             {
                 Console.WriteLine("Failed to create game.");
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
                 return;
             }
 
             var gameJoinResponse = d2RBGS.JoinGame(gameName, gameName, characterResponse.Id, 1U, "");
             if (string.IsNullOrEmpty(gameJoinResponse.IpAddress))
             {
-<<<<<<< HEAD
-                Console.WriteLine("Game join failed.");
-                return;
-            }
-
-            Console.WriteLine("Joining game at: " + gameJoinResponse.IpAddress);
-
-			var client = new BattleNetSharp.D2.Resurrected.Client();
-            client.Behavior = () =>
-            {
-                var playerKey = client.GameInstance.Players.First(p => p.Value.Name != $"testing{(isPrimary ? "a" : "b")}").Key;
-                var otherPlayers = client.GameInstance.Players.Where(p => p.Value.Name != $"testing{(isPrimary ? "a" : "b")}");
-
-                if (isPrimary)
-                {
-                    var item = client.GameInstance.Items.Values.First(i => i.baseItem.Type == ItemType.ShortStaff && i.OwnerId == client.me.Id);
-
-                    foreach (var player in otherPlayers)
-                    {
-                        Console.WriteLine("Initiating trade...");
-                        client.SendPacket(new Trade { Guid = guid, TargetId = playerKey });
-                        client.WaitForPacket(p => p is TradeRequest);
-
-                        Thread.Sleep(1000);
-
-                        Console.WriteLine("Adding item to trade...");
-                        client.SendPacket(new Trade { Guid = guid, TargetId = playerKey, ItemId = item.Id });
-
-                        Thread.Sleep(1000);
-
-                        Console.WriteLine("Confirming trade...");
-                        client.SendPacket(new TradeConfirm { Guid = guid, ActionCount = 3U, Action = 1, Lenth = 10 });
-
-                        Thread.Sleep(1000);
-                        Program.done++;
-                    }
-=======
                 Console.WriteLine("Failed to join game.");
                 return;
             }
@@ -378,37 +317,11 @@ namespace BattleNetSharp
                         Action = 1,
                         Lenth = 10
                     });
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
                 }
                 else
                 {
                     Console.WriteLine("Waiting for trade request...");
                     TradeRequest tradeRequest = null;
-<<<<<<< HEAD
-
-                    client.WaitForPacket(p =>
-                    {
-                        if (p is TradeRequest tr)
-                        {
-                            tradeRequest = tr;
-                            return true;
-                        }
-                        return false;
-                    });
-
-                    Console.WriteLine("Accepting trade...");
-                    client.SendPacket(new Trade { Guid = tradeRequest.Guid, TargetId = playerKey });
-
-                    Thread.Sleep(2000);
-
-                    Console.WriteLine("Confirming trade...");
-                    client.SendPacket(new TradeConfirm { Guid = tradeRequest.Guid, ActionCount = 2U, Action = 1, Lenth = 10 });
-                }
-            };
-
-            client.Init(gameJoinResponse.Hash.ToByteArray().ToList());
-            client.Connect(IPAddress.Parse(gameJoinResponse.IpAddress), 443);
-=======
                     client.WaitForPacket(p =>
                     {
                         tradeRequest = p as TradeRequest;
@@ -438,7 +351,6 @@ namespace BattleNetSharp
                     });
                 }
             };
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
         }
 
         // Token: 0x0600BC80 RID: 48256 RVA: 0x0047D280 File Offset: 0x0047B480
@@ -2120,13 +2032,9 @@ namespace BattleNetSharp
 												Guid = Guid.Parse("07f95510-0000-0000-0000-000000c01108"),
 												FarClip = 1806f
 											}.ToArray();
-<<<<<<< HEAD
-// [Ares] strange, should recover
-//											float num46 = BitConverter.ToSingle(new ReadOnlySpan<byte>((void*)(&<PrivateImplementationDetails>.BDE5E36B42FB3B788FAF44D3F692450F961FFF2D2A1A261C0DC02866EFFAFBFC), 4));
-=======
-
+											// @Review
                                             // float num46 = BitConverter.ToSingle(new ReadOnlySpan<byte>((void*)(&< PrivateImplementationDetails >.BDE5E36B42FB3B788FAF44D3F692450F961FFF2D2A1A261C0DC02866EFFAFBFC), 4));
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
+
 											string text12 = "US-9aa39c5d77f8b8321383eaf00050fd9a-363984617";
 											D2RBGS d2RBGS4 = new D2RBGS();
 											d2RBGS4.BGSLogin("us", text12, "us", D2RBGS.App.WoW);

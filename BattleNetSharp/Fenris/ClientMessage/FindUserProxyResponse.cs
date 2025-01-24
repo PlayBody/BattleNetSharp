@@ -195,11 +195,7 @@ namespace Fenris.ClientMessage
 		// (get) Token: 0x06003B50 RID: 15184 RVA: 0x000EBDBC File Offset: 0x000E9FBC
 		// (set) Token: 0x06003B51 RID: 15185 RVA: 0x000EBDD4 File Offset: 0x000E9FD4
 		[DebuggerNonUserCode]
-<<<<<<< HEAD
-		public Online.Trace Trace
-=======
 		public Fenris.Online.Trace Trace
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 		{
 			get
 			{
@@ -450,11 +446,7 @@ namespace Fenris.ClientMessage
 					bool flag7 = this.trace_ == null;
 					if (flag7)
 					{
-<<<<<<< HEAD
-						this.Trace = new Online.Trace();
-=======
 						this.Trace = new Fenris.Online.Trace();
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 					}
 					this.Trace.MergeFrom(other.Trace);
 				}
@@ -509,11 +501,7 @@ namespace Fenris.ClientMessage
 						bool flag2 = this.trace_ == null;
 						if (flag2)
 						{
-<<<<<<< HEAD
-							this.Trace = new Online.Trace();
-=======
 							this.Trace = new Fenris.Online.Trace();
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 						}
 						input.ReadMessage(this.Trace);
 					}
@@ -580,10 +568,6 @@ namespace Fenris.ClientMessage
 		public const int TraceFieldNumber = 5;
 
 		// Token: 0x04001B84 RID: 7044
-<<<<<<< HEAD
-		private Online.Trace trace_;
-=======
 		private Fenris.Online.Trace trace_;
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 	}
 }

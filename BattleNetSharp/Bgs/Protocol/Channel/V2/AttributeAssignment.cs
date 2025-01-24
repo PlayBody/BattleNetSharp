@@ -282,12 +282,8 @@ namespace Bgs.Protocol.Channel.V2
 		public const int AttributeFieldNumber = 2;
 
 		// Token: 0x040045F7 RID: 17911
-<<<<<<< HEAD
 		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec =
 			FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
-=======
-		private static readonly FieldCodec<Bgs.Protocol.V2.Attribute> _repeated_attribute_codec = FieldCodec.ForMessage<Bgs.Protocol.V2.Attribute>(18U, Bgs.Protocol.V2.Attribute.Parser);
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
 
 		// Token: 0x040045F8 RID: 17912
 		private readonly RepeatedField<Bgs.Protocol.V2.Attribute> attribute_ = new RepeatedField<Bgs.Protocol.V2.Attribute>();

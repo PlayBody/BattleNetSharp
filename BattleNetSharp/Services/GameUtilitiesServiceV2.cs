@@ -185,8 +185,4 @@ namespace BattleNetSharp.Services
         }
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> af1e099f8bc7c618aaccfe1feb2a846143c0312a
